@@ -1,0 +1,10 @@
+.crop {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+.center {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center
+}
