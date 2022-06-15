@@ -1,0 +1,62 @@
+
+.sudoku_board{
+    width: 360px;
+    border: 1px solid black;
+}
+.sudoku_board tr[id='row-2-n'], tr[id='row-5-n']{
+    border-bottom:2px solid black;
+}
+.sudoku_board td[id='cell-0-2'], 
+.sudoku_board td[id='cell-1-2'],
+.sudoku_board td[id='cell-2-2'],
+.sudoku_board td[id='cell-3-2'],
+.sudoku_board td[id='cell-4-2'],
+.sudoku_board td[id='cell-5-2'],
+.sudoku_board td[id='cell-6-2'],
+.sudoku_board td[id='cell-7-2'],
+.sudoku_board td[id='cell-8-2'],
+.sudoku_board td[id='cell-0-5'], 
+.sudoku_board td[id='cell-1-5'],
+.sudoku_board td[id='cell-2-5'],
+.sudoku_board td[id='cell-3-5'],
+.sudoku_board td[id='cell-4-5'],
+.sudoku_board td[id='cell-5-5'],
+.sudoku_board td[id='cell-6-5'],
+.sudoku_board td[id='cell-7-5'],
+.sudoku_board td[id='cell-8-5']{
+    border-right:2px solid black;
+}
+.sudoku_board td{
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border: 0.5px solid black;
+}
+.sudoku_board td input{
+    height: 40px;
+    width: 40px;
+    border: none;
+    text-align: center;
+}
+.sudoku_board td input:focus-visible{
+    outline: none;
+}
+.sudoku_board td:hover{
+    background-color: rgb(145, 145, 145);
+}
+#inpur_table{
+
+    border: 1px solid black;
+}
+#inpur_table td{
+    border: 1px solid black;
+    height: 40px;
+    width: 150px;
+    text-align: center;
+}
+#inpur_table td button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+}
