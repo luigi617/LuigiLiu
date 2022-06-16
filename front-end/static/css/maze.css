@@ -1,0 +1,30 @@
+.maze_row{
+    width: none!important;
+
+}
+#maze_table td{
+    text-align: center;
+    border: 1px solid black;
+    width: 15px;
+    height: 15px;
+}
+#maze_table td.to_be_operated:hover{
+    background-color: rgb(145, 145, 145);
+    cursor: pointer;
+}
+
+#maze_table td.starting_point{
+    background-color: green;
+}
+#maze_table td.ending_point{
+    background-color: red;
+}
+#maze_table td.obstacle_point{
+    background-color: black;
+}
+#maze_table td.visited_point{
+    background-color: lightgray;
+}
+#maze_table td.true_path{
+    background-color: deepskyblue;
+}

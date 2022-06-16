@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/maze.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="mt-5" id="maze_section">
+    <div class="row mx-5">
+        <div class="col">
+
+            Size: <input id="row_size" type="number" value="30"> X <input id="col_size" type="number" value="80">
+            <button id="select_size" type="button" class="btn btn-outline-dark">Reset</button>
+        </div>
+        <div class="col">
+            <button id="select_starting_point" type="button" class="btn btn-outline-dark">Select starting point</button>
+            <button id="select_obstacles" type="button" class="btn btn-outline-dark">Select obstacles</button>
+            <button id="select_ending_point" type="button" class="btn btn-outline-dark">Select ending point</button>
+            <button id="find_path" type="button" class="btn btn-outline-dark">Find Path</button>
+        </div>
+    </div>
+    <div class="row maze_row mt-5">
+        <div class="col justify-content-center d-flex">
+
+            <table id="maze_table">
+    
+            </table>
+        </div>
+    </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/maze.js' %}"></script>
+<script>
+    // 0 is empty cell
+    // 1 is starting cell
+    // 2 is ending cell
+    // 3 is obstacle
+    MAZE = []
+    START_MODE = false
+    END_MODE = false
+    OBSTACLES_MODE = false
+    $(document).ready(function(){
+        $("#select_size").click()
+    })
+</script>
+{% endblock js %}

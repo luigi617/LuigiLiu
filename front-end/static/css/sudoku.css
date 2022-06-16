@@ -38,16 +38,16 @@
     border: none;
     text-align: center;
 }
+.sudoku_board td input.restricted{
+    background-color: rgb(230, 230, 230);
+}
 .sudoku_board td input:focus-visible{
     outline: none;
 }
 .sudoku_board td:hover{
     background-color: rgb(145, 145, 145);
 }
-#inpur_table{
 
-    border: 1px solid black;
-}
 #inpur_table td{
     border: 1px solid black;
     height: 40px;
@@ -59,4 +59,8 @@
     height: 100%;
     border: none;
     background-color: transparent;
+}
+.spinner-border{
+    width: 20px!important;
+    height: 20px!important;
 }
