@@ -61,6 +61,16 @@ window.addEventListener('DOMContentLoaded', event => {
 Base = {
     "sleep": function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    },
+    "keyboard_disable": function disable(){
+        document.onkeydown = function (e){
+            return false;
+        }
+    },
+    "keyboard_enable": function enable(){
+        document.onkeydown = function (e) {
+            return true;
+        }
     }
 }
 
