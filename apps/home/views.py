@@ -5,4 +5,6 @@ def index(request):
     return render(request, "home/home.html")
 
 def sudoku(request):
-    return render(request, "game_solver/sudoku.html")
+    return render(request, "game/sudoku.html")
+def maze(request):
+    return render(request, "game/maze.html")

@@ -29,10 +29,11 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game Solver</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                               <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
+                              <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
+                              <li><a class="dropdown-item" href="{% url 'home:maze' %}">Typing</a></li>
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
