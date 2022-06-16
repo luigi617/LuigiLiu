@@ -8,3 +8,5 @@ def sudoku(request):
     return render(request, "game/sudoku.html")
 def maze(request):
     return render(request, "game/maze.html")
+def typing(request):
+    return render(request, "game/typing.html")

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/typing.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="mt-5" id="typing_section">
+    <div class="row mx-5 px-5">
+        <div class="col-3">
+        </div>
+        <div class="col-3">
+
+            <label for="words_num" class="form-label">Words: <span id="words_num_span">20</span></label>
+            <input type="range" class="form-range" min="1" max="50" step="1" id="words_num" value = "20">
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col">
+                    <div>Gross WPM: <span id="gross_speed">--</span></div>
+                </div>
+                <div class="col">
+                    <div>Net WPM: <span id="net_speed">--</span></div>
+                </div>
+            </div>
+            <div>Accuracy: <span id="accuracy">--</span></div>
+        </div>
+         <div class="col-2">
+        </div>
+    </div>
+   <div class="row">
+       <div class="col mt-5 d-flex justify-content-center">
+           <div id="typing_input" tabindex="-1">
+           </div>
+
+       </div>
+   </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/typing.js' %}"></script>
+<script>
+    var json_url = "{% static 'json/english_words.json' %}"
+    var blink_line = `<span class="blink"></span>`
+    var start = false
+    var start_time = performance.now()
+    var words_num = 20
+    var char_num = 0
+    var wrong_word = 0
+    $(document).ready(function(){
+        generate_words(words_num)
+    })
+</script>
+
+{% endblock js %}

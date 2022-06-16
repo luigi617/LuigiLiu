@@ -58,6 +58,30 @@ $("#select_size").click(function(){
                     }
                 }
             })
+
+            $(`#maze_table td#cell-${i}-${j}`).mousedown(function(){
+                OBSTACLES_CLICK_MODE = true
+            })
+            $(`#maze_table td#cell-${i}-${j}`).mouseup(function(){
+                OBSTACLES_CLICK_MODE = false
+            })
+            $(`#maze_table td#cell-${i}-${j}`).mousemove(function(){
+                if (OBSTACLES_CLICK_MODE & OBSTACLES_MODE){
+                    var row = parseInt(this.id.split("-")[1])
+                    var col = parseInt(this.id.split("-")[2])
+                    if (OBSTACLES_AVOID_DUPLICATE == `${row}-${col}`){
+                        return
+                    }
+                    if (MAZE[row][col] == 3){
+                        MAZE[row][col] = 0
+                        update_cell_classes([row, col])
+                    } else if (MAZE[row][col] == 0) {
+                        MAZE[row][col] = 3
+                        update_cell_classes([row, col])
+                    }
+                    OBSTACLES_AVOID_DUPLICATE = `${row}-${col}`
+                }
+            })
         }
     }
 })
@@ -76,6 +100,7 @@ $("#select_obstacles").click(function(){
     OBSTACLES_MODE = true
     cell_to_be_operated(true)
 })
+
 function cell_to_be_operated(status){
     if (status){
         $("#maze_table td").addClass("to_be_operated")
