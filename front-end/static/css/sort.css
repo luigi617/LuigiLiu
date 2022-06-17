@@ -1,0 +1,13 @@
+#row_display{
+    width: 80%;
+    height: 500px;
+    border-bottom: 0.5px solid black;
+    padding: 0px 20px 0px 20px;
+    display: inline-flex;
+}
+#row_display .column{
+    background-color: black;
+}
+#row_display .column_space{
+    background-color: transparent;
+}

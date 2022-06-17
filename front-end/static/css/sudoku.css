@@ -1,4 +1,7 @@
 
+.sudoku_row{
+    width: 100%;
+}
 .sudoku_board{
     width: 360px;
     border: 1px solid black;

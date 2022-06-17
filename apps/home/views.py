@@ -10,3 +10,5 @@ def maze(request):
     return render(request, "game/maze.html")
 def typing(request):
     return render(request, "game/typing.html")
+def sort(request):
+    return render(request, "game/sort.html")
