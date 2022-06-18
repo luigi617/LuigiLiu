@@ -12,3 +12,5 @@ def typing(request):
     return render(request, "game/typing.html")
 def sort(request):
     return render(request, "game/sort.html")
+def minesweeper(request):
+    return render(request, "game/minesweeper.html")

@@ -1,0 +1,19 @@
+
+#minesweeper_table td{
+    text-align: center;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+    padding: 0px;
+    font-weight: 800;
+    cursor: pointer;
+}
+#minesweeper_table td.visited{
+    background: rgba(200, 200, 200, 0.8);
+
+    cursor: default;
+}
+#minesweeper_table td:not(.visited):hover{
+    background-color: rgb(145, 145, 145);
+}
