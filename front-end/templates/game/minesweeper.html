@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/minesweeper.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="mt-5" id="minesweeper_section">
+    <div class="row mx-5">
+        <div class="col">
+
+            Size: <input id="row_size" type="number" value="20"> X <input id="col_size" type="number" value="20">
+            <button id="select_size" type="button" class="btn btn-outline-dark">Start game</button>
+        </div>
+        <div class="col">
+            <button id="minesweeper_hint" type="button" class="btn btn-outline-dark">Hint</button>
+            <span class="mx-2" id="message"></span>
+        </div>
+    </div>
+    <div class="row py-5 w-100">
+        <div class="col justify-content-center d-flex">
+
+            <table id="minesweeper_table">
+    
+            </table>
+        </div>
+    </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/minesweeper.js' %}"></script>
+<script>
+    // 0 is empty cell
+    // -1 is mine
+    // >0 is hint
+    minesweeper = []
+    bomb = "{% static 'assets/svg/bomb-solid.svg' %}"
+    flag = "{% static 'assets/svg/flag-solid.svg' %}"
+    $(document).ready(function(){
+        $("#select_size").click()
+    })
+</script>
+{% endblock js %}

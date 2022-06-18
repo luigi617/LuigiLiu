@@ -13,7 +13,6 @@ $("#typing_input").keydown(function(e){
         start_time = performance.now()
     }
     var char_code = e.which
-    console.log(char_code)
     if (!lettersOnly(char_code)){
         return
     }
