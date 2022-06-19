@@ -136,3 +136,16 @@ DEFAULT_DECIMAL_PLACES = 2
 AUTH_USER_MODEL = "user.User"
 
 SITE_ID=1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+LOGIN_REDIRECT_URL = '/'
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "limsevy@gmail.com"
+EMAIL_HOST_PASSWORD = "lgbqqrdinzvvvujn"
+# 

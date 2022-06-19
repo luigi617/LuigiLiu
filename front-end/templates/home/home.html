@@ -7,13 +7,71 @@
 {% block content %}
         
 
-<section class="mt-5">
-    
-    <h1 class="text-center">Home</h1>
+<section id="home_section" class="">
+    <div class="row align-items-center">
+        <div class="col d-flex justify-content-center">
+            
+            <!-- <img src="{% static 'assets/img/astronaut2.jpg' %}" alt=""> -->
+            <h1 >
+                Have fun.
+            </h1> 
+        </div>
+        <div class="col">
+            <img src="{% static 'assets/img/astronaut.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+
+        <div id="masonry_grid" class="row text-center " >
+            
+                <div class="card masonry_div" data-url="{% url 'home:sudoku' %}">
+                    <div class="card-body">
+                      <h5 class="card-title">Sudoku</h5>
+                    </div>
+                    <img src="{% static 'assets/img/sudoku.png' %}" class="card-img-bottom" alt="...">
+                  </div>
+                <div class="card masonry_div" data-url="{% url 'home:maze' %}">
+                    <div class="card-body">
+                      <h5 class="card-title">Maze</h5>
+                    </div>
+                    <img src="{% static 'assets/img/maze.png' %}" class="card-img-bottom" alt="...">
+                  </div>
+                <div class="card masonry_div" data-url="{% url 'home:minesweeper' %}">
+                    <div class="card-body">
+                      <h5 class="card-title">Minesweeper</h5>
+                    </div>
+                    <img src="{% static 'assets/img/minesweeper.png' %}" class="card-img-bottom" alt="...">
+                  </div>
+                <div class="card masonry_div" data-url="{% url 'home:sort' %}">
+                    <div class="card-body">
+                      <h5 class="card-title">Sort</h5>
+                    </div>
+                    <img src="{% static 'assets/img/sort.png' %}" class="card-img-bottom" alt="...">
+                  </div>
+                <div class="card masonry_div" data-url="{% url 'home:typing' %}">
+                    <div class="card-body">
+                      <h5 class="card-title">Typing</h5>
+                    </div>
+                    <img src="{% static 'assets/img/typing.png' %}" class="card-img-bottom" alt="...">
+                  </div>
+        </div>
+            
+    </div>
    
 </section>
 {% endblock content %}
        
 {% block js %}
 <script src="{% static 'javascript/home.js' %}"></script>
+<script src="{% static 'javascript/masonry.min.js' %}"></script>
+<script>
+    $('#masonry_grid').masonry({
+
+    itemSelector: '.masonry_div',
+    isFitWidth: true,
+    gutter: 10,
+    columnWidth: 200
+    
+    });
+</script>
 {% endblock js %}

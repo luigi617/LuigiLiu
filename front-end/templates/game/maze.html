@@ -7,13 +7,14 @@
 {% block content %}
         
 
-<section class="mt-5" id="maze_section">
+<section class="h-100" id="maze_section">
     <div class="row mx-5">
-        <div class="col">
+        <div class="col-4">
 
             Size: <input id="row_size" type="number" value="30"> X <input id="col_size" type="number" value="80">
             <button id="select_size" type="button" class="btn btn-outline-dark">Reset</button>
         </div>
+        <div class="col-2"><span id="message"></span></div>
         <div class="col">
             <button id="select_starting_point" type="button" class="btn btn-outline-dark">Select starting point</button>
             <button id="select_obstacles" type="button" class="btn btn-outline-dark">Select obstacles</button>

@@ -7,13 +7,13 @@
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
 
 {% get_providers as socialaccount_providers %}
 
-<section class=" mt-5 pt-5" style="height: 100%;">
-
-  <div class="d-flex justify-content-center">
+<section class="align-items-center d-flex justify-content-center pb-5" style="height: 100%;">
+  
+  <div>
+    <h1 class="text-center">{% trans "Sign In" %}</h1>
     <form class="login" method="POST" action="{% url 'account_login' %}">
       <p >{% blocktrans %}If you have not created an account yet, then please
         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>

@@ -1,6 +1,12 @@
 $("#select_size").click(function(){
     if ($("#row_size")[0].value.length == 0 | $("#col_size")[0].value.length == 0){
-        console.log("nope")
+        $("#message").text("Select size")
+        return
+    }
+    if ($("#row_size")[0].value < 0 || $("#row_size")[0].value > 70  ||
+        $("#col_size")[0].value < 0 || $("#col_size")[0].value > 70){
+        $("#message").text("Size must be between 0 and 70")
+        return
     }
     var row_size = parseInt($("#row_size")[0].value)
     var col_size = parseInt($("#col_size")[0].value)
@@ -104,7 +110,7 @@ $("#select_size").click(function(){
                 }
                 var win = check_win()
                 if (win){
-                    console.log("you win")
+                    $("#message").text("You win!!!")
                 }
             })
             $(`#minesweeper_table td#cell-${i}-${j}`).contextmenu(function(e){
@@ -121,61 +127,61 @@ $("#select_size").click(function(){
     }
 })
 
-$("#minesweeper_hint").click(function(){
-    var percentage_mine_board = []
-    var available_adjecencies = {}
-    for (let i = 0; i < minesweeper.length; i++){
-        percentage_mine_board.push([])
-        for (let j = 0; j < minesweeper[i].length; j++){
-            percentage_mine_board[i].push(0)
-            if ($(`#minesweeper_table td#cell-${i}-${j}`).hasClass("visited") &&
-            $(`#minesweeper_table td#cell-${i}-${j}`).hasClass("number")){
-                percentage_mine_board[i][j] = parseInt($(`#minesweeper_table td#cell-${i}-${j}`).text())
-                var adjecencies = [
-                    [i+1, j],
-                    [i-1, j],
-                    [i, j+1],
-                    [i, j-1],
-                    [i+1, j+1],
-                    [i+1, j-1],
-                    [i-1, j+1],
-                    [i-1, j-1],
-                ]
-                for (let k = 0; k < adjecencies.length; k++){
-                    if (adjecencies[k][0] < 0 || adjecencies[k][0] >= row_size || 
-                        adjecencies[k][1] < 0 || adjecencies[k][1] >= col_size ||
-                        $(`#minesweeper_table td#cell-${adjecencies[k][0]}-${adjecencies[k][1]}`).hasClass("visited")
-                        ){
-                            continue
-                        }
-                    if (!(`${i}-${j}` in available_adjecencies)){
-                        available_adjecencies[`${i}-${j}`] = []
-                    }
-                    available_adjecencies[`${i}-${j}`].push(adjecencies[k])
-                }
+// $("#minesweeper_hint").click(function(){
+//     var percentage_mine_board = []
+//     var available_adjecencies = {}
+//     for (let i = 0; i < minesweeper.length; i++){
+//         percentage_mine_board.push([])
+//         for (let j = 0; j < minesweeper[i].length; j++){
+//             percentage_mine_board[i].push(0)
+//             if ($(`#minesweeper_table td#cell-${i}-${j}`).hasClass("visited") &&
+//             $(`#minesweeper_table td#cell-${i}-${j}`).hasClass("number")){
+//                 percentage_mine_board[i][j] = parseInt($(`#minesweeper_table td#cell-${i}-${j}`).text())
+//                 var adjecencies = [
+//                     [i+1, j],
+//                     [i-1, j],
+//                     [i, j+1],
+//                     [i, j-1],
+//                     [i+1, j+1],
+//                     [i+1, j-1],
+//                     [i-1, j+1],
+//                     [i-1, j-1],
+//                 ]
+//                 for (let k = 0; k < adjecencies.length; k++){
+//                     if (adjecencies[k][0] < 0 || adjecencies[k][0] >= row_size || 
+//                         adjecencies[k][1] < 0 || adjecencies[k][1] >= col_size ||
+//                         $(`#minesweeper_table td#cell-${adjecencies[k][0]}-${adjecencies[k][1]}`).hasClass("visited")
+//                         ){
+//                             continue
+//                         }
+//                     if (!(`${i}-${j}` in available_adjecencies)){
+//                         available_adjecencies[`${i}-${j}`] = []
+//                     }
+//                     available_adjecencies[`${i}-${j}`].push(adjecencies[k])
+//                 }
 
-            }
-        }
-    }
-    console.log(available_adjecencies)
-    for (let el in available_adjecencies){
-        for (let i = 0; i < available_adjecencies[el].length; i++){
-            var origin_row = el.split("-")[0]
-            var origin_col = el.split("-")[1]
-            var row = available_adjecencies[el][i][0]
-            var col = available_adjecencies[el][i][1]
-            console.log(percentage_mine_board[row][col])
-            var numerator = parseInt($(`#minesweeper_table td#cell-${origin_row}-${origin_col}`).text())
-            percentage_mine_board[row][col] = Math.max(
-                numerator/available_adjecencies[el].length,
-                percentage_mine_board[row][col]
-            ).toFixed(2)
+//             }
+//         }
+//     }
+//     console.log(available_adjecencies)
+//     for (let el in available_adjecencies){
+//         for (let i = 0; i < available_adjecencies[el].length; i++){
+//             var origin_row = el.split("-")[0]
+//             var origin_col = el.split("-")[1]
+//             var row = available_adjecencies[el][i][0]
+//             var col = available_adjecencies[el][i][1]
+//             console.log(percentage_mine_board[row][col])
+//             var numerator = parseInt($(`#minesweeper_table td#cell-${origin_row}-${origin_col}`).text())
+//             percentage_mine_board[row][col] = Math.max(
+//                 numerator/available_adjecencies[el].length,
+//                 percentage_mine_board[row][col]
+//             ).toFixed(2)
 
-        }
-    }
-    console.log(percentage_mine_board)
+//         }
+//     }
+//     console.log(percentage_mine_board)
 
-})
+// })
 
 function lose(row_size, col_size){
     $("#minesweeper_table").empty()
@@ -203,6 +209,5 @@ function check_win(){
             return false
         }
     }
-    $("#message").text("You win!!!")
     return true
 }
