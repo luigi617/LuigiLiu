@@ -28,3 +28,9 @@
 #maze_table td.true_path{
     background-color: deepskyblue;
 }
+#row_size{
+    max-width: 130px;
+}
+#col_size{
+    max-width: 130px;
+}

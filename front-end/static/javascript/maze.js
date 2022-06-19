@@ -1,10 +1,17 @@
 $("#select_size").click(function(){
     if ($("#row_size")[0].value.length == 0 | $("#col_size")[0].value.length == 0){
-        console.log("nope")
+        $("#message").text("Select size")
+        return
+    }
+    if ($("#row_size")[0].value < 0 || $("#row_size")[0].value > 80  ||
+        $("#col_size")[0].value < 0 || $("#col_size")[0].value > 80){
+        $("#message").text("Size must be between 0 and 80")
+        return
     }
     var row_size = parseInt($("#row_size")[0].value)
     var col_size = parseInt($("#col_size")[0].value)
     $("#maze_table").empty()
+    MAZE = []
     for (let i = 0; i < row_size; i++){
         MAZE.push([])
         $("#maze_table").append("<tbody></tbody>")
@@ -161,6 +168,8 @@ $("#find_path").click(async function(){
             last = id
         }
         
+    } else {
+        $("#message").text("No path")
     }
 
 })

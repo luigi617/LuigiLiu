@@ -5,6 +5,9 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+<section class="align-items-center d-flex justify-content-center pb-5" style="height: 100%;">
+  
+  <div>
 <h1>{% trans "Sign Out" %}</h1>
 
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
@@ -16,6 +19,11 @@
   {% endif %}
   <button type="submit">{% trans 'Sign Out' %}</button>
 </form>
+</div>
+
+  
+
+</section>
 
 
 {% endblock %}
