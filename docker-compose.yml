@@ -23,4 +23,5 @@ services:
     env_file:
       - ./.envs/.local/.postgres
 
-  
+volumes: 
+  db_data:
