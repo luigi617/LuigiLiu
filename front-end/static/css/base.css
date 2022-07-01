@@ -7,6 +7,7 @@ html {
 body {
   width: 100%;
   height: 100%;
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .page-section {
@@ -61,7 +62,35 @@ hr.divider-light {
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #f4623a !important;
 }
-@media (min-width: 992px) {
+
+
+#offcanvasRight, #offcanvasRightGame{
+  width: 60%;
+}
+.nav-phone-item{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 7px 0px!important;
+}
+.nav-phone-item:hover{
+  color: lightgray;
+}
+.nav-phone-li{
+  margin: 15px 0px;
+}
+.nav-phone-arrow {
+  width: 30px;
+  margin-right: 15px;
+}
+.nav-phone-backarrow {
+  width: 30px;
+}
+.nav-phone-backbutton{
+  border: none;
+}
+
+@media (min-width: 768px) {
   #mainNav {
     box-shadow: none;
     background-color: transparent;

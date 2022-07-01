@@ -1,7 +1,4 @@
 
-.sudoku_row{
-    width: 100%;
-}
 .sudoku_board{
     width: 360px;
     border: 1px solid black;
@@ -66,4 +63,16 @@
 .spinner-border{
     width: 20px!important;
     height: 20px!important;
+}
+
+@media (max-width: 768px) {
+    .sudoku_board td{
+        height: 35px;
+        width: 35px;
+    }
+    .sudoku_board td input{
+        height: 35px;
+        width: 35px;
+    }
+  
 }

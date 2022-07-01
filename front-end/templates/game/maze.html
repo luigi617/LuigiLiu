@@ -7,19 +7,21 @@
 {% block content %}
         
 
-<section class="h-100" id="maze_section">
-    <div class="row mx-5">
-        <div class="col-4">
-
+<section class="container pb-3" id="maze_section">
+    <div class="row mx-0 mx-md-5 mb-3">
+        <div class="col-12 col-md-8">
             Size: <input id="row_size" type="number" value="30"> X <input id="col_size" type="number" value="80">
-            <button id="select_size" type="button" class="btn btn-outline-dark">Reset</button>
+            <button id="select_size" type="button" class="btn btn-outline-dark mx-3">Reset</button>
         </div>
-        <div class="col-2"><span id="message"></span></div>
+        <div class="col-10 col-md-4 mt-2 mt-md-0"><div id="message"></div></div>
+    </div>
+    <div class="row mx-0 mx-md-5">
+        
         <div class="col">
-            <button id="select_starting_point" type="button" class="btn btn-outline-dark">Select starting point</button>
-            <button id="select_obstacles" type="button" class="btn btn-outline-dark">Select obstacles</button>
-            <button id="select_ending_point" type="button" class="btn btn-outline-dark">Select ending point</button>
-            <button id="find_path" type="button" class="btn btn-outline-dark">Find Path</button>
+            <button id="select_starting_point" type="button" class="btn btn-outline-dark mx-1 my-1">Select starting point</button>
+            <button id="select_obstacles" type="button" class="btn btn-outline-dark mx-1 my-1">Select obstacles</button>
+            <button id="select_ending_point" type="button" class="btn btn-outline-dark mx-1 my-1">Select ending point</button>
+            <button id="find_path" type="button" class="btn btn-outline-dark mx-1 my-1">Find Path</button>
         </div>
     </div>
     <div class="row maze_row mt-5">
@@ -48,6 +50,11 @@
     OBSTACLES_CLICK_MODE = false
     OBSTACLES_AVOID_DUPLICATE = null
     $(document).ready(function(){
+        if ($(window).width() < 768) {
+            $("#row_size").val("30")
+            $("#col_size").val("30")
+        }
+
         $("#select_size").click()
     })
 </script>

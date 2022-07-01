@@ -8,16 +8,16 @@
 {% block content %}
         
 
-<section class="h-100 pb-3" id="minesweeper_section">
-    <div class="row mx-5">
-        <div class="col">
+<section class="container pb-3" id="minesweeper_section">
+    <div class="row mx-md-3">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
 
             Size: <input id="row_size" type="number" value="20" max="70"> X <input id="col_size" type="number" value="20" max="70">
             <button id="select_size" type="button" class="btn btn-outline-dark">Start game</button>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
             <!-- <button id="minesweeper_hint" type="button" class="btn btn-outline-dark">Hint</button> -->
-            <span class="mx-2" id="message"></span>
+            <div class="mx-2" id="message"></div>
         </div>
     </div>
     <div class="row py-5">
