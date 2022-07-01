@@ -223,5 +223,8 @@
 <script src="{% static 'javascript/sudoku.js' %}"></script>
 <script>
     var restrictions = []
+    $(document).ready(function(){
+        APP.sudoku.init()
+    })
 </script>
 {% endblock js %}

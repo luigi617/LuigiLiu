@@ -1,3 +1,10 @@
+if (typeof(APP) == "undefined"){
+    APP = {}
+}
+APP['maze'] = {
+    "init": function(){
+
+    
 $("#select_size").click(function(){
     if ($("#row_size")[0].value.length == 0 | $("#col_size")[0].value.length == 0){
         $("#message").text("Select size")
@@ -230,4 +237,6 @@ function get_unvisited_adjacencies(points, visited_point, path){
         }
     }
     return [adjacencies, path]
+}
+},
 }

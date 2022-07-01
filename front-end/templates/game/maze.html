@@ -50,6 +50,7 @@
     OBSTACLES_CLICK_MODE = false
     OBSTACLES_AVOID_DUPLICATE = null
     $(document).ready(function(){
+        APP.maze.init()
         if ($(window).width() < 768) {
             $("#row_size").val("30")
             $("#col_size").val("30")
