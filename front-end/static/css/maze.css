@@ -1,7 +1,4 @@
-.maze_row{
-    width: 100%;
 
-}
 #maze_table td{
     text-align: center;
     border: 1px solid black;
@@ -29,8 +26,14 @@
     background-color: deepskyblue;
 }
 #row_size{
-    max-width: 130px;
+    max-width: 80px;
 }
 #col_size{
-    max-width: 130px;
+    max-width: 80px;
+}
+#message{
+    border: 1px solid black;
+    min-width: 100px;
+    height: 35px;
+    padding: 5px;
 }

@@ -56,7 +56,7 @@ async function change_display(pos1, pos2){
     col2.removeClass(`col-index-${pos2}`).addClass(`col-index-${pos1}`)
     col1.replaceWith(col2.clone())
     col2.replaceWith(col1.clone())
-    await Base.sleep(1)
+    await APP.base.sleep(1)
 }
 
 

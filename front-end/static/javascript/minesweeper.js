@@ -8,6 +8,7 @@ $("#select_size").click(function(){
         $("#message").text("Size must be between 0 and 70")
         return
     }
+    $("#message").text("")
     var row_size = parseInt($("#row_size")[0].value)
     var col_size = parseInt($("#col_size")[0].value)
     minesweeper = []
@@ -201,7 +202,6 @@ function lose(row_size, col_size){
 }
 function check_win(){
     var unvisited = $(`#minesweeper_table td:not(.visited)`)
-    console.log(unvisited)
     for (let i = 0; i < unvisited.length; i++){
         var row = unvisited[i].id.split("-")[1]
         var col = unvisited[i].id.split("-")[2]

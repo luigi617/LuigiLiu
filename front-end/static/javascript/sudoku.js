@@ -1,13 +1,16 @@
 
 for (let i = 0; i <= 8; i++){
     for (let j = 0; j <= 8; j++){
+        if ($(window).width() < 768) {
+            $("td#cell-" + i.toString() + "-" + j.toString() + " input").prop('readonly', true);
+         }
         $("td#cell-" + i.toString() + "-" + j.toString()).click(function(){
             $(".sudoku_board td").removeClass("selected")
             $(this).addClass("selected")
         })
         $("td#cell-" + i.toString() + "-" + j.toString() + " input").keypress(function(e){
             var charCode = e.which;
-            if (String.fromCharCode(charCode).match(/[^0-9]/g)){
+            if (String.fromCharCode(charCode).match(/[^1-9]/g)){
                 return false;
             }
         })
@@ -22,16 +25,16 @@ $("#inpur_table td button").click(function(){
     }
 })
 
-$("#reset_sudoku").click(function(){
+$(".reset_sudoku").click(function(){
     for (let i = 0; i <= 8; i++){
         for (let j = 0; j <= 8; j++){
             $("td#cell-" + i.toString() + "-" + j.toString() + " input")[0].value = ""
         }
     }
 })
-$("#solve_sudoku").click(async function(){
+$(".solve_sudoku").click(async function(){
     $(".spinner-border").removeClass("d-none")
-    await Base.sleep(50)
+    await APP.base.sleep(50)
     var sudoku = []
     for (let i = 0; i <= 8; i++){
         sudoku.push([])
@@ -40,7 +43,7 @@ $("#solve_sudoku").click(async function(){
         }
     }
     if (!check_validity(sudoku)) return false
-    if ($("#animation")[0].checked){
+    if ($(".animation_checkbox")[0].checked || $(".animation_checkbox")[1].checked){
         var solved_sudoku = await solve_sudoku_async(sudoku)
     } else {
         var solved_sudoku = solve_sudoku(sudoku)
@@ -101,7 +104,7 @@ async function solve_sudoku_async(sudoku){
         let trial = candidates[i]
         sudoku[next[1][0]][next[1][1]] = trial
         $("td#cell-" + next[1][0].toString() + "-" + next[1][1].toString() + " input")[0].value = trial.toString()
-        await Base.sleep(100)
+        await APP.base.sleep(100)
         if (check_validity(sudoku)){
             res = await solve_sudoku_async(sudoku)
         }
@@ -267,8 +270,9 @@ function check_array_validity(array){
 
 
 
-$("#generate_sudoku").click(function(){
-    while (true){
+$(".generate_sudoku").click(function(){
+    count = 20
+    while (count){
         var new_sudoku = empty_sudoku()
     
         for (let i = 0; i < Math.floor(Math.random() * 11) + 15; i++){
@@ -284,6 +288,7 @@ $("#generate_sudoku").click(function(){
         if (solve_sudoku(new_sudoku)){
             break
         }
+        count--
     }
     for (let i = 0; i <= 8; i++){
         for (let j = 0; j <= 8; j++){
@@ -304,7 +309,7 @@ $("#generate_sudoku").click(function(){
     return sudoku
  }
 
-$("#hyper_sudoku").change(function(){
+$(".hyper_sudoku_checkbox").change(function(){
     if (this.checked){
         restrictions = []
         restrictions.push([], [], [], [])

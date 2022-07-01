@@ -37,4 +37,6 @@ class AbstractImage(models.Model):
         settings.AUTH_USER_MODEL, verbose_name=_('uploaded by user'),
         null=True, blank=True, editable=False, on_delete=models.SET_NULL
     )
+    class Meta:
+        abstract = True
     

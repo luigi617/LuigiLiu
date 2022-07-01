@@ -38,3 +38,11 @@
       opacity: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    #typing_input .char{
+        font-size: 25px;
+        font-family: monospace;
+    }
+  
+}

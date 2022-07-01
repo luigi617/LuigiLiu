@@ -5,6 +5,8 @@ $("#words_num").change(function(){
 })
 $("#typing_input").click(function(){
     $("#typing_input").removeClass("selected")
+    $("#typing_input").focus()
+    console.log(123)
 })
 
 

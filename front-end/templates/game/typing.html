@@ -7,27 +7,17 @@
 {% block content %}
         
 
-<section class="h-100" id="typing_section">
-    <div class="row mx-5 px-5">
-        <div class="col-3">
-        </div>
-        <div class="col-3">
+<section class="container pb-3" id="typing_section">
+    <div class="row mx-md-5 px-5">
+        <div class="col-12 col-md-6">
 
             <label for="words_num" class="form-label">Words: <span id="words_num_span">20</span></label>
             <input type="range" class="form-range" min="1" max="50" step="1" id="words_num" value = "20">
         </div>
-        <div class="col-4">
-            <div class="row">
-                <div class="col">
-                    <div>Gross WPM: <span id="gross_speed">--</span></div>
-                </div>
-                <div class="col">
-                    <div>Net WPM: <span id="net_speed">--</span></div>
-                </div>
-            </div>
-            <div>Accuracy: <span id="accuracy">--</span></div>
-        </div>
-         <div class="col-2">
+        <div class="col-12 col-md-6 d-flex">
+            <div class="mx-3">WPM: <span id="gross_speed">--</span></div>
+            <div class="mx-3">Net WPM: <span id="net_speed">--</span></div>
+            <div class="mx-3">Accuracy: <span id="accuracy">--</span></div>
         </div>
     </div>
    <div class="row w-100">

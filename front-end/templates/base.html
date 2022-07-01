@@ -3,7 +3,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{% block head_title %}Bocconi KnowledgExchange{% endblock head_title %}</title>
@@ -22,14 +23,17 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top {#  #} py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
+        <nav class="navbar  navbar-expand-md navbar-dark bg-dark fixed-top py-3" id="mainNav">
+            <div class="container px-4">
                 <a class="navbar-brand" href="/">KnowledgExchange</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <button id="toggle_side_navbar" class="btn btn-dark d-md-none d-block">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <ul class="navbar-nav ms-auto my-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'products:exchange' %}">Exchange</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                               <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
                               <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
@@ -49,18 +53,76 @@
                 </div>
             </div>
         </nav>
+
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header d-flex justify-content-end">
+              <button type="button" class="btn-close btn-close-white text-reset m-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="ms-auto my-0">
+                    <li class="nav-phone-li" data-href="{% url 'products:exchange' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Exchange</a>
+                        
+                    </li>
+                    <li class="nav-phone-li" data-href="game"><a class="nav-phone-item" href="javascript:void(0)" >Game</a>
+                        <img src="{% static 'assets/svg/arrow-right-bold.svg' %}" class="nav-phone-arrow float-end" ></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-phone-li" data-href="{% url 'account_logout' %}"><a class="nav-phone-item" href="javascript:void(0)">Hi {{user}}</a>
+                        <img src="{% static 'assets/svg/arrow-right-bold.svg' %}" class="nav-phone-arrow float-end" ></li>
+                    {% else %}
+                    <li class="nav-phone-li" data-href="{% url 'account_login' %}"><a class="nav-phone-item" href="javascript:void(0)">Log In</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+          </div>
+
+        <div class="offcanvas offcanvas-end bg-dark" tabindex="0" id="offcanvasRightGame" aria-labelledby="offcanvasRightGameLabel">
+            <div class="offcanvas-header d-flex justify-content-start">
+              <button type="button" class="nav-phone-backbutton bg-dark m-3" >
+                <img src="{% static 'assets/svg/arrow-left-bold.svg' %}" class="nav-phone-backarrow" >
+              </button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="ms-auto my-0">
+                    <li class="nav-phone-li" data-href="{% url 'home:sudoku' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Sudoku</a>
+                    </li>
+                    <li class="nav-phone-li" data-href="{% url 'home:maze' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Maze</a>
+                    </li>
+                    <li class="nav-phone-li" data-href="{% url 'home:typing' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Typing</a>
+                    </li>
+                    <li class="nav-phone-li" data-href="{% url 'home:sort' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Sort</a>
+                    </li>
+                    <li class="nav-phone-li" data-href="{% url 'home:minesweeper' %}">
+                        <a class="nav-phone-item" href="javascript:void(0)">Minesweeper</a>
+                    </li>
+                </ul>
+            </div>
+          </div>
         
        
        {% block content %}
        {% endblock content %}
        
        <!-- Footer-->
-       <!-- <footer class="bg-light py-5">
+       <!-- <footer class="bg-light py-5 mt-5">
            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer> -->
         <script src="{% static 'bootstrap-5.1.3/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
+        <script>
+            $(document).ready(function(){
+                var nav_first_layer;
+                var nav_second_layer;
+                APP.base.init()
+            })
+        </script>
+
         {% block js %}
        {% endblock js %}
     </body>

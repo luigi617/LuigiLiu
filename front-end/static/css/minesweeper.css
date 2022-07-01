@@ -17,3 +17,12 @@
 #minesweeper_table td:not(.visited):hover{
     background-color: rgb(145, 145, 145);
 }
+#row_size, #col_size{
+    width: 80px;
+}
+#message{
+    border: 1px solid black;
+    min-width: 200px;
+    height: 35px;
+    padding: 5px;
+}

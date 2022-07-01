@@ -3,11 +3,13 @@ $("#select_size").click(function(){
         $("#message").text("Select size")
         return
     }
+    
     if ($("#row_size")[0].value < 0 || $("#row_size")[0].value > 80  ||
         $("#col_size")[0].value < 0 || $("#col_size")[0].value > 80){
         $("#message").text("Size must be between 0 and 80")
         return
     }
+
     var row_size = parseInt($("#row_size")[0].value)
     var col_size = parseInt($("#col_size")[0].value)
     $("#maze_table").empty()
@@ -190,7 +192,7 @@ async function find_path(current_points, visited_point, path){
             new_visited_points.push(current)
             visited_point.add(`cell-${current[0]}-${current[1]}`)
             $(`#maze_table td#cell-${current[0]}-${current[1]}`).addClass("visited_point")
-            await Base.sleep(10)
+            await APP.base.sleep(10)
         } else if (MAZE[current[0]][current[1]] == 2){
             return new_path
         } else if (MAZE[current[0]][current[1]] == 3){

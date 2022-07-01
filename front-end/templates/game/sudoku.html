@@ -7,13 +7,13 @@
 {% block content %}
         
 
-<section class="h-100" id="sudoku_section">
+<section class="container pb-3" id="sudoku_section">
  
     <h1 class="text-center">Sudoku</h1>
     <div class="row sudoku_row my-5">
-        <div class="col justify-content-center d-flex">
+        <div class="col-12 col-md-6 justify-content-center d-flex">
             
-            <table class="sudoku_board m-3">
+            <table class="sudoku_board m-0">
                 <tbody>
                     <tr id="row-0-n">
                         <td id="cell-0-0"><input type="text" maxlength="1"></td>
@@ -119,7 +119,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col my-3">
+        <div class="col-12 col-md-6 my-3 justify-content-center d-flex d-md-block">
             <table id="inpur_table" class="mb-5">
                 <tbody>
                     <tr>
@@ -139,31 +139,68 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button>0</button></td>
                         <td><button class="cancel">Cancel</button></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="d-none d-md-block">
+                <div class="row p-0">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-dark generate_sudoku">Generate random sudoku</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-dark reset_sudoku">Reset</button>
+                    </div>
+                </div>
+                <div class="row mt-2 p-0">
+                    <div class="col">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input hyper_sudoku_checkbox" type="checkbox" role="switch" id="hyper_sudoku_1">
+                            <label class="form-check-label" for="hyper_sudoku_1">Hyper sudoku mode</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row mt-2 p-0">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-outline-dark solve_sudoku">Solve it</button>
+                        <span class="ml-2 no-solution"></span>
+                        <div class="spinner-border d-none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input animation_checkbox" type="checkbox" role="switch" id="animation_1">
+                            <label class="form-check-label" for="animation_1">Animation</label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 d-block d-md-none">
+            
             
             <div class="row">
-                <div class="col-4">
-                    <button id="generate_sudoku" type="button" class="btn btn-outline-dark">Generate random sudoku</button>
+                <div class="col-7">
+                    <button type="button" class="btn btn-outline-dark generate_sudoku">Generate random sudoku</button>
                 </div>
                 <div class="col">
-                    <button id="reset_sudoku" type="button" class="btn btn-outline-dark">Reset</button>
+                    <button type="button" class="btn btn-outline-dark reset_sudoku">Reset</button>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="hyper_sudoku">
-                        <label class="form-check-label" for="hyper_sudoku">Hyper sudoku mode</label>
+                        <input class="form-check-input hyper_sudoku_checkbox" type="checkbox" role="switch" id="hyper_sudoku_2">
+                        <label class="form-check-label" for="hyper_sudoku_2">Hyper sudoku mode</label>
                       </div>
                 </div>
             </div>
             <div class="row mt-2">
-                <div class="col-4">
-                    <button id="solve_sudoku" type="button" class="btn btn-outline-dark">Solve it</button>
+                <div class="col-7">
+                    <button  type="button" class="btn btn-outline-dark solve_sudoku">Solve it</button>
                     <span class="ml-2 no-solution"></span>
                     <div class="spinner-border d-none" role="status">
                         <span class="visually-hidden">Loading...</span>
@@ -171,8 +208,8 @@
                 </div>
                 <div class="col">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="animation">
-                        <label class="form-check-label" for="animation">Animation</label>
+                        <input class="form-check-input animation_checkbox" type="checkbox" role="switch" id="animation_2">
+                        <label class="form-check-label" for="animation_2">Animation</label>
                       </div>
                 </div>
             </div>
