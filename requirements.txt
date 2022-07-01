@@ -4,3 +4,8 @@ django-environ==0.8.1
 Pillow==9.1.0
 django-phonenumber-field[phonenumbers] #https://github.com/stefanfoulis/django-phonenumber-field
 django-allauth==0.50.0 #https://django-allauth.readthedocs.io/en/latest/installation.html
+
+#rest framwork
+djangorestframework==3.13.1
+markdown==3.3.7
+django-filter==22.1
