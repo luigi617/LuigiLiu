@@ -9,3 +9,4 @@ django-allauth==0.50.0 #https://django-allauth.readthedocs.io/en/latest/installa
 djangorestframework==3.13.1
 markdown==3.3.7
 django-filter==22.1
+gunicorn==20.1.0

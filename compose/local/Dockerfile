@@ -17,9 +17,19 @@ RUN apt-get update \
   && apt-get install -y libpq-dev
 
 
+
 # install dependencies
 RUN pip install --upgrade pip
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 
+# copy entrypoint.sh
+COPY ./compose/local/entrypoint.sh /entrypoint.sh
+RUN sed -i "s/\r$//g" /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+
+
 COPY . /code/
+
+ENTRYPOINT ["/entrypoint.sh"]
