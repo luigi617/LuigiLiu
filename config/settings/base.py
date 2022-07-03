@@ -5,9 +5,8 @@ from pathlib import Path
 import os
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-APPS_DIR = str(ROOT_DIR) + "apps/"
+APPS_DIR = str(ROOT_DIR) + "/apps/"
 
-env = os.environ
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -17,7 +16,9 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.sites",
+    "django.contrib.postgres",
 ]
+
 LOCAL_APPS = [
     "apps.home.apps.HomeConfig",
     "apps.products.apps.ProductsConfig",
@@ -84,6 +85,7 @@ DATABASES = {
         'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
+print(DATABASES)
 
 
 # Password validation
@@ -152,4 +154,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "limsevy@gmail.com"
 EMAIL_HOST_PASSWORD = "lgbqqrdinzvvvujn"
-# 
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 50
+}

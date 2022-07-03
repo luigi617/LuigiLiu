@@ -116,9 +116,10 @@
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
         <script>
+            var nav_first_layer;
+            var nav_second_layer;
+            BASE_URL = "http://localhost:8000/"
             $(document).ready(function(){
-                var nav_first_layer;
-                var nav_second_layer;
                 APP.base.init()
             })
         </script>
