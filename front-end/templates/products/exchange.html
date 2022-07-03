@@ -142,8 +142,10 @@
 
 <script src="{% static 'javascript/exchange.js' %}"></script>
 <script>
+    POST_URL = "api/products/posts/"
     $(document).ready(function(){
         APP.exchange.init()
+        APP.exchange.load_post()
     })
 </script>
 {% endblock js %}
