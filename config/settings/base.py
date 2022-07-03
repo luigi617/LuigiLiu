@@ -85,7 +85,6 @@ DATABASES = {
         'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
-print(DATABASES)
 
 
 # Password validation

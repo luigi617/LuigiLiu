@@ -64,12 +64,41 @@
 }
 .post_img{
     width: 100px;
-    margin: 0px 10px;
+    margin-right: 10px;
 }
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
 
+.book_div{
+    margin-bottom: 15px;
+    border: 1px solid black;
+    padding: 1;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-right: 15px;
+}
+.dispense_div{
+    margin-bottom: 15px;
+    border: 1px solid black;
+    padding: 1;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    margin-right: 15px;
+}
+.pdf_svg{
+    width: 45px;
+}
+.expand_svg{
+    width: 30px;
+    padding-bottom: 1px;
+}
+.comment{
+    cursor: pointer;
+}
+.comment_div{
+    background-color: rgb(240, 240, 240);
+    padding: 15px;;
+}
 
 @media (max-width: 768px) {
     #sidebar {
