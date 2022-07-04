@@ -1,5 +1,11 @@
 
 
+.input_book_div, .input_dispense_div{
+    padding: 10px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    margin: 10px;
+}
 
 .wrapper {
     display: flex;
@@ -55,6 +61,9 @@
     width: 100%;
 }
 
+#post_row{
+    margin-bottom: 200px;
+}
 .post{
 
 
@@ -75,6 +84,11 @@
     border-radius: 10px;
     width: fit-content;
     margin-right: 15px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.book_info, .dispense_info{
+    font-weight: normal;
 }
 .dispense_div{
     margin-bottom: 15px;
@@ -84,9 +98,12 @@
     border-radius: 10px;
     width: fit-content;
     margin-right: 15px;
+    font-size: 13px;
+    font-weight: bold;
 }
 .pdf_svg{
     width: 45px;
+    margin: 5px 0px;
 }
 .expand_svg{
     width: 30px;
@@ -97,9 +114,43 @@
 }
 .comment_div{
     background-color: rgb(240, 240, 240);
-    padding: 15px;;
+    padding: 15px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.26s ease;
+    height: 0px;
+    font-size: 15px;
 }
-
+#create_post{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 50px;
+}
+.new_post_svg{
+    width: 45px;
+    color: white;
+}
+.create_post_button{
+    background-color: lightgray!important;
+    padding: 15px!important;
+    border-radius: 20px!important;
+    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.create_post_button:active{
+    transform: scale(0.98);
+    box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.comment_user{
+    font-weight: bold;
+}
+.comment_textarea{
+    border-color: none!important;
+    box-shadow: none!important;
+}
+.send_comment_svg{
+    width: 30px;
+}
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;

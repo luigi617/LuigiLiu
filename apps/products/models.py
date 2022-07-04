@@ -21,10 +21,13 @@ class PostImage(AbstractImage):
 
 class Book(TimeStampedModel):
     title = models.CharField(_('Title'), max_length=100, blank=True, null=True)
+    
     post = models.ForeignKey(Post, related_name='books', on_delete=models.SET_NULL, null=True)
     ISBN = models.CharField(_('ISBN'), max_length=255, blank=True, null=True)
     author = models.CharField(_('Author'), max_length=255, blank=True, null=True)
     price = models.DecimalField(_('Price'), max_digits=settings.DEFAULT_MAX_DIGITS, decimal_places=settings.DEFAULT_DECIMAL_PLACES)
+    school = models.CharField(_('School'), max_length=100, blank=True, null=True)
+    course = models.CharField(_('Course'), max_length=100, blank=True, null=True)
 
 def dispense_location(instance, filename):
     folder_name = f'products/dispense/'
@@ -33,7 +36,12 @@ def dispense_location(instance, filename):
 class Dispense(TimeStampedModel):
     post = models.ForeignKey(Post, related_name='dispenses', on_delete=models.SET_NULL, null=True)
     dispense = models.FileField(upload_to=dispense_location)
+    description = models.CharField(_('Description'), max_length=255, blank=True, null=True)
     price = models.DecimalField(_('Price'), max_digits=settings.DEFAULT_MAX_DIGITS, decimal_places=settings.DEFAULT_DECIMAL_PLACES)
+    school = models.CharField(_('School'), max_length=100, blank=True, null=True)
+    course = models.CharField(_('Course'), max_length=100, blank=True, null=True)
+    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='dispenses', on_delete=models.PROTECT, null=True)
+    allowed_user = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='bought_dispenses', null=True)
 
 class Comment(TimeStampedModel):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
