@@ -4,6 +4,5 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 
 urlpatterns = format_suffix_patterns(
-    products_urlpatterns,
-    users_urlpatterns
+    products_urlpatterns + users_urlpatterns
 )
