@@ -5,6 +5,7 @@ from rest_framework import generics
 
 
 class PostListAPIView(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
+    queryset = Post.objects.order_by('-date_added')
     serializer_class = PostSerializer
     pagination_class = StandardResultsSetPagination
+    

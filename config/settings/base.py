@@ -31,6 +31,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     "phonenumber_field",
     "rest_framework",
+    "imagekit",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
