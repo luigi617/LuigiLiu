@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+    <link href="{% static 'css/profile.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section id="profile_section">
+  
+<div class="container">
+    <div class="row profile_row">
+        <div class="col-3 option_col">
+            <div class="profile_option active">My profile</div>
+            <div class="profile_option">Credit</div>
+            <div class="profile_option">Change password</div>
+            <div class="profile_option">Log out</div>
+
+        </div>
+        <div class="col">
+            <div class="my_profile">
+                <form class="row g-3">
+                    <div class="col-12">
+                        
+                        <img src="" class="avatar_img" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input_username" class="form-label">Username</label>
+                      <input type="text" class="form-control" id="input_username" disabled>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input_email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="input_email" disabled>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input_lastname" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="input_lastname">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input_firstname" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="input_firstname">
+                    </div>
+                    
+                    <div class="col-12">
+                      <label for="input_phone" class="form-label">Phone</label>
+                      <input type="text" class="form-control" id="input_phone">
+                    </div>
+                   
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-outline-dark">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+</section>
+
+
+{% endblock content %}
+       
+{% block js %}
+
+<script src="{% static 'javascript/profile.js' %}"></script>
+<script>
+    PROFILE_URL = "api/users/{{ request.user.id }}/"
+    $(document).ready(function(){
+        console.log(PROFILE_URL)
+        APP.profile.init()
+        APP.profile.load_profile()
+    })
+</script>
+{% endblock js %}

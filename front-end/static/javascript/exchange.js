@@ -76,8 +76,8 @@ APP['exchange'] = {
                     }
                     post = post + `
                         </div>
-                        <div class="d-flex justify-content-between mx-3 mt-3">
-                            <span>${APP.exchange.calc_time(data["results"][i]["date_added"])}</span>
+                        <div class="d-flex justify-content-between me-3 mt-3">
+                            <span class="post_date">${APP.exchange.calc_time(data["results"][i]["date_added"])}</span>
                             <span class="comment">
                             Comments (${data["results"][i]["comments"].length})
                             <img src="${EXPAND_MORE_SVG}" class="expand_svg" >
