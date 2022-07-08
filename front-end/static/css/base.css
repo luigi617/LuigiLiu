@@ -89,6 +89,9 @@ hr.divider-light {
 .nav-phone-backbutton{
   border: none;
 }
+.skiptranslate{
+  display: none!important;
+}
 
 @media (min-width: 768px) {
   #mainNav {

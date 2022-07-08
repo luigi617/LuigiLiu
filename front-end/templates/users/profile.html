@@ -13,14 +13,14 @@
 <div class="container">
     <div class="row profile_row">
         <div class="col-3 option_col">
-            <div class="profile_option active">My profile</div>
-            <div class="profile_option">Credit</div>
-            <div class="profile_option">Change password</div>
-            <div class="profile_option">Log out</div>
+            <div class="profile_option" data-option="profile">My profile</div>
+            <div class="profile_option" data-option="credit">Credit</div>
+            <div class="profile_option" data-option="change_password">Change password</div>
+            <div class="profile_option" data-option="log_out">Log out</div>
 
         </div>
-        <div class="col">
-            <div class="my_profile">
+        <div class="col option_content_col">
+            <div class="my_profile d-none">
                 <form class="row g-3">
                     <div class="col-12">
                         
@@ -53,6 +53,20 @@
                     </div>
                 </form>
             </div>
+            <div class="credit d-none">
+                <div class="row m-3">
+                    <div class="col-12 credit_col">
+                        <div>Credit: </div>
+                    </div>
+                    <div class="col-12 credit_col">
+                        <div class="credit_amount">0.00 €</div>
+                    </div>
+                    <div class="col-12">
+                        Note: 
+                    </div>
+                    
+                </div>
+            </div>
         </div>
     </div>
 
@@ -68,10 +82,13 @@
 <script src="{% static 'javascript/profile.js' %}"></script>
 <script>
     PROFILE_URL = "api/users/{{ request.user.id }}/"
+    CHANGE_PASSWORD = "{% url 'account_change_password' %}"
+    LOG_OUT = "{% url 'account_logout' %}"
     $(document).ready(function(){
         console.log(PROFILE_URL)
         APP.profile.init()
         APP.profile.load_profile()
+        APP.profile.change_option(APP.base.get_url_parameter("option"))
     })
 </script>
 {% endblock js %}

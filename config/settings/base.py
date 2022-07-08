@@ -129,7 +129,8 @@ STATICFILES_DIRS = (
     os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'static'),
 )
 # https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-MEDIA_ROOT
-MEDIA_ROOT = '/front-end/media/'
+
+MEDIA_ROOT = os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'media')
 MEDIA_URL = '/front-end/media/'
 
 # Default primary key field type

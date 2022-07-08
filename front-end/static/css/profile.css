@@ -36,3 +36,7 @@
     border-radius: 13px;
     width: 100px;
 }
+.credit_col{
+    display: flex;
+    justify-content: center!important;
+}

@@ -37,14 +37,20 @@
         <div id="content" class="">
             <div id="post_row" class="" >
             
-                <div class="post d-none">
-                      <h5>Sudoku fjalk fajsklf </h5>
-                      <p>
-                        fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
-                        fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
-                        fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
-                        fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
-                    </p>
+                <div class="post ">
+                    <div class="post_content">
+                        <img class="avatar_img" src="{% static 'assets/svg/pdf.svg' %}" alt="">
+                        <div>
+                            <h5>Sudoku fjalk fajsklf </h5>
+                            <p>
+                                fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
+                                fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
+                                fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
+                                fjajfkadls;fj fjadsklf; jajdklf ajksldf f afjkalsjfklasddslk;f jaklsf ajkldfs saklfd jlkds fkl;asd
+                            </p>
+                            
+                        </div>
+                    </div>
                     <div style="display:inline-flex">
 
                         <div class="book_div">
@@ -120,9 +126,12 @@
 <script src="{% static 'javascript/exchange.js' %}"></script>
 <script>
     POST_URL = "api/products/posts/"
+    CREATE_POST_URL = "api/products/posts/"
+    DISPENSE_URL = "api/products/dispenses/"
     PDF_SVG = "{% static 'assets/svg/pdf.svg' %}"
     EXPAND_MORE_SVG = "{% static 'assets/svg/expand-more.svg' %}"
     EXPAND_LESS_SVG = "{% static 'assets/svg/expandless.svg' %}"
+    CSRF = "{{ csrf_token }}"
     $(document).ready(function(){
         APP.exchange.init()
         APP.exchange.load_post()

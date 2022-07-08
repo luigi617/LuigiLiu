@@ -22,55 +22,84 @@ APP['exchange'] = {
                 })
             }
         })
+        $(document).on("click",".pdf_svg",function(){
+            var pdf_id = $(this).data("pdf_id")
+            $.ajax({
+                url: BASE_URL + DISPENSE_URL + pdf_id + "/",
+                method: "GET",
+                success: function(result){
+                    console.log(result["dispense"])
+                    window.location.href = result["dispense"]
+                }
+            })
+        })
     
     },
     "load_post": function(page = 1){
-        console.log(BASE_URL + POST_URL)
+
         $.ajax({
             method: "GET",
             url: BASE_URL + POST_URL + "?page=" + page,
             success: function(data){
-
                 for (let i = 0; i < data["results"].length; i++){
+
                     var post = `
                     <div class="post"> 
-                      <h5>${data["results"][i]['title']}</h5>
-                      <p>${data["results"][i]['text']}</p>
-                      <div style="display:inline-flex">
+                        <div class="post_content">
+                            <img class="avatar_img" src="${data["results"][i]["user"]["avatar_thumbnail"]}" alt="">
+                        <div>
+                            <h3>${data["results"][i]['title']}</h3>
+                            <p>${data["results"][i]['text']}</p>
+                        
+                            </div>
+                        </div>
+                      
+                        <div style="display:inline-flex">
                       `
                     for (let j = 0; j < data["results"][i]['books'].length; j++){
-                    post = post + `
-                            <div class="book_div">
-                                Title: <span class="book_info ms-2">${data["results"][i]['books'][j]["title"]}</span><br>
-                                Author: <span class="book_info ms-2">${data["results"][i]['books'][j]["author"]}</span><br>
-                                ISBN: <span class="book_info ms-2">${data["results"][i]['books'][j]["ISBN"]}</span><br>
-                                School: <span class="book_info ms-2">${data["results"][i]['books'][j]["school"]}</span><br>
-                                Course: <span class="book_info ms-2">${data["results"][i]['books'][j]["course"]}</span><br>
-                                Price: <span class="book_info ms-2">${data["results"][i]['books'][j]["price"]} €</span>
-                            </div>
-                        `
+                        var book = {
+                            "Title": data["results"][i]['books'][j]["title"],
+                            "Author": data["results"][i]["books"][j]["author"],
+                            "ISBN": data["results"][i]["books"][j]["ISBN"],
+                            "School": data["results"][i]["books"][j]["school"],
+                            "Course": data["results"][i]["books"][j]["course"],
+                            "Price": data["results"][i]["books"][j]["price"],
+                        }
+                        post = post + "<div class='book_div'>"
+                        for (let key in book){
+                            if (book[key] == ""){ continue }
+                            post = post + `${key}: <span class="book_info ms-2">${book[key]}</span>`
+                            if (key != "Price"){
+                                post = post + `<br>`
+                            }
+                        }
+                        post = post + "</div>"
+                        
                     }
                     for (let j = 0; j < data["results"][i]['dispenses'].length; j++){
-                    post = post + `
-                        <div class="dispense_div">
-                            School: <span class="dispense_info ms-2">${data["results"][i]['dispenses'][j]["school"]}</span><br>
-                            Course: <span class="dispense_info ms-2">${data["results"][i]['dispenses'][j]["course"]}</span><br>
-                            Description: <span class="dispense_info ms-2">${data["results"][i]['dispenses'][j]["description"]}</span><br>
-                            <img src="${PDF_SVG}" data-pdf_id= "
-                            ${data["results"][i]['dispenses'][j]["id"]} " class="pdf_svg" ><br>
-                            Price: <span class="dispense_info ms-2">${data["results"][i]['dispenses'][j]["price"]} €</span>
-
-                        </div>
-                        `
+                        var dispense = {
+                            "School": data["results"][i]['dispenses'][j]["school"],
+                            "Course": data["results"][i]["dispenses"][j]["course"],
+                            "Description": data["results"][i]["dispenses"][j]["description"],
+                            "Price": data["results"][i]["dispenses"][j]["price"],
+                        }
+                        post = post + "<div class='dispense_div'>"
+                        for (let key in dispense){
+                            if (key == "Price"){
+                                post = post + `<img src="${PDF_SVG}" data-pdf_id= "${data["results"][i]['dispenses'][j]["id"]}" class="pdf_svg" ><br>`
+                            }
+                            if (dispense[key] == ""){ continue }
+                            post = post + `${key}: <span class="dispense_info ms-2">${dispense[key]}</span>`
+                            if (key != "Price"){
+                                post = post + `<br>`
+                            }
+                        }
+                        post = post + "</div>"
                     }
-                    post = post + `
-                    </div>
-                    `
+                    post = post + `</div>`
 
 
-                    post = post + `
-                        <div class="image_div">
-                    `
+                    post = post + `<div class="image_div">`
                     for (let j = 0; j < data["results"][i]['post_images'].length; j++){
                         post = post + `<img src="${data["results"][i]['post_images'][j]["file"]}" class="post_img" alt="...">`
                     }
@@ -151,6 +180,81 @@ APP['exchange'] = {
                 $(".images_display").children().last()[0].appendChild(temp_img)
             }
         })
+        $(".create_post").click(function(){
+            var data = new FormData();
+            var error = []
+            $(".input_error").removeClass("input_error")
+            if ($("#input_post_text").val().trim() == ""){
+                error.push($("#input_post_text"))
+            }
+            data.append("post_title", $("#input_post_title").val())
+            data.append("post_content", $("#input_post_text").val())
+            for (let j = 0; j < $("#input_post_images").prop('files').length; j++){
+                data.append("post_images", $("#input_post_images").prop('files')[j])
+            }
+            var post_type = $("input[type=radio][name=post_type]:checked").val()
+            data.append("post_type", post_type)
+            if (post_type == "book_selling"){
+                var input_book = $(".input_book_div")
+                data.append("post_book_num", input_book.length)
+                for (let i = 0; i < input_book.length; i++){
+                    data.append(`post_book_title_${i}`, $(input_book[i]).find(".input_book_title").val())
+                    data.append(`post_book_author_${i}`, $(input_book[i]).find(".input_book_author").val())
+                    data.append(`post_book_ISBN_${i}`, $(input_book[i]).find(".input_book_ISBN").val())
+                    data.append(`post_book_school_${i}`, $(input_book[i]).find(".input_book_school").val())
+                    data.append(`post_book_course_${i}`, $(input_book[i]).find(".input_book_course").val())
+                    data.append(`post_book_price_${i}`, $(input_book[i]).find(".input_book_price").val())
+                    if ($(input_book[i]).find(".input_book_price").val().trim() == ""){
+                        error.push($(input_book[i]).find(".input_book_price"))
+                    }
+                }
+            } else if (post_type == "dispense_selling"){
+                var input_dispense = $(".input_dispense_div")
+                data.append("post_dispense_num", input_dispense.length)
+                if (input_dispense.length == 0){
+                    error.push($(".add_input_dispense_button"))
+                }
+                for (let i = 0; i < input_dispense.length; i++){
+                    data.append(`post_dispense_school_${i}`, $(input_dispense[i]).find(".input_dispense_school").val())
+                    data.append(`post_dispense_course_${i}`, $(input_dispense[i]).find(".input_dispense_course").val())
+                    data.append(`post_dispense_files_${i}`, $(input_dispense[i]).find(".input_dispense_file").prop('files')[0])
+                    data.append(`post_dispense_description_${i}`, $(input_dispense[i]).find(".input_dispense_description").val())
+                    data.append(`post_dispense_price_${i}`, $(input_dispense[i]).find(".input_dispense_price").val())
+                    if ($(input_dispense[i]).find(".input_dispense_file").prop('files').length == 0){
+                        error.push($(input_dispense[i]).find(".input_dispense_file"))
+                    }
+                    if ($(input_dispense[i]).find(".input_dispense_price").val().trim() == ""){
+                        error.push($(input_dispense[i]).find(".input_dispense_price"))
+                    }
+                }
+   
+            }
+            if (error.length > 0){
+                console.log(error)
+                for (let i = 0; i < error.length; i++){
+                    $(error[i]).addClass("input_error")
+                }
+                return
+            }
+            $.ajax({
+                url: BASE_URL + CREATE_POST_URL,
+                method: "POST",
+                data: data,
+                processData: false,
+                contentType: false,
+
+                headers: {
+                    "X-CSRFToken": CSRF
+                },
+                success: function(result){
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseText)
+                  }
+            })
+            console.log(...data)
+        })
         $(".add_input_dispense_button").click(function(){
             $(".dispense_information").append(`
                 <div class="input_dispense_div">
@@ -194,7 +298,7 @@ APP['exchange'] = {
                         <label class="col-form-label">Price</label>
                         </div>
                         <div class="col">
-                        <input type="number" class="form-control input_book_price" step="0.01" min="0.00">
+                        <input type="number" class="form-control input_dispense_price" step="0.01" min="0.00">
                         </div>
                     </div>
                 </div>
@@ -244,7 +348,7 @@ APP['exchange'] = {
                         <label  class="col-form-label">Course</label>
                         </div>
                         <div class="col">
-                        <input type="text" class="form-control input_book_Course">
+                        <input type="text" class="form-control input_book_course">
                         </div>
                     </div>
                     <div class="row g-3 align-items-center mb-2">
