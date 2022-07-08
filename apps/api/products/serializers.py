@@ -28,3 +28,40 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'title', 'text', 'user', "post_images", "books", "dispenses", "comments", "date_added"]
+
+class RetrieveDispenseSerializer(serializers.BaseSerializer):
+    class Meta:
+        model = Dispense
+
+    def to_representation(self, instance):
+        output = {}
+        output["id"] = instance.id
+        # output["trial_dispense"] = self.context["request"].build_absolute_uri(instance.trial_dispense.url)
+        user_id = self.context["request"].user.id
+        if instance.uploaded_by.id == user_id or  instance.allowed_user.filter(id = user_id).exists():
+            output["dispense"] = self.context["request"].build_absolute_uri(instance.dispense.url)
+        else:
+            output["dispense"] = self.context["request"].build_absolute_uri(instance.trial_dispense.url)
+
+            
+        return output
+
+
+
+class PostImageCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PostImage
+        fields = ['id', 'file', "uploaded_by_user", "post"]
+class BookCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['id', 'ISBN', 'author', 'title', 'price', "school", "course", "post"]
+class DispenseCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Dispense
+        fields = ['id', 'price', "school", "course", "description", "dispense", "post", "uploaded_by"]
+
+class PostCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ['id', 'title', 'text', "user"]
