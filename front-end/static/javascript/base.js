@@ -55,6 +55,12 @@ APP['base'] = {
         }
         return false;
     },
+    "show_avatar": function show_avatar(avatar){
+        if (avatar == null){
+            return "/front-end/static/assets/img/default-user-image.png"
+        }
+        return avatar
+    }
 }
 
 

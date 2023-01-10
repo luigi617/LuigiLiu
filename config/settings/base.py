@@ -21,7 +21,6 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "apps.home.apps.HomeConfig",
-    "apps.products.apps.ProductsConfig",
     "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
 ]

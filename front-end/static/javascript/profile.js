@@ -53,7 +53,7 @@ APP['profile'] = {
                 $("#input_lastname").val(data["last_name"])
                 $("#input_firstname").val(data["first_name"])
                 $("#input_phone").val(data["phone"])
-                $(".avatar_img").prop("src", data["avatar_thumbnail"])
+                $(".avatar_img").prop("src", APP.base.show_avatar(data["avatar_thumbnail"]))
             }
         })
     },
