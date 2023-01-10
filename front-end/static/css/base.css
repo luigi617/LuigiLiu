@@ -62,6 +62,13 @@ hr.divider-light {
 #mainNav .navbar-brand:hover {
   color: #fff;
 }
+#mainNav .navbar-nav{
+  display: flex;
+  flex-direction: row!important;
+}
+#mainNav .navbar-nav .dropdown-menu{
+  position: absolute!important;
+}
 #mainNav .navbar-nav .nav-item .nav-link {
   color: rgba(255, 255, 255, 0.7);
   padding: 0 1rem;
