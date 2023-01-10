@@ -18,39 +18,39 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         {% block css %}
        {% endblock css %}
-        <link href="{% static 'bootstrap-5.1.3/css/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'bootstrap-5.2.3/css/bootstrap.min.css' %}" rel="stylesheet" />
         <link href="{% static 'css/base.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
+
         <nav class="navbar navbar-dark bg-dark fixed-top py-3" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="/">KnowledgExchange</a>
-
-                    <ul class="navbar-nav ms-auto my-0">
-                        <li class="nav-item"><a class="nav-link" href="">Exchange</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                              <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
-                              <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
-                              <li><a class="dropdown-item" href="{% url 'home:typing' %}">Typing</a></li>
-                              <li><a class="dropdown-item" href="{% url 'home:sort' %}">Sort</a></li>
-                              <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.username %}">Hi {{user}}</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
-                        {% endif %}
-                    </ul>
+                <a class="navbar-brand" href="/">Luigi Liu</a>
+                
+                <ul class="navbar-nav ms-auto my-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:typing' %}">Typing</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:sort' %}">Sort</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
+                        </ul>
+                    </li>
+                    
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.username %}">Hi {{user}}</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
 
             </div>
         </nav>
+        
+        {%comment%}
         
         <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header d-flex justify-content-end">
@@ -102,7 +102,7 @@
 
             </div>
         </div>
-        
+        {%endcomment%}
         
        
        {% block content %}
@@ -112,7 +112,7 @@
        <!-- <footer class="bg-light py-5 mt-5">
            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
         </footer> -->
-        <script src="{% static 'bootstrap-5.1.3/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'bootstrap-5.2.3/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
         <script>
