@@ -49,88 +49,46 @@ hr.divider-light {
   font-weight: 700;
   /* color: #212529; */
 }
-#mainNav .navbar-nav .nav-item .nav-link {
-  color: #6c757d;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.75rem 0;
+
+
+
+#mainNav {
+  box-shadow: none;
+  background-color: transparent;
 }
-#mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
+#mainNav .navbar-brand {
+  color: rgba(255, 255, 255, 0.7);
+}
+#mainNav .navbar-brand:hover {
+  color: #fff;
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 1rem;
+}
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #fff;
+}
+#mainNav .navbar-nav .nav-item:last-child .nav-link {
+  padding-right: 0;
+}
+#mainNav.navbar-shrink {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+/* #mainNav.navbar-shrink .navbar-brand {
+  color: #212529;
+} */
+#mainNav.navbar-shrink .navbar-brand:hover {
   color: #f4623a;
 }
-#mainNav .navbar-nav .nav-item .nav-link.active {
-  color: #f4623a !important;
+/* #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
+  color: #212529;
+} */
+#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
+  color: #f4623a;
 }
 
-
-#offcanvasRight, #offcanvasRightGame{
-  width: 60%;
-}
-.nav-phone-item{
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 7px 0px!important;
-}
-.nav-phone-item:hover{
-  color: lightgray;
-}
-.nav-phone-li{
-  margin: 15px 0px;
-}
-.nav-phone-arrow {
-  width: 30px;
-  margin-right: 15px;
-}
-.nav-phone-backarrow {
-  width: 30px;
-}
-.nav-phone-backbutton{
-  border: none;
-}
-.skiptranslate{
-  display: none!important;
-}
-
-@media (min-width: 768px) {
-  #mainNav {
-    box-shadow: none;
-    background-color: transparent;
-  }
-  #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  #mainNav .navbar-brand:hover {
-    color: #fff;
-  }
-  #mainNav .navbar-nav .nav-item .nav-link {
-    color: rgba(255, 255, 255, 0.7);
-    padding: 0 1rem;
-  }
-  #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: #fff;
-  }
-  #mainNav .navbar-nav .nav-item:last-child .nav-link {
-    padding-right: 0;
-  }
-  #mainNav.navbar-shrink {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    background-color: #fff;
-  }
-  /* #mainNav.navbar-shrink .navbar-brand {
-    color: #212529;
-  } */
-  #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f4623a;
-  }
-  /* #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
-    color: #212529;
-  } */
-  #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
-    color: #f4623a;
-  }
-}
 
 #page-top{
   padding-top: 130px;
