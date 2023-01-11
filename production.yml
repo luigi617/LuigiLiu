@@ -11,8 +11,8 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./.envs/.prod/.django
+      - ./.envs/.prod/.postgres
     depends_on:
       - postgres
 
@@ -26,6 +26,12 @@ services:
       - "5432:5432"
     env_file:
       - ./.envs/.local/.postgres
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - django
 
 volumes: 
   local_postgres_data: {}
