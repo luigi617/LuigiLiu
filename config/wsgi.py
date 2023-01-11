@@ -1,5 +1,5 @@
 """
-WSGI config for KnowledgExchange project.
+WSGI config for LuigiLiu project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
