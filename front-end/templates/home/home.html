@@ -13,54 +13,74 @@
             
             <!-- <img src="{% static 'assets/img/astronaut2.jpg' %}" alt=""> -->
             <h1 >
-                Have fun.
+                Hi, I'm Luigi Liu.
             </h1> 
         </div>
         <div class="col">
             <img class="astronaut_img" src="{% static 'assets/img/astronaut.jpg' %}" alt="">
         </div>
     </div>
+    <h4 class="center">
+      Articles section
+    </h4>
     <div class="row text-center d-flex justify-content-center">
-                <div class="card masonry_div" data-url="{% url 'home:sudoku' %}">
-                  <div class="masonry_body">
-                      <div class="card-body">
-                        <h5 class="card-title">Sudoku</h5>
-                      </div>
-                      <img src="{% static 'assets/img/sudoku.png' %}" class="card-img-bottom" alt="...">
-                    </div>
-                  </div>
-                <div class="card masonry_div" data-url="{% url 'home:maze' %}">
-                  <div class="masonry_body">
-                    <div class="card-body">
-                      <h5 class="card-title">Maze</h5>
-                    </div>
-                    <img src="{% static 'assets/img/maze.png' %}" class="card-img-bottom" alt="...">
-                  </div>
-                </div>
-                  <div class="card masonry_div" data-url="{% url 'home:minesweeper' %}">
-                    <div class="masonry_body">
-                    <div class="card-body">
-                      <h5 class="card-title">Minesweeper</h5>
-                    </div>
-                    <img src="{% static 'assets/img/minesweeper.png' %}" class="card-img-bottom" alt="...">
-                  </div>
-                  </div>
-                <div class="card masonry_div" data-url="{% url 'home:sort' %}">
-                  <div class="masonry_body">
-                    <div class="card-body">
-                      <h5 class="card-title">Sort</h5>
-                    </div>
-                    <img src="{% static 'assets/img/sort.png' %}" class="card-img-bottom" alt="...">
-                  </div>
-                  </div>
-                <div class="card masonry_div" data-url="{% url 'home:typing' %}">
-                  <div class="masonry_body">
-                    <div class="card-body">
-                      <h5 class="card-title">Typing</h5>
-                    </div>
-                    <img src="{% static 'assets/img/typing.png' %}" class="card-img-bottom" alt="...">
-                  </div>
-                  </div>
+      
+      <div class="card masonry_div" data-url="{% url 'home:sudoku' %}">
+        <div class="masonry_body">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+            </div>
+          </div>
+        </div>
+            
+    </div>
+    <h4 class="center">
+      Games section
+    </h4>
+    <div class="row text-center d-flex justify-content-center">
+      
+      <div class="card masonry_div" data-url="{% url 'home:sudoku' %}">
+        <div class="masonry_body">
+            <div class="card-body">
+              <h5 class="card-title">Sudoku</h5>
+            </div>
+            <img src="{% static 'assets/img/sudoku.png' %}" class="card-img-bottom" alt="...">
+          </div>
+        </div>
+      <div class="card masonry_div" data-url="{% url 'home:maze' %}">
+        <div class="masonry_body">
+          <div class="card-body">
+            <h5 class="card-title">Maze</h5>
+          </div>
+          <img src="{% static 'assets/img/maze.png' %}" class="card-img-bottom" alt="...">
+        </div>
+      </div>
+        <div class="card masonry_div" data-url="{% url 'home:minesweeper' %}">
+          <div class="masonry_body">
+          <div class="card-body">
+            <h5 class="card-title">Minesweeper</h5>
+          </div>
+          <img src="{% static 'assets/img/minesweeper.png' %}" class="card-img-bottom" alt="...">
+        </div>
+        </div>
+      <div class="card masonry_div" data-url="{% url 'home:sort' %}">
+        <div class="masonry_body">
+          <div class="card-body">
+            <h5 class="card-title">Sort</h5>
+          </div>
+          <img src="{% static 'assets/img/sort.png' %}" class="card-img-bottom" alt="...">
+        </div>
+        </div>
+      <div class="card masonry_div" data-url="{% url 'home:typing' %}">
+        <div class="masonry_body">
+          <div class="card-body">
+            <h5 class="card-title">Typing</h5>
+          </div>
+          <img src="{% static 'assets/img/typing.png' %}" class="card-img-bottom" alt="...">
+        </div>
+        </div>
             
     </div>
    

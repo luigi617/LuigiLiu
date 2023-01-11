@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/articles_list.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3" id="articles_section">
+  
+    <div class="list-group articles_row">
+
+    </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/articles_list.js' %}"></script>
+<script>
+    ARTICLE_LIST_URL = 'api/articles/'
+    ARTICLE_RETRIEVE_URL = "articles/"
+    $(document).ready(function(){
+        APP.articles_list.init()
+        APP.articles_list.load_articles()
+
+    })
+</script>
+{% endblock js %}

@@ -23,6 +23,7 @@ LOCAL_APPS = [
     "apps.home.apps.HomeConfig",
     "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
+    "apps.article.apps.ArticleConfig",
 ]
 THIRD_PARTY_APPS = [
     'allauth',

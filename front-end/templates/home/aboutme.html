@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/aboutme.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 px-5 mx-5" id="aboutme_section">
+    <h1 class="text-center mb-3">Who am I?</h1>
+    <h4 class="text-center mb-3">
+        "Success usually comes to those who are too busy to be looking for it"
+    </h4>
+    <p class="mb-3">
+        Current university student with a strong interest in data and numbers and a dedication to staying current in the field. Skilled in problem-solving and team collaboration, with a passion for using data to drive informed decision-making.
+    </p>
+    <h3>Education</h3>
+    <div>
+        <div class="row"> 
+          <div class="col">
+              <h6 class="fw-bold">Bocconi University</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">September 2021 – Present</h6>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col">
+              <h6>Bachelor of Science in Economics, Management and Computer Science</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">Milan, Italy</h6>
+          </div>
+        </div>
+        <ul>
+            <li>Expected graduation: July 2024.</li>
+        </ul>
+    </div>
+    <div>
+        <div class="row"> 
+          <div class="col">
+              <h6 class="fw-bold">Istituto Tecnico Paolo Dagomari High School</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">September 2016 – July 2021</h6>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col">
+              <h6>Major in Corporate Information Systems</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">Prato, Italy</h6>
+          </div>
+        </div>
+        <ul>
+            <li>Final Graduation Grade: 100 cum laude.</li>
+        </ul>
+    </div>
+    <h3>Work Experience</h3>
+    <div>
+        <div class="row"> 
+          <div class="col">
+              <h6 class="fw-bold">B2BEuroingro s.r.l.</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">July 2020 – August 2021</h6>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col">
+              <h6>Web and Mobile App developer</h6>
+          </div>
+          <div class="col-3">
+              <h6 class="text-end">Prato, Italy</h6>
+          </div>
+        </div>
+        <ul>
+            <li>Developed front-end and server-side software solutions using Django, REST framework, PostgreSQL, Redis, and JavaScript</li>
+        </ul>
+    </div>
+
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script>
+    $(document).ready(function(){       
+    })
+</script>
+{% endblock js %}
