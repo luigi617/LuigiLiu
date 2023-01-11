@@ -1,5 +1,5 @@
 """
-ASGI config for KnowledgExchange project.
+ASGI config for LuigiLiu project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
