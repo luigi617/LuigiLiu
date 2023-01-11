@@ -1,3 +1,3 @@
 DJANGO_SECRET_KEY=django-insecure-nla%885q7js$#m_xvnf&z8c3s*+4vb5ezq)#3s80-9b&!$h3-#
 DEBUG=1
-DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0 127.0.0.1 192.168.1.44 18.198.117.21 [::1]
+DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0 127.0.0.1 192.168.1.44 [::1]
