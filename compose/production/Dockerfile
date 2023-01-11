@@ -8,20 +8,15 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 
 # install psycopg2 dependencies
-# RUN apk update
-# RUN apk add postgresql-dev gcc python3-dev musl-dev
+
+
+
 RUN apt-get update \
   # dependencies for building Python packages
   && apt-get install -y build-essential \
   # psycopg2 dependencies
   && apt-get install -y libpq-dev \
   && apt-get install -y poppler-utils
-
-# lint
-RUN pip install --upgrade pip
-RUN pip install flake8==3.9.2
-COPY . .
-RUN flake8 --ignore=E501,F401 .
 
 # install dependencies
 RUN pip install --upgrade pip
