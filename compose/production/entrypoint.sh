@@ -36,4 +36,7 @@ until postgres_ready; do
 done
 >&2 echo 'PostgreSQL is available'
 
+python manage.py flush --no-input
+python manage.py migrate
+
 exec "$@"
