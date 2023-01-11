@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/article.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3" id="article_section">
+  <h3 class="text-center text-title">
+
+  </h3>
+  <p class="text-content">
+
+  </p>
+    
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/article.js' %}"></script>
+<script>
+    ARTICLE_RETRIEVE_URL = 'api/articles/{{ pk }}'
+    $(document).ready(function(){
+        APP.article.init()
+        APP.article.load_article()
+
+    })
+</script>
+{% endblock js %}

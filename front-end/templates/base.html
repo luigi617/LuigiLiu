@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>{% block head_title %}Bocconi KnowledgExchange{% endblock head_title %}</title>
+        <title>{% block head_title %}Luigi Liu{% endblock head_title %}</title>
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -26,11 +26,12 @@
 
         <nav class="navbar navbar-dark bg-dark fixed-top py-3" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="/">Luigi Liu</a>
+                <a class="navbar-brand" href="/">Home</a>
                 
                 <ul class="navbar-nav ms-auto my-0">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'articles:articles' %}">Articles</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Game</a>
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
                             <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
@@ -39,70 +40,13 @@
                             <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
                         </ul>
                     </li>
-                    
-                    {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.username %}">Hi {{user}}</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
-                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutme' %}">About Me</a></li>
+                   
                 </ul>
 
             </div>
         </nav>
-        
-        {%comment%}
-        
-        <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header d-flex justify-content-end">
-              <button type="button" class="btn-close btn-close-white text-reset m-3" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="ms-auto my-0">
 
-                    
-                    <li class="nav-phone-li" data-href="game"><a class="nav-phone-item" href="javascript:void(0)" >Game</a>
-                        <img src="{% static 'assets/svg/arrow-right-bold.svg' %}" class="nav-phone-arrow float-end" ></li>
-
-                    {% if user.is_authenticated %}
-                    <li class="nav-phone-li" data-href="{% url 'account_logout' %}"><a class="nav-phone-item" href="javascript:void(0)">Hi {{user}}</a>
-                        <img src="{% static 'assets/svg/arrow-right-bold.svg' %}" class="nav-phone-arrow float-end" ></li>
-                    {% else %}
-                    <li class="nav-phone-li" data-href="{% url 'account_login' %}"><a class="nav-phone-item" href="javascript:void(0)">Log In</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-          </div>
-
-        <div class="offcanvas offcanvas-end bg-dark" tabindex="0" id="offcanvasRightGame" aria-labelledby="offcanvasRightGameLabel">
-            <div class="offcanvas-header d-flex justify-content-start">
-              <button type="button" class="nav-phone-backbutton bg-dark m-3" >
-                <img src="{% static 'assets/svg/arrow-left-bold.svg' %}" class="nav-phone-backarrow" >
-              </button>
-            </div>
-            <div class="offcanvas-body">
-
-                <ul class="ms-auto my-0">
-                    <li class="nav-phone-li" data-href="{% url 'home:sudoku' %}">
-                        <a class="nav-phone-item" href="javascript:void(0)">Sudoku</a>
-                    </li>
-                    <li class="nav-phone-li" data-href="{% url 'home:maze' %}">
-                        <a class="nav-phone-item" href="javascript:void(0)">Maze</a>
-                    </li>
-                    <li class="nav-phone-li" data-href="{% url 'home:typing' %}">
-                        <a class="nav-phone-item" href="javascript:void(0)">Typing</a>
-                    </li>
-                    <li class="nav-phone-li" data-href="{% url 'home:sort' %}">
-                        <a class="nav-phone-item" href="javascript:void(0)">Sort</a>
-                    </li>
-                    <li class="nav-phone-li" data-href="{% url 'home:minesweeper' %}">
-                        <a class="nav-phone-item" href="javascript:void(0)">Minesweeper</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-        {%endcomment%}
         
        
        {% block content %}
@@ -115,9 +59,17 @@
         <script src="{% static 'bootstrap-5.2.3/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
+        <!-- letex -->
         <script>
-            var nav_first_layer;
-            var nav_second_layer;
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              }
+            };
+            </script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+        <script>
             BASE_URL = "http://localhost:8000/"
             $(document).ready(function(){
                 APP.base.init()
