@@ -10,7 +10,7 @@ services:
       - .:/code
       - static_volume:/code/front-end/static
     expose:
-      - "8000"
+      - 8000
     env_file:
       - ./.envs/.prod/.django
       - ./.envs/.prod/.postgres
