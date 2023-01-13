@@ -24,7 +24,7 @@
     <body id="page-top">
         <!-- Navigation-->
 
-        <nav class="navbar navbar-dark bg-dark fixed-top py-3" id="mainNav">
+        <nav class="navbar navbar-dark  fixed-top py-3" id="mainNav">
             <div class="container px-4">
                 <a class="navbar-brand" href="/">Home</a>
                 
@@ -60,15 +60,17 @@
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
         <!-- letex -->
+        <script id="MathJax-script" async src="{% static 'MathJax-master/es5/tex-chtml.js' %}"></script>
         <script>
             MathJax = {
-              tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-              }
-            };
-            </script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+                tex: {
+                  inlineMath: [['$', '$']]
+                },
+                svg: {
+                  fontCache: 'global'
+                }
+              };
+        </script>
         <script>
             BASE_URL = "http://localhost:8000/"
             $(document).ready(function(){

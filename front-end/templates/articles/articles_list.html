@@ -6,12 +6,12 @@
 {% endblock css %}
 {% block content %}
         
-
-<section class="container pb-3" id="articles_section">
-  
+<section class="container pb-3 mt-5" id="articles_section">
+    {% if user.is_superuser %}
+    <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>
+    {% endif %}
     <div class="list-group articles_row">
-
-    </div>
+    </div>  
  
 </section>
 {% endblock content %}
@@ -21,6 +21,7 @@
 <script>
     ARTICLE_LIST_URL = 'api/articles/'
     ARTICLE_RETRIEVE_URL = "articles/"
+    CREATE_ARTICLE_URL = "{% url 'articles:create-article' %}"
     $(document).ready(function(){
         APP.articles_list.init()
         APP.articles_list.load_articles()
