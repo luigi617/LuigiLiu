@@ -19,8 +19,8 @@
 {% block js %}
 <script src="{% static 'javascript/articles_list.js' %}"></script>
 <script>
-    ARTICLE_LIST_URL = 'api/articles/'
-    ARTICLE_RETRIEVE_URL = "articles/"
+    ARTICLE_LIST_URL = '/api/articles/'
+    ARTICLE_RETRIEVE_URL = "/articles/"
     CREATE_ARTICLE_URL = "{% url 'articles:create-article' %}"
     $(document).ready(function(){
         APP.articles_list.init()
