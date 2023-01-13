@@ -141,5 +141,8 @@ APP['home'] = {
         }
 
         tick();
+        window.addEventListener('resize', function(event) {
+            tick();
+        }, true);
     },
 }
