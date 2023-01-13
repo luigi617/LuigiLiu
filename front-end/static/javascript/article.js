@@ -14,6 +14,7 @@ APP['article'] = {
                 $(".text-content").text(data["content"])
                 
                 MathJax.typesetPromise()
+
                 
             }
         })

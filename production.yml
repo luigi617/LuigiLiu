@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/Dockerfile
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    command: /start.sh
     volumes:
       - .:/code
       - static_volume:/code/front-end/static

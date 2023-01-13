@@ -29,10 +29,7 @@ COPY ./compose/local/entrypoint.sh /entrypoint.sh
 RUN sed -i "s/\r$//g" /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# copy start
-COPY ./compose/local/start.sh /start.sh
-RUN sed -i "s/\r$//g" /start.sh
-RUN chmod +x /start.sh
+
 
 
 
