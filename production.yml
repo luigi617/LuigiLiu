@@ -21,8 +21,8 @@ services:
     image: postgres
     restart: always
     volumes:
-      - prod_postgres_data:/var/lib/postgresql/data
-      - prod_postgres_data_backups:/backups
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_backups:/backups
     ports: 
       - "5432:5432"
     env_file:
@@ -37,6 +37,6 @@ services:
       - django
 
 volumes: 
-  prod_postgres_data: {}
-  prod_postgres_data_backups: {}
+  postgres_data: {}
+  postgres_data_backups: {}
   static_volume: {}
