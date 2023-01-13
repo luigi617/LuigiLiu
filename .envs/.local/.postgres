@@ -2,8 +2,8 @@
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
-POSTGRES_NAME=knowledgexchange
-POSTGRES_DB=knowledgexchange
+POSTGRES_NAME=luigidatabase
+POSTGRES_DB=luigidatabase
 POSTGRES_USER=jfaklsas71895hjkay3
 POSTGRES_PASSWORD=hfauiyrqweibnvjkdhiqweoy8134yjkgndfiu
 DATABASE=postgres
