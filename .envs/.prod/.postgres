@@ -1,6 +1,6 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
-POSTGRES_HOST=18.198.117.21
+POSTGRES_HOST=172.26.8.32
 POSTGRES_PORT=5432
 POSTGRES_NAME=luigidatabase
 POSTGRES_DB=luigidatabase
