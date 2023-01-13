@@ -142,7 +142,9 @@ APP['home'] = {
 
         tick();
         window.addEventListener('resize', function(event) {
-            tick();
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight-72;
+            canvas.dispatchEvent(new Event('mousemove'));
         }, true);
     },
 }
