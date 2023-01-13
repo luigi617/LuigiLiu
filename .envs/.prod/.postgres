@@ -4,6 +4,6 @@ POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
 POSTGRES_NAME=luigidatabase
 POSTGRES_DB=luigidatabase
-POSTGRES_USER=ieoqfvmakdljiojfefre
-POSTGRES_PASSWORD=jkldjajhj;jgp4ouhjklnfdasf
+POSTGRES_USER=luigi_database_user
+POSTGRES_PASSWORD=*Nn-fg6_cxH$ua23(Wq.v]pS=C7,M~
 DATABASE=postgres
