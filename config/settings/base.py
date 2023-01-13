@@ -125,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/front-end/static/'
+
 STATICFILES_DIRS = (
     os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'static'),
 )
