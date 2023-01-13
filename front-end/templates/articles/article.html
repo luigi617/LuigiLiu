@@ -22,7 +22,7 @@
 {% block js %}
 <script src="{% static 'javascript/article.js' %}"></script>
 <script>
-    ARTICLE_RETRIEVE_URL = 'api/articles/{{ pk }}'
+    ARTICLE_RETRIEVE_URL = '/api/articles/{{ pk }}'
     $(document).ready(function(){
         APP.article.init()
         APP.article.load_article()
