@@ -3,7 +3,9 @@ if (typeof(APP) == "undefined"){
 }
 APP['articles_list'] = {
     "init": function(){
-        
+        $(".create_article").click(function(){
+            window.location.href = BASE_URL + CREATE_ARTICLE_URL
+        })
     },
     "load_articles": function(){
         $.ajax({
@@ -14,12 +16,10 @@ APP['articles_list'] = {
                 for (let i = 0; i < data.results.length; i++){
                     $(".articles_row").prepend(
                         `
-                        <a href="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["id"]}" class="list-group-item list-group-item-action">${data.results[i]["title"]}</a>
+                        <a href="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["id"] + "/"}" class="list-group-item list-group-item-action">${data.results[i]["title"]}</a>
                         `
                     )
-                  
                 }
-                MathJax.typeset()
                 
             }
         })

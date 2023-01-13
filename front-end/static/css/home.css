@@ -1,3 +1,18 @@
+#dot_canvas{
+    background: #232323;
+    height: calc(100vh-72px);
+}
+.introduction{
+    color: white;
+    position: absolute;
+    top: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
 .crop {
     width: 200px;
     height: 250px;
@@ -12,6 +27,19 @@
     margin-left:auto;
     margin-right:auto;
     text-align:center
+}
+.article_card{
+    width: 200px!important;
+    cursor: pointer;
+    padding: 0px!important;
+    
+}
+.article_card:hover{
+    box-shadow: 0 0 0 1pt grey;
+    transition: .1s;
+}
+.article_img{
+    border: none;
 }
 .masonry_div{
     margin: 10px 10px 10px 10px;
@@ -31,6 +59,9 @@
 }
 @media (max-width: 768px) {
     .masonry_div{
+        width: 40%!important;
+    }
+    .article_card{
         width: 40%!important;
     }
   

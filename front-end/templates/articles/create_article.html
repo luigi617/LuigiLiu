@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/create_article.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container mt-5" id="create_article_section">
+    <div class="input-group flex-nowrap mb-3">
+        <span class="input-group-text" id="input_article_title">Title</span>
+        <input type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="input_article_title">
+    </div>
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" id="input_article_cover">
+      </div>
+      <div class="row">
+        <div class="col">
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Content" id="input_article_content"></textarea>
+              <label for="input_article_content">Content</label>
+            </div>
+        </div>
+        <div class="col">
+              <div class="diplay_content">
+              </div>
+        </div>
+      </div>
+    
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/create_article.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        APP.create_article.init()
+
+    })
+</script>
+{% endblock js %}

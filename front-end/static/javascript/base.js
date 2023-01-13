@@ -38,6 +38,45 @@ APP['base'] = {
             return "/front-end/static/assets/img/default-user-image.png"
         }
         return avatar
+    },
+    "parse_time": function parse_time(time_str){
+
+        date = Date.parse(time_str)
+        now = Date.now()
+        diff = now - date
+        diff_seconds = diff / (1000)
+        diff_minutes = diff / (1000 * 60)
+        diff_hours = diff / (1000 * 60 * 60)
+        diff_days = diff / (1000 * 60 * 60 * 24)
+        diff_months = diff / (1000 * 60 * 60 * 24 * 30)
+        diff_year = diff / (1000 * 60 * 60 * 24 * 30 * 12)
+        var res;
+        if (diff_year >= 2){
+            res = `${Math.floor(diff_year)} years ago`
+        } else if (diff_year >= 1){
+            res = `${Math.floor(diff_year)} year ago`
+        }else if (diff_months >= 2){
+            res = `${Math.floor(diff_months)} months ago`
+        }else if (diff_months >= 1){
+            res = `${Math.floor(diff_months)} month ago`
+        }else if (diff_days >= 2){
+            res = `${Math.floor(diff_days)} days ago`
+        }else if (diff_days >= 1){
+            res = `${Math.floor(diff_days)} day ago`
+        }else if (diff_hours >= 2){
+            res = `${Math.floor(diff_hours)} hours ago`
+        }else if (diff_hours >= 1){
+            res = `${Math.floor(diff_hours)} hour ago`
+        }else if (diff_minutes >= 2){
+            res = `${Math.floor(diff_minutes)} minutes ago`
+        }else if (diff_minutes >= 1){
+            res = `${Math.floor(diff_minutes)} minute ago`
+        }else if (diff_seconds >= 2){
+            res = `${Math.floor(diff_seconds)} seconds ago`
+        }else if (diff_seconds >= 1){
+            res = `${Math.floor(diff_seconds)} second ago`
+        }
+        return res
     }
 }
 

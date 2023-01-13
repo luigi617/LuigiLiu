@@ -10,11 +10,10 @@ APP['article'] = {
             method: "GET",
             url: BASE_URL + ARTICLE_RETRIEVE_URL,
             success: function(data){
-                console.log(data)
                 $(".text-title").text(data["title"])
                 $(".text-content").text(data["content"])
                 
-                MathJax.typeset()
+                MathJax.typesetPromise()
                 
             }
         })
