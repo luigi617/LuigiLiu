@@ -11,7 +11,22 @@
 
 .card-body{
     padding: 0px 0px 10px 0px!important;
-
+}
+.article{
+    cursor: pointer;
+}
+.article:hover{
+    background-color: #f8f9fa;
+}
+.article_date_modified{
+    font-size: 11px;
+}
+.edit_article{
+    cursor: pointer;
+}
+.edit_article_svg{
+    width: 25px;
+    height: 25px;
 }
 .masonry_div:hover{
     box-shadow: 0 0 0 1pt grey;
