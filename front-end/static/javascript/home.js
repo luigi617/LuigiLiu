@@ -24,7 +24,7 @@ APP['home'] = {
                             <img src="${data.results[i]["cover_img"]}" class="card-img-top article_img" alt="...">
                             <div class="card-body">
                             <p class="card-text fw-bold my-2">${data.results[i]["title"]}</p>
-                            <p class="card-text text-end mx-2">${APP.base.parse_time(data.results[i]["date_modified"])}</p>
+                            <p class="card-text fw-light text-end mx-2 article_date_modified">${APP.base.parse_time(data.results[i]["date_modified"])}</p>
                             </div>
                         </div>
                         `

@@ -10,8 +10,10 @@
     {% if user.is_superuser %}
     <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>
     {% endif %}
-    <div class="list-group articles_row">
-    </div>  
+
+    <ul class="list-group articles_row">
+    
+      </ul>
  
 </section>
 {% endblock content %}
@@ -22,6 +24,9 @@
     ARTICLE_LIST_URL = '/api/articles/'
     ARTICLE_RETRIEVE_URL = "/articles/"
     CREATE_ARTICLE_URL = "{% url 'articles:create-article' %}"
+    EDIT_ARTICLE_URL = "/articles/edit/"
+    EDIT_ARTICLE_SVG = "{% static 'assets/svg/edit.svg' %}"
+    AUTHENTICATED = "{{ request.user.is_authenticated }}" == "True" ? true : false
     $(document).ready(function(){
         APP.articles_list.init()
         APP.articles_list.load_articles()

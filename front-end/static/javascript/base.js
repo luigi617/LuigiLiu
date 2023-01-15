@@ -3,7 +3,11 @@ if (typeof(APP) == "undefined"){
 }
 APP['base'] = {
     "init": function(){
-        
+        $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+            if (options['type'].toLowerCase() === "post" || options['type'].toLowerCase() === "put") {
+                jqXHR.setRequestHeader('X-CSRFToken', APP.base.get_cookie('csrftoken'));
+            }
+        });
     },
     "sleep": function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -77,6 +81,24 @@ APP['base'] = {
             res = `${Math.floor(diff_seconds)} second ago`
         }
         return res
+    },
+    "parse_article_content": function parse_article_content(content) {
+        return content;
+    },
+    "get_cookie": function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
     }
 }
 
