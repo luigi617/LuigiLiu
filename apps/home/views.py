@@ -16,3 +16,8 @@ def sort(request):
     return render(request, "game/sort.html")
 def minesweeper(request):
     return render(request, "game/minesweeper.html")
+
+def page_not_found_view(request, *args, **argv):
+    return render(request, '404.html', status=404)
+def server_error(request, *args, **argv):
+    return render(request, '500.html', status=500)

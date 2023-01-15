@@ -11,7 +11,10 @@ APP['article'] = {
             url: BASE_URL + ARTICLE_RETRIEVE_URL,
             success: function(data){
                 $(".text-title").text(data["title"])
-                $(".text-content").text(data["content"])
+
+                var diplay_content = APP.base.parse_article_content(data["content"])
+                $(".text-content").empty()
+                $(".text-content").append(diplay_content)
                 
                 MathJax.typesetPromise()
 
