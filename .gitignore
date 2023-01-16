@@ -42,9 +42,9 @@ env/
 .envs/
 
 # Media and Static directories
-/fromt-end/media/
+fromt-end/media/
 
-/fromt-end/staticfiles/
+fromt-end/staticfiles/
 
 # Secrets
 secrets.json
