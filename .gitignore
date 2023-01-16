@@ -39,12 +39,12 @@ ipython_config.py
 
 # Environments
 env/
-.envs/
+.envs/*
+!.envs/.local/
 
 # Media and Static directories
-fromt-end/media/
-
-fromt-end/staticfiles/
+front-end/media/*
+front-end/staticfiles/*
 
 # Secrets
 secrets.json
