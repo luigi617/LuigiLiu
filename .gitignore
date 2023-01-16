@@ -1,3 +1,4 @@
-fromt-end/media/
+fromt-end/media/*
 fromt-end/staticfiles/
-.env/
+fromt-end/staticfiles/*
+.env/*
