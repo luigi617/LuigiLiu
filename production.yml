@@ -9,6 +9,7 @@ services:
     volumes:
       - .:/code
       - static_volume:/code/front-end/staticfiles
+      - media_volume:/code/front-end/media
     expose:
       - 8000
     env_file:
@@ -40,3 +41,4 @@ volumes:
   postgres_data: {}
   postgres_data_backups: {}
   static_volume: {}
+  media_volume: {}
