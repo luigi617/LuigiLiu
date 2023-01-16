@@ -43,10 +43,8 @@ env/
 
 # Media and Static directories
 fromt-end/media/
-!fromt-end/media/.gitkeep
 
 fromt-end/staticfiles/
-!fromt-end/staticfiles/.gitkeep
 
 # Secrets
 secrets.json
