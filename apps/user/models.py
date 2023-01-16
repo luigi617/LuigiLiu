@@ -9,7 +9,7 @@ from imagekit.processors import ResizeToFill
 
 
 def avatar_location(instance, filename):
-    folder_name = f'users/avatars/{instance.id}/'
+    folder_name = f'users/avatars/'
     return os.path.join(folder_name, filename)
 class User(AbstractUser):
     phone = PhoneNumberField(unique=True, blank=True, null=True)
