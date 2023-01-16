@@ -6,7 +6,7 @@ import os
 # Create your models here.
 
 def cover_location(instance, filename):
-    folder_name = f'articles/cover/{instance.id}/'
+    folder_name = f'articles/cover/'
     return os.path.join(folder_name, filename)
 
 class Article(TimeStampedModel):
