@@ -21,6 +21,4 @@ class User(AbstractUser):
                                            )
 
     def save(self, *args, **kwargs):
-
-
         return super(User, self).save(*args, **kwargs)
