@@ -4,6 +4,14 @@ Base settings to build other settings files upon.
 from pathlib import Path
 import os
 
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = int(os.environ.get("DEBUG", default=0))
+
+
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS = ["*"]
+
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 APPS_DIR = str(ROOT_DIR) + "/apps/"
 
