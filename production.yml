@@ -32,6 +32,7 @@ services:
     build: ./nginx
     volumes:
       - static_volume:/code/front-end/static
+      - media_volume:/code/front-end/media
     ports:
       - 80:80
     depends_on:
