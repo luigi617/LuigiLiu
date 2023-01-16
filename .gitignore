@@ -1,6 +1,3 @@
-
-
-
 # .gitignore
 ### Python template
 # Byte-compiled / optimized / DLL files
@@ -42,7 +39,7 @@ ipython_config.py
 
 # Environments
 env/
-.env/
+.envs/
 
 # Media and Static directories
 /fromt-end/media/
