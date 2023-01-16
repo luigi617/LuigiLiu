@@ -17,18 +17,19 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+import os
 
 urlpatterns = [
     path('', include('apps.home.urls', namespace="home")),
     path('articles/', include('apps.article.urls', namespace="articles")),
     # path('user/', include('apps.user.urls')),
     # path('accounts/', include('allauth.urls')),
-    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += [
     path('api/', include('rest_framework.urls')),
     path('api/', include('apps.api.urls')),
+    path(os.environ.get("DJANGO_ADMIN", default="admin"), admin.site.urls),
 
 ]
 
