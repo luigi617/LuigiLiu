@@ -25,13 +25,28 @@ APP['edit_article'] = {
                 //     xhr.setRequestHeader('X-CSRFToken', CSRF_TOKEN)
                 // },    
                 success: function(data){
-                    console.log(data)
+                    window.location.href = ARTICLE_LIST
                 }
             })
 
         })
-        $("#input_article_content").on('change keyup paste', function() {
-            var diplay_content = APP.base.parse_article_content($(this).val())
+        // $("#input_article_content").on('change keyup paste', function() {
+        //     var diplay_content = APP.base.parse_article_content($(this).val())
+        //     $(".diplay_content").empty()
+        //     $(".diplay_content").append(diplay_content)
+        //     MathJax.typesetPromise()
+        // })
+        $('#input_article_content').keyup(function (event) {
+            if (event.keyCode == 13 & event.shiftKey) {
+                event.preventDefault()
+                var diplay_content = APP.base.parse_article_content($(this).val())
+                $(".diplay_content").empty()
+                $(".diplay_content").append(diplay_content)
+                MathJax.typesetPromise()
+            }
+        });
+        $(".parse_article").click(function(){
+            var diplay_content = APP.base.parse_article_content($("#input_article_content").val())
             $(".diplay_content").empty()
             $(".diplay_content").append(diplay_content)
             MathJax.typesetPromise()

@@ -10,3 +10,6 @@
 #input_article_content{
     height: 600px;
 }
+.content_row .col{
+    width: 50%;
+}
