@@ -149,17 +149,32 @@ APP['home'] = {
         init();
         tick();
         var resizeTimer;
-        window.addEventListener('resize', function(event) {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                // Run code here, resizing has "stopped"      
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight-72;
-                console.log(requestId)
-                cancelAnimationFrame(requestId);
-                init();
-                tick();
-            }, 50);
-        }, true);
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $(window).on("orientationchange", function(){
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Run code here, resizing has "stopped"      
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight-72;
+                    console.log(requestId)
+                    cancelAnimationFrame(requestId);
+                    init();
+                    tick();
+                }, 100);
+            })
+        } else {
+            window.addEventListener('resize', function(event) {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Run code here, resizing has "stopped"      
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight-72;
+                    console.log(requestId)
+                    cancelAnimationFrame(requestId);
+                    init();
+                    tick();
+                }, 100);
+            }, true);
+        }
     },
 }
