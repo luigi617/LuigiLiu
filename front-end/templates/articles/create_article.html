@@ -9,21 +9,24 @@
 
 <section class="container mt-5" id="create_article_section">
     <form class="row row-cols-lg-auto g-3 align-items-center mb-3">
-        <div class="col-12">
+        <div class="col">
             <label class="visually-hidden" for="input_article_title">Title</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="input_article_title" placeholder="Title">
             </div>
         </div>
-        <div class="col-12">
+        <div class="col">
             <input type="file" class="form-control" id="input_article_cover">
         </div>
-        <div class="col-12">
+        <div class="col">
             <button type="button" class="btn btn-dark create_article flex-end">Create Article</button>
+        </div>
+        <div class="offset-3 col align-self-end">
+            <button type="button" class="btn btn-dark parse_article flex-end">Parse Article</button>
         </div>
     </form>
    
-    <div class="row">
+    <div class="row content_row">
         <div class="col">
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Content" id="input_article_content"></textarea>
@@ -44,6 +47,7 @@
 <script src="{% static 'javascript/create_article.js' %}"></script>
 <script>
     ARTICLE_CREATION_URL = "/api/articles/creation/"
+    ARTICLE_LIST = "/articles/"
     $(document).ready(function(){
         APP.create_article.init()
 

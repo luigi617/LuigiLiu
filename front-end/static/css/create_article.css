@@ -6,7 +6,11 @@
     height: 600px;
     overflow-y: scroll;
     word-break: break-word;
+    overflow-x: scroll;
 }
 #input_article_content{
     height: 600px;
+}
+.content_row .col{
+    width: 50%;
 }

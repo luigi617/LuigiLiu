@@ -23,13 +23,14 @@ class ArticleCreationAPIView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         title = request.data.get("title")
         content = request.data.get("content")
-        cover_img = request.FILES.getlist("cover")[0]
+        cover_img = request.FILES.getlist("cover")
         data = {
             "title": title,
             "content": content,
-            "cover_img": cover_img,
             "user": request.user.id,
         }
+        if cover_img:
+            data.update({"cover_img": cover_img[0]})
         serializer = ArticleCreateSerializer(data = data)
 
         if serializer.is_valid():
