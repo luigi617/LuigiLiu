@@ -56,10 +56,8 @@ class ArticleUpdateAPIView(generics.UpdateAPIView):
             data.update({"cover_img": cover_imgs[0]})
         instance = Article.objects.get(id = id)
         serializer = ArticleCreateSerializer(instance, data = data, partial=True)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
-        print(serializer.errors)
         return Response(serializer.data)
 
 
