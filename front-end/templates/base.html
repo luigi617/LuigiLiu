@@ -30,7 +30,8 @@
                 
                 <ul class="navbar-nav ms-auto my-0">
                     <li class="nav-item"><a class="nav-link" href="{% url 'articles:articles' %}">Articles</a></li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home:game_list' %}">Games</a></li>
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
@@ -39,9 +40,10 @@
                             <li><a class="dropdown-item" href="{% url 'home:sort' %}">Sort</a></li>
                             <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
                         </ul>
-                    </li>
+                    </li> -->
+                    {% comment %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutme' %}">About Me</a></li>
-                   
+                    {% endcomment %}
                 </ul>
 
             </div>
@@ -53,9 +55,11 @@
        {% endblock content %}
        
        <!-- Footer-->
-       <!-- <footer class="bg-light py-5 mt-5">
-           <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Company Name</div></div>
-        </footer> -->
+       {% if request.get_full_path == "/" %}
+       <footer class="bg-light py-5 mt-5">
+           <div class="container px-4 px-lg-5"><div class="small text-center text-muted">No more content - Contact: <a href="mailto:luigiliu617@gmail.com">luigiliu617@gmail.com</a></div></div>
+        </footer>
+        {% endif %}
         <script src="{% static 'bootstrap-5.2.3/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
@@ -76,8 +80,8 @@
               };
         </script>
         <script>
-            BASE_URL = "http://luigiliu.net"
-            // BASE_URL = "http://localhost:8000"
+            // BASE_URL = "http://luigiliu.net"
+            BASE_URL = "http://localhost:8000"
             $(document).ready(function(){
                 APP.base.init()
                 

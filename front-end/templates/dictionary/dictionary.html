@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/dictionary.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 mt-5" id="dictionary_section">
+    
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/dictionary.js' %}"></script>
+<script>
+    SEARCH_WORD_DICTIONARY = "/api/dictionary/"
+    $(document).ready(function(){
+        APP.dictionary.init()
+      
+    })
+</script>
+{% endblock js %}

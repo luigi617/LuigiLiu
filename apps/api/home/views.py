@@ -15,6 +15,9 @@ class RandomArticleListAPIView(generics.ListAPIView):
         indexes = random.sample(range(len(queryset)), k=k)
         queryset = [queryset[q] for q in indexes]
         return queryset
+
+def dictionary_word_API_view():
+    return
     
 
 

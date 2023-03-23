@@ -3,73 +3,44 @@
     height: calc(100vh-72px);
 }
 .introduction{
-    color: white;
     position: absolute;
-    top: 45%;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    text-align: center;
+    width: 300px;
+    
+}
+.introduction_main_text{
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+.introduction_text{
+    color: white;
+    font-size: 16px;
+    align-self: center;
+    padding: 0px!important;
+}
+.article_row, .game_row{
+    margin: 200px 250px 50px 250px!important;
+}
+.article_text, .game_text{
+    align-self: center;
+}
+.book_img, .game_img{
+    width: 300px;
+
 }
 
-.crop {
-    width: 200px;
-    height: 250px;
-    object-fit: cover;
-}
-.astronaut_img{
-    width: 100%;
-    object-fit: cover;
 
-}
 .center {
     margin-left:auto;
     margin-right:auto;
     text-align:center
 }
-.article_card{
-    margin: 10px 10px 10px 10px;
-    width: 200px!important;
-    cursor: pointer;
-    padding: 0px!important;
-    
-}
-.article_card:hover{
-    box-shadow: 0 0 0 1pt grey;
-    transition: .1s;
-}
-.article_img{
-    border: none;
-    object-fit: cover;
-    aspect-ratio: 1;
-}
-.article_date_modified{
-    font-size: 11px;
-}
-.masonry_div{
-    margin: 10px 10px 10px 10px;
-    width: 200px!important;
-    cursor: pointer;
-}
-.masonry_div .masonry_body{
-    margin: 20px;
-}
-.card-body{
-    padding: 0px 0px 10px 0px!important;
 
-}
-.masonry_div:hover{
-    box-shadow: 0 0 0 1pt grey;
-    transition: .1s;
-}
-@media (max-width: 768px) {
-    .masonry_div{
-        width: 40%!important;
-    }
-    .article_card{
-        width: 40%!important;
-    }
-  
-}
+
+
 
