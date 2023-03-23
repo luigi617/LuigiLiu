@@ -1,4 +1,18 @@
+@font-face {
+  font-family: cochin;
+  src: url("../assets/font/cochin-regular.otf") format("opentype");
+}
 
+@font-face {
+  font-family: cochin;
+  font-style: italic;
+  src: url("../assets/font/cochin-italic.otf") format("opentype");
+}
+@font-face {
+  font-family: cochin;
+  font-weight: bold;
+  src: url("../assets/font/cochin-bold.otf") format("opentype");
+}
 html {
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
@@ -7,9 +21,17 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: cochin;
+  font-size: 20px;
 }
-
+h5 {
+  font-weight: bold;
+  font-size: 25px;
+}
+h3 {
+  font-weight: bold;
+  font-size: 40px;
+}
 .page-section {
   padding: 5rem 0;
 }
@@ -48,7 +70,7 @@ hr.divider-light {
 }
 
 #mainNav .navbar-brand {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
   font-weight: 700;
   /* color: #212529; */
 }

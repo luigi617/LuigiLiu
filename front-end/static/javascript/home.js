@@ -6,34 +6,31 @@ APP['home'] = {
         $(".masonry_div").click(function(){
             window.location.href = $(this).data("url")
         })
-        $(document).on("click", ".article_card", function(el){
-            window.location.href = $(el.target.closest(".article_card")).data("url")
-        })
        
     },
-    "load_articles": function(){
-        $.ajax({
-            method: "GET",
-            url: BASE_URL + RANDOM_ARTICLE_LIST_URL,
-            success: function(data){
+    // "load_articles": function(){
+    //     $.ajax({
+    //         method: "GET",
+    //         url: BASE_URL + RANDOM_ARTICLE_LIST_URL,
+    //         success: function(data){
 
-                for (let i = 0; i < data.results.length; i++){
-                    $(".article_row").append(
-                        `
-                        <div class="card article_card" data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["id"] + "/"}">
-                            <img src="${data.results[i]["cover_img"]}" class="card-img-top article_img" alt="...">
-                            <div class="card-body">
-                            <p class="card-text fw-bold my-2">${data.results[i]["title"]}</p>
-                            <p class="card-text fw-light text-end mx-2 article_date_modified">${APP.base.parse_time(data.results[i]["date_modified"])}</p>
-                            </div>
-                        </div>
-                        `
-                    )
-                }
+    //             for (let i = 0; i < data.results.length; i++){
+    //                 $(".article_row").append(
+    //                     `
+    //                     <div class="card article_card" data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["id"] + "/"}">
+    //                         <img src="${data.results[i]["cover_img"]}" class="card-img-top article_img" alt="...">
+    //                         <div class="card-body">
+    //                         <p class="card-text fw-bold my-2">${data.results[i]["title"]}</p>
+    //                         <p class="card-text fw-light text-end mx-2 article_date_modified">${APP.base.parse_time(data.results[i]["date_modified"])}</p>
+    //                         </div>
+    //                     </div>
+    //                     `
+    //                 )
+    //             }
                 
-            }
-        })
-    },
+    //         }
+    //     })
+    // },
 
     "canva_dot": function(){
         var canvas = document.getElementById("dot_canvas"),
@@ -43,6 +40,7 @@ APP['home'] = {
         canvas.height = window.innerHeight-72;
     
         function dot_num() {
+            // return 50
             return Math.ceil((canvas.width * canvas.height) * 100/1077120)
         }
         
@@ -64,7 +62,7 @@ APP['home'] = {
                 stars.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 1 + 1,
+                    radius: Math.random() * 2 + 1,
                     vx: Math.floor(Math.random() * 50) - 25,
                     vy: Math.floor(Math.random() * 50) - 25
                 });
@@ -81,7 +79,7 @@ APP['home'] = {
             for (var i = 0, x = stars.length; i < x; i++) {
                 var s = stars[i];
             
-                ctx.fillStyle = "#fff";
+                ctx.fillStyle = "#bcbcbc";
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
                 ctx.fill();
@@ -92,11 +90,18 @@ APP['home'] = {
             ctx.beginPath();
             for (var i = 0, x = stars.length; i < x; i++) {
                 var starI = stars[i];
-                ctx.moveTo(starI.x,starI.y); 
-                if(distance(mouse, starI) < 150) ctx.lineTo(mouse.x, mouse.y-72+window.scrollY);
+                ctx.moveTo(starI.x,starI.y);
+                var distance_num = 150
+                // console.log(canvas.width)
+                // if(canvas.width < 600) {
+                //     distance_num = 50
+                // } else if (canvas.width < 900){
+                //     distance_num = 80
+                // }
+                if(distance(mouse, starI) < distance_num) ctx.lineTo(mouse.x, mouse.y-72+window.scrollY);
                 for (var j = 0, x = stars.length; j < x; j++) {
                     var starII = stars[j];
-                    if(distance(starI, starII) < 150) {
+                    if(distance(starI, starII) < distance_num) {
                         //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
                         ctx.lineTo(starII.x,starII.y); 
                     }
