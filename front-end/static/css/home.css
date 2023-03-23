@@ -42,5 +42,10 @@
 }
 
 
-
+@media (max-width: 768px) {
+    .article_row, .game_row{
+        margin: 200px 0px 50px 0px!important;
+    }
+  
+}
 
