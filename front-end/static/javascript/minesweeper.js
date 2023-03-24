@@ -126,7 +126,7 @@ APP['minesweeper'] = {
                             $(this).empty()
                         } else {
                             $(this).addClass("flagged")
-                            $(this).append(`<img src="${flag}" style="margin:3px"></i>`)
+                            $(this).append(`<img src="${flag}" style="width:15px"></i>`)
                         }
                     })
                 }
@@ -198,7 +198,7 @@ APP['minesweeper'] = {
                     if (text == 0){
                         text = ""
                     } else if (text == -1){
-                        text = `<img src="${bomb}""></i>`
+                        text = `<img src="${bomb}" style='width:15px'"></i>`
                     }
                     $("#minesweeper_table").last().append(`<td id='cell-${i}-${j}' class='visited'>${text}</td>`)
 

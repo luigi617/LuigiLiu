@@ -169,12 +169,13 @@ APP['home'] = {
             })
         } else {
             window.addEventListener('resize', function(event) {
+                if (Math.abs(canvas.height-window.innerHeight) < 105){return}
+                this.alert(Math.abs(canvas.height-window.innerHeight))
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(function() {
                     // Run code here, resizing has "stopped"      
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight-72;
-                    console.log(requestId)
                     cancelAnimationFrame(requestId);
                     init();
                     tick();

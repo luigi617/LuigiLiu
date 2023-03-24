@@ -149,6 +149,9 @@
                 <div class="row p-0">
                     <div class="col-6">
                         <button type="button" class="btn btn-outline-dark generate_sudoku">Generate random sudoku</button>
+                        <div class="generating_spinner spinner-border d-none" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                     </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-outline-dark reset_sudoku">Reset</button>
@@ -166,7 +169,7 @@
                     <div class="col-4">
                         <button type="button" class="btn btn-outline-dark solve_sudoku">Solve it</button>
                         <span class="ml-2 no-solution"></span>
-                        <div class="spinner-border d-none" role="status">
+                        <div class="solving_spinner spinner-border d-none" role="status">
                             <span class="visually-hidden">Loading...</span>
                           </div>
                     </div>
@@ -223,6 +226,12 @@
 <script src="{% static 'javascript/sudoku.js' %}"></script>
 <script>
     var restrictions = []
+    var position = []
+    for (let i = 0; i <= 8; i++){
+        for (let j = 0; j <= 8; j++){
+            position.push([i, j])
+        }
+    }
     $(document).ready(function(){
         APP.sudoku.init()
     })
