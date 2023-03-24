@@ -1,6 +1,6 @@
 DJANGO_SECRET_KEY=django-insecure-nla%885q7js$#m_xvnf&z8c3s*+4vb5ezq)#3s80-9b&!$h3-#
 DEBUG=1
-DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 192.168.1.44 10.12.105.12
+DJANGO_ALLOWED_HOSTS=*
 
 RAPID_API_HOST=wordsapiv1.p.rapidapi.com
 RAPID_API_KEY=e639484a25msh0bacd6668936e28p178ae3jsn82e0a464e517

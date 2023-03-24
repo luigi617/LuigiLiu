@@ -3,8 +3,6 @@ if (typeof(APP) == "undefined"){
 }
 APP['sudoku'] = {
     "init": function(){
-
-
         for (let i = 0; i <= 8; i++){
             for (let j = 0; j <= 8; j++){
                 if ($(window).width() < 768) {
@@ -24,6 +22,7 @@ APP['sudoku'] = {
         }
 
         $("#inpur_table td button").click(function(){
+            if ($(".sudoku_board td.selected input").hasClass("fixed")){return}
             if ($(this).hasClass("cancel")){
                 $(".sudoku_board td.selected input")[0].value = ""    
             } else {
@@ -35,11 +34,12 @@ APP['sudoku'] = {
             for (let i = 0; i <= 8; i++){
                 for (let j = 0; j <= 8; j++){
                     $("td#cell-" + i.toString() + "-" + j.toString() + " input")[0].value = ""
+                    $("td#cell-" + i.toString() + "-" + j.toString() + " input").removeClass("fixed")
                 }
             }
         })
         $(".solve_sudoku").click(async function(){
-            $(".spinner-border").removeClass("d-none")
+            $(".solving_spinner").removeClass("d-none")
             await APP.base.sleep(50)
             var sudoku = []
             for (let i = 0; i <= 8; i++){
@@ -61,7 +61,7 @@ APP['sudoku'] = {
                     }
                 }
             }
-            $(".spinner-border").addClass("d-none")
+            $(".solving_spinner").addClass("d-none")
             if (!solved_sudoku){
                 $(".no-solution").text("No Sulution")
             } else {
@@ -110,7 +110,7 @@ APP['sudoku'] = {
                 let trial = candidates[i]
                 sudoku[next[1][0]][next[1][1]] = trial
                 $("td#cell-" + next[1][0].toString() + "-" + next[1][1].toString() + " input")[0].value = trial.toString()
-                await APP.base.sleep(100)
+                await APP.base.sleep(50)
                 if (check_validity(sudoku)){
                     res = await solve_sudoku_async(sudoku)
                 }
@@ -276,31 +276,41 @@ APP['sudoku'] = {
 
 
 
-        $(".generate_sudoku").click(function(){
-            count = 20
+        $(".generate_sudoku").click(async function(){
+            $(".reset_sudoku").click()
+            $(".generating_spinner").removeClass("d-none")
+            if ($(".generate_sudoku").prop('disabled')){return}
+            $(".generate_sudoku").prop('disabled', true);
+            await APP.base.sleep(50)
+            count = 3
             while (count){
                 var new_sudoku = empty_sudoku()
-            
+                var temp_pos = position.slice()
                 for (let i = 0; i < Math.floor(Math.random() * 11) + 15; i++){
-                    var row = Math.floor(Math.random() * 9);
-                    var col = Math.floor(Math.random() * 9);
-                    while (!isNaN(new_sudoku[row][col])){
-                        row = Math.floor(Math.random() * 9);
-                        col = Math.floor(Math.random() * 9);
-                    }
+                    pos = temp_pos[Math.floor(Math.random() * temp_pos.length)]
+                    temp_pos.splice(Math.floor(Math.random() * temp_pos.length), 1)
+                    var row = pos[0]
+                    var col = pos[1]
                     let candidates = get_possible_candidates(new_sudoku, [row, col])
                     new_sudoku[row][col] = candidates[Math.floor(Math.random() * candidates.length)];
                 }
+                console.log(solve_sudoku(new_sudoku))
                 if (solve_sudoku(new_sudoku)){
                     break
                 }
                 count--
             }
+
             for (let i = 0; i <= 8; i++){
                 for (let j = 0; j <= 8; j++){
-                    $("td#cell-" + i.toString() + "-" + j.toString() + " input")[0].value = isNaN(new_sudoku[i][j]) ? "" : new_sudoku[i][j].toString()
+                    if (!isNaN(new_sudoku[i][j])){
+                        $("td#cell-" + i.toString() + "-" + j.toString() + " input")[0].value = new_sudoku[i][j].toString()
+                        $("td#cell-" + i.toString() + "-" + j.toString() + " input").addClass("fixed")
+                    }
                 }
             }
+            $(".generating_spinner").addClass("d-none")
+            $(".generate_sudoku").prop('disabled', false);
         
         })
 
