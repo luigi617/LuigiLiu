@@ -19,6 +19,8 @@ def sort(request):
     return render(request, "game/sort.html")
 def minesweeper(request):
     return render(request, "game/minesweeper.html")
+def pokemon_database(request):
+    return render(request, "game/pokemon_database.html")
 
 def dictionary(request):
     return render(request, "dictionary/dictionary.html")

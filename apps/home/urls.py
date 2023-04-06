@@ -6,11 +6,12 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('aboutme/', views.aboutme, name='aboutme'),
     path('games/', views.game_list, name='game_list'),
-    path('game/sudoku/', views.sudoku, name='sudoku'),
-    path('game/maze/', views.maze, name='maze'),
-    path('game/typing/', views.typing, name='typing'),
-    path('game/sort/', views.sort, name='sort'),
-    path('game/minesweeper/', views.minesweeper, name='minesweeper'),
+    path('games/sudoku/', views.sudoku, name='sudoku'),
+    path('games/maze/', views.maze, name='maze'),
+    path('games/typing/', views.typing, name='typing'),
+    path('games/sort/', views.sort, name='sort'),
+    path('games/minesweeper/', views.minesweeper, name='minesweeper'),
+    path('games/pokemon_database/', views.pokemon_database, name='pokemon_database'),
     # path('dictionary/', views.dictionary, name='dictionary'),
     
 ]
