@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/pokemon_database.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 mt-5" id="pokemon_database_section">
+    <table class="pokemon_table mx-auto">
+        <tr>
+            <th>Index</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>HP</th>
+            <th>Attack</th>
+            <th>Special Attack</th>
+            <th>Defence</th>
+            <th>Special Defence</th>
+            <th>Base Total</th>
+            <th>Capture rate</th>
+            <th colspan="2">Type</th>
+        </tr>
+    </table>
+
+    <nav class="mt-3 mr-3">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a class="page-link load_more" href="javascript:void(0)">Load More</a>
+          </li>
+        </ul>
+      </nav>
+
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/pokemon_database.js' %}"></script>
+<script>
+    page = 1
+    POKEMON_LIST_ULR = `/api/pokemon-list/`
+    POKEMON_IMAGE_API = "https://pokeapi.co/api/v2/"
+    $(document).ready(function(){
+        APP.pokemon_database.init()
+        APP.pokemon_database.load_pokemon(page)
+    })
+</script>
+
+{% endblock js %}

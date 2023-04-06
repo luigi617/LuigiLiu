@@ -100,7 +100,7 @@ APP['base'] = {
             }
         }
         return cookieValue;
-    }
+    },
 }
 
 
