@@ -62,6 +62,7 @@ APP['nonogram'] = {
             }
         }),
         $("#solve").click(function(){
+
             var row_size = parseInt($("#size")[0].value)
             var col_size = parseInt($("#size")[0].value)
             var row = []
@@ -75,6 +76,7 @@ APP['nonogram'] = {
                     return
                 }
             }
+            $("#message").text("Wait")
             var column = []
             for (let i = 0; i < col_size; i++){
                 column.push([])
@@ -96,7 +98,6 @@ APP['nonogram'] = {
                 },
    
                 success: function(data){
-                    console.log(data)
                     for (let row = 0; row < data.length; row++){
                         for (let col = 0; col < data[row].length; col++){
                             if (data[row][col] == 1){
@@ -106,6 +107,10 @@ APP['nonogram'] = {
                             }
                         }
                     }
+                    $("#message").text("Done")
+                },
+                error: function (request, status, error) {
+                    $("#message").text(request.responseText)
                 }
             })
 
