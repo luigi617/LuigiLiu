@@ -1,0 +1,60 @@
+
+#nonogram_table td{
+    text-align: center;
+    border: 1px solid black;
+    /* width: 25px; */
+    height: 25px;
+    font-size: 13px;
+    padding: 0px;
+    font-weight: 800;
+    cursor: pointer;
+}
+/* 
+#nonogram_table td:hover{
+    background-color: rgb(200, 200, 200);
+} */
+.hint_number:hover, .hint_number_row:hover{
+    background-color: rgb(200, 200, 200);
+}
+#size{
+    width: 100px;
+}
+#message{
+    border: 1px solid black;
+    min-width: 200px;
+    height: 35px;
+    padding: 5px;
+}
+.column_input_td{
+    vertical-align: bottom;
+}
+.row_input_td{
+    text-align: end!important;
+    /* min-width: 25px;
+    width:unset!important; */
+    
+}
+.hint_number{
+    width: 25px;
+    height: 25px;
+}
+.hint_number_row{
+    padding: 0px 6px;
+}
+input[name="nonogram_input"]{
+    width: 25px;
+    height: 25px;
+    border: none;
+    text-align: center;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

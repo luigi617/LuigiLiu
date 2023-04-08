@@ -27,6 +27,10 @@
 .card-title{
     font-size: 20px;
 }
+.nonogram_img{
+    height: 138px;
+    object-fit: contain;
+}
 @media (max-width: 768px) {
     .masonry_div{
         width: 40%!important;

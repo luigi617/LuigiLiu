@@ -12,6 +12,7 @@ urlpatterns = [
     path('games/sort/', views.sort, name='sort'),
     path('games/minesweeper/', views.minesweeper, name='minesweeper'),
     path('games/pokemon_database/', views.pokemon_database, name='pokemon_database'),
+    path('games/nonogram/', views.nonogram, name='nonogram'),
     # path('dictionary/', views.dictionary, name='dictionary'),
     
 ]

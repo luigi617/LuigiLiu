@@ -21,6 +21,8 @@ def minesweeper(request):
     return render(request, "game/minesweeper.html")
 def pokemon_database(request):
     return render(request, "game/pokemon_database.html")
+def nonogram(request):
+    return render(request, "game/nonogram.html")
 
 def dictionary(request):
     return render(request, "dictionary/dictionary.html")
