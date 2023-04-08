@@ -57,9 +57,9 @@ APP['minesweeper'] = {
 
             $("#minesweeper_table").empty()
             for (let i = 0; i < row_size; i++){
-                $("#minesweeper_table").append("<tbody></tbody>")
+                $("#minesweeper_table").append("<tr></tr>")
                 for (let j = 0; j < col_size; j++){
-                    $("#minesweeper_table").last().append(`<td id='cell-${i}-${j}'></td>`)
+                    $("#minesweeper_table").children().last().append(`<td id='cell-${i}-${j}'></td>`)
                     $(`#minesweeper_table td#cell-${i}-${j}`).click(function(){
                         if ($(this).hasClass("visited")){
                             return
@@ -192,7 +192,7 @@ APP['minesweeper'] = {
         function lose(row_size, col_size){
             $("#minesweeper_table").empty()
             for (let i = 0; i < row_size; i++){
-                $("#minesweeper_table").append("<tbody></tbody>")
+                $("#minesweeper_table").append("<tr></tr>")
                 for (let j = 0; j < col_size; j++){
                     var text = minesweeper[i][j]
                     if (text == 0){
@@ -200,7 +200,7 @@ APP['minesweeper'] = {
                     } else if (text == -1){
                         text = `<img src="${bomb}" style='width:15px'"></i>`
                     }
-                    $("#minesweeper_table").last().append(`<td id='cell-${i}-${j}' class='visited'>${text}</td>`)
+                    $("#minesweeper_table").children().last().append(`<td id='cell-${i}-${j}' class='visited'>${text}</td>`)
 
                 }
             }

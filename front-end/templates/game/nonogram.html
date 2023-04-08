@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/nonogram.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 mt-5" id="nonogram_section">
+    <div class="row mx-md-3">
+        <div class="col-12 col-md-6 mb-3 mb-md-0">
+
+            Size: <input id="size" type="number" value="10" min="0" max="20">
+            <button id="select_size" type="button" class="btn btn-outline-dark">Start game/Change size</button>
+            <button id="solve" type="button" class="btn btn-outline-dark">Solve</button>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mx-2" id="message"></div>
+        </div>
+    </div>
+    <div class="row py-5">
+        <div class="col justify-content-center d-flex">
+
+            <table id="nonogram_table">
+    
+            </table>
+        </div>
+    </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/nonogram.js' %}"></script>
+<script>
+    NONOGRAM_SOLVER_API_URL = "/api/nonogram-solver/"
+    row = [[1, 2, 1], [2, 2, 2], [3, 1, 1], [1, 1, 2], [2, 1, 4], [2, 1, 4], [2, 1, 4], [2, 3], [1, 2, 1, 2], [1, 2, 1, 2]] 
+    col = [[5, 2], [2, 4], [1, 4], [2], [7, 1], [2], [6], [1, 4], [1, 7], [6, 2]]
+    $(document).ready(function(){
+        APP.nonogram.init()
+        $("#select_size").click()
+        // APP.nonogram.insert_hint_number(row, col)
+    })
+</script>
+{% endblock js %}
