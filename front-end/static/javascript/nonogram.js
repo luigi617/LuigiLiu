@@ -41,7 +41,7 @@ APP['nonogram'] = {
                 $("#nonogram_table").append("<tr></tr>")
                 $("#nonogram_table").children().last().append(
                     `<td id='cell-${i}-' class="row_input_td" style="border-right: 1.5px solid black;">
-                        <input type="number" id="input-cell-${i}-" name="nonogram_input">
+                            <input type="number" id="input-cell-${i}-" name="nonogram_input">
                     </td>`
                 )
                 $(`#input-cell-${i}-`).keyup(function(e){

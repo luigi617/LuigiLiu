@@ -1,0 +1,34 @@
+.object_row{
+    text-align: center;
+}
+.object_img{
+    width: 300px;
+}
+#evidence_temp_img, #hint_evidence_temp_img{
+    width: 200px;
+}
+.hint_row{
+    border-bottom: 1px black solid;
+    padding: 10px 50px;
+}
+.hint_img{
+    width: 200px;
+    margin: 10px 0px;
+}
+.input_treasure_evidence_div{
+    border: 1px black solid;
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 11px;
+    text-align: center;
+}
+.input_treasure_hint_evidence_div{
+    border: 1px black solid;
+    width: max-content;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 11px;
+    text-align: center;
+}

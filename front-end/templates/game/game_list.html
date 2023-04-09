@@ -13,6 +13,14 @@
       </h3>
       <div class="row text-center d-flex justify-content-center my-5 w-100">
         
+        <div class="card masonry_div" data-url="{% url 'treasure_hunt:treasure_hunt' %}">
+          <div class="masonry_body">
+              <div class="card-body">
+                <h5 class="card-title">Treasure Hunt</h5>
+              </div>
+              <img src="{% static 'assets/img/treasure_hunt.jpg' %}" class="card-img-bottom" alt="...">
+            </div>
+          </div>
         <div class="card masonry_div" data-url="{% url 'home:nonogram' %}">
           <div class="masonry_body">
               <div class="card-body">
