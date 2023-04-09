@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/treasure.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class=" pb-3 mt-5" id="treasure_section">
+   <div class="row object_row w-100 mx-0">
+    <div class="col-12">
+      <h3>Treasure</h3>
+    </div>
+    <div class="col-12 px-3 px-sm-0">
+      Find this element (you must take a selfie with this element)
+    </div>
+    <div class="col-12 mb-3">
+      Found it? Upload the picture
+      <div class="input_treasure_evidence_div mt-3">
+        <strong>Upload image</strong>
+        
+      </div>
+      <input type="file" id="input_treasure_evidence" class="d-none">
+        
+    </div>
+    <div class="col-12">
+      <img src="" class="object_img" alt="Error: contact...">
+    </div>
+   </div>
+   <div class="hint_row w-100">
+    <h4>Hints</h4>
+   </div>
+   <div class="hint_section w-100">
+
+   </div>
+
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/treasure.js' %}"></script>
+<script>
+  RETRIVE_TREASURE_URL = "/api/treasures/{{ pk }}"
+  RETRIVE_TREASURE_HINTS_URL = "/api/treasures/{{ pk }}/hints/"
+  UPDATE_GROUP_TREASURE_URL = "/api/group-treasure/"
+  UPDATE_GROUP_TREASURE_HINT_URL = "/api/group-treasure-hint/"
+  treasure_id = "{{ pk }}"
+  $(document).ready(function(){
+      APP.treasure.init()
+      APP.treasure.load_treasure()
+      APP.treasure.load_treasure_hints()
+  })
+</script>
+{% endblock js %}

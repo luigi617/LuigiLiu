@@ -1,0 +1,31 @@
+/* #treasure_hunt_section{
+    width: 100%;
+} */
+.group_info{
+    width: 100%;
+    margin: 0px!important;
+}
+.first_treasure_row{
+    border-top: 1px black solid;
+
+}
+.treasure_row{
+    text-align: center;
+    padding: 30px 0px;
+    border-bottom: 1px black solid;
+    width: 100%;
+    margin: 0px!important;
+}
+.svg_img{
+    width: 24px;
+}
+.treasure_row:hover{
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .treasure_row{
+        padding: 30px 20px;
+    }
+}

@@ -44,7 +44,6 @@ APP['base'] = {
         return avatar
     },
     "parse_time": function parse_time(time_str){
-        console.log(time_str)
         date = Date.parse(time_str)
         now = Date.now()
         diff = now - date
@@ -80,7 +79,6 @@ APP['base'] = {
         }else if (diff_seconds >= 0){
             res = `${Math.floor(diff_seconds)} second ago`
         }
-        console.log(diff_seconds)
         return res
     },
     "parse_article_content": function parse_article_content(content) {

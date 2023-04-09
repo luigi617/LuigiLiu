@@ -12,7 +12,7 @@
     <div class="row mx-md-3">
         <div class="col-12 col-md-6 mb-3 mb-md-0">
 
-            Size: <input id="size" type="number" value="10" min="0" max="20">
+            Size: <input id="size" type="number" value="20" min="0" max="20">
             <button id="select_size" type="button" class="btn btn-outline-dark">Start game/Change size</button>
             <button id="solve" type="button" class="btn btn-outline-dark">Solve</button>
         </div>
@@ -24,7 +24,6 @@
         <div class="col justify-content-center d-flex">
 
             <table id="nonogram_table">
-    
             </table>
         </div>
     </div>
@@ -36,12 +35,12 @@
 <script src="{% static 'javascript/nonogram.js' %}"></script>
 <script>
     NONOGRAM_SOLVER_API_URL = "/api/nonogram-solver/"
-    row = [[1, 2, 1], [2, 2, 2], [3, 1, 1], [1, 1, 2], [2, 1, 4], [2, 1, 4], [2, 1, 4], [2, 3], [1, 2, 1, 2], [1, 2, 1, 2]] 
-    col = [[5, 2], [2, 4], [1, 4], [2], [7, 1], [2], [6], [1, 4], [1, 7], [6, 2]]
+    // row = [[1, 2, 1], [2, 2, 2], [3, 1, 1], [1, 1, 2], [2, 1, 4], [2, 1, 4], [2, 1, 4], [2, 3], [1, 2, 1, 2], [1, 2, 1, 2]] 
+    // col = [[5, 2], [2, 4], [1, 4], [2], [7, 1], [2], [6], [1, 4], [1, 7], [6, 2]]
     $(document).ready(function(){
         APP.nonogram.init()
         $("#select_size").click()
-        APP.nonogram.insert_hint_number(row, col)
+        // APP.nonogram.insert_hint_number(row, col)
     })
 </script>
 {% endblock js %}

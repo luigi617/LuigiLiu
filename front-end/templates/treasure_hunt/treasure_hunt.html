@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/treasure_hunt.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="pb-3 mt-5" id="treasure_hunt_section">
+  <div class="row mb-3 group_info">
+    
+  </div>
+  <div class="treasure_list">
+
+    
+  </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/treasure_hunt.js' %}"></script>
+<script>
+  GET_TREASURE_LIST_URL = "/api/treasures/"
+  TREASURE_URL = "/treasure_hunt/treasures/"
+  ARROW_URL = "{% static 'assets/svg/right-arrow-bold.svg' %}"
+  DONE = "{% static 'assets/svg/done-icon.svg' %}"
+  PROCESSING = "{% static 'assets/svg/wait-loader-icon.svg' %}"
+  NOT_DONE = "{% static 'assets/svg/red-x-icon.svg' %}"
+  $(document).ready(function(){
+      APP.treasure_hunt.init()
+      APP.treasure_hunt.load_treasures()
+      
+  })
+</script>
+{% endblock js %}

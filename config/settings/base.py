@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
     "apps.article.apps.ArticleConfig",
+    "apps.treasure_hunt.apps.TreasureHuntConfig",
 ]
 THIRD_PARTY_APPS = [
     'allauth',
