@@ -15,11 +15,11 @@ class Command(BaseCommand):
         Pokemon.objects.all().delete()
 
         file_path = str(ROOT_DIR) + static("/csv/pokemon.csv")
-        print(file_path)
+
         with open(file_path) as file:
             df = pd.read_csv(file, sep=",")
             capture_rate_expection = "30 (Meteorite)255 (Core)"
-            print(df["pokedex_number"].dtype)
+
             for i, pokemon in df.iterrows():
                 pokemon_obj = Pokemon()
 
@@ -76,6 +76,4 @@ class Command(BaseCommand):
                 
 
 
-            # for pokemon in file.read().split("\n"):
-            #     print(pokemon)
             

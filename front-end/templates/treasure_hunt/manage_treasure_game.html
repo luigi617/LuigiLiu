@@ -9,7 +9,29 @@
 
 <section class="container pb-3 mt-5" id="manage_treasure_game_section">
 
- 
+  <div class="row treasure_game_info">
+    <div class="col game_info">
+       
+    </div>
+    <div class="col group_info">
+        Groups<br>
+        <select name="treasure_game_groups_input" id="treasure_game_groups_input" multiple>
+        </select>
+        
+
+    </div>
+    <div class="col group_process">
+      <button type="button" class="btn btn-dark mx-3 mb-3 check_treasure_evidence">Check</button>
+    </div>
+</div>
+<div class="input_treasure_div mt-3">
+  <strong>Add Treasure</strong>
+  
+</div>
+<input type="file" id="input_treasure" class="d-none">
+<div class="row treasures_list_row">
+  <strong>Treasures:</strong>
+</div>
  
 </section>
 {% endblock content %}
@@ -17,10 +39,19 @@
 {% block js %}
 <script src="{% static 'javascript/manage_treasure_game.js' %}"></script>
 <script>
+  treasure_hunt_game_id = "{{pk}}"
+  TREASURE_EVIDENCE_URL = "{% url 'treasure_hunt:manage_treasure_evidence' pk %}"
+  START_TREASURE_HUNT_GAME_URL = "/api/start-treasure-hunt-game/"
+  GROUP_TREASURE_PROCESS_URL = "/api/group-treasures-process/"
+  TREASURE_GAME_RETRIEVE_URL = "/api/treasure-hunt-games/{{pk}}/"
+  TREASURE_GAME_GROUPS_URL = "/api/treasure-hunt-game-groups/"
+  TREASURE_GAME_TREASURES_URL = "/api/treasure-hunt-games/{{pk}}/treasures/"
   $(document).ready(function(){
       APP.manage_treasure_game.init()
-
-      
+      APP.manage_treasure_game.load_treasure_game()
+      APP.manage_treasure_game.load_group_treasure_process()
+      APP.manage_treasure_game.load_treasure_game_groups()
+      APP.manage_treasure_game.load_treasure_game_treasures_and_hints()
   })
 </script>
 {% endblock js %}

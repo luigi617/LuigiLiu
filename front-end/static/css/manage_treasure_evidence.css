@@ -1,0 +1,8 @@
+.treasure_evidence{
+    text-align: center;
+    border-bottom: 1px black solid;
+    padding: 10px 0px;
+}
+.evidence_img, .object_img{
+    width: 200px;
+}

@@ -61,10 +61,21 @@ def group_treasure_hint_evidence_location(instance, filename):
     folder_name = f'treasure_hunt/group_treasure_hint_evidence/'
     return os.path.join(folder_name, filename)
 
+class GroupTreasureHintStatus:
+    NOT_ACTIVATE = 0
+    PROCESSING = 1
+    ACTIVATE = 2
+
+    CHOICES = (
+        (NOT_ACTIVATE, "Not activate"),
+        (PROCESSING, "Processing"),
+        (ACTIVATE, "Activate")
+    )
+
 class GroupTreasureHint(TimeStampedModel):
     group = models.ForeignKey(Group, related_name="group_treasure_hint", on_delete=models.PROTECT)
     treasure_hint = models.ForeignKey(TreasureHint, related_name="group_treasure_hint", on_delete=models.PROTECT)
-    is_activate = models.BooleanField(default=False)
+    status = models.IntegerField(choices=GroupTreasureHintStatus.CHOICES, default=GroupTreasureHintStatus.NOT_ACTIVATE)
     activate_evidence = models.ImageField(upload_to=group_treasure_hint_evidence_location, null=True, blank=True)
     activate_time = models.DateTimeField(blank = True, null = True)
     class Meta:
@@ -88,4 +99,5 @@ class TreasureHuntGame(TimeStampedModel):
     time_started = models.DateTimeField(blank = True, null = True)
     time_ended = models.DateTimeField(blank = True, null = True)
     is_started = models.BooleanField(default=False)
+    
     objects = TreasureHuntGameManager()
