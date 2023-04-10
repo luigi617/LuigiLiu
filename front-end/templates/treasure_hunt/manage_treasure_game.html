@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/manage_treasure_game.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 mt-5" id="manage_treasure_game_section">
+
+ 
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/manage_treasure_game.js' %}"></script>
+<script>
+  $(document).ready(function(){
+      APP.manage_treasure_game.init()
+
+      
+  })
+</script>
+{% endblock js %}

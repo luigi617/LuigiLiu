@@ -52,6 +52,7 @@ class GroupTreasure(TimeStampedModel):
     treasure = models.ForeignKey(Treasure, related_name="group_treasure", on_delete=models.PROTECT)
     status = models.IntegerField(choices=GroupTreasureStatus.CHOICES, default=GroupTreasureStatus.NOT_FOUND)
     found_evidence = models.ImageField(upload_to=group_treasure_evidence_location, null=True, blank=True)
+    found_time = models.DateTimeField(blank = True, null = True)
     class Meta:
         unique_together = (('group', 'treasure'),)
 
@@ -65,6 +66,7 @@ class GroupTreasureHint(TimeStampedModel):
     treasure_hint = models.ForeignKey(TreasureHint, related_name="group_treasure_hint", on_delete=models.PROTECT)
     is_activate = models.BooleanField(default=False)
     activate_evidence = models.ImageField(upload_to=group_treasure_hint_evidence_location, null=True, blank=True)
+    activate_time = models.DateTimeField(blank = True, null = True)
     class Meta:
         unique_together = (('group', 'treasure_hint'),)
 

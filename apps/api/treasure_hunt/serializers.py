@@ -24,12 +24,16 @@ class TreasureHuntGameSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = TreasureHuntGame
-        fields = ["time_started", "time_ended", "is_started"]
+        fields = ["id", "time_started", "time_ended", "is_started", "groups", "treasures"]
 
 class GroupTreasureHuntGameSerializer(serializers.Serializer):
     game = TreasureHuntGameSerializer()
     treasures = GroupTreasureListSerializer(many=True)
     group = GroupSerializer()
+
+class TreasureHuntGameListSerializer(serializers.Serializer):
+    game = TreasureHuntGameSerializer()
+    groups = GroupSerializer(many=True)
 
 
 

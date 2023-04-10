@@ -1,34 +1,53 @@
 
 from apps.api.treasure_hunt.serializers import (TreasureRetrieveSerializer,
                                                 TreasureHintListSerializer,
-                                                GroupTreasureHuntGameSerializer
-                                                )
-from apps.treasure_hunt.models import Treasure, TreasureHuntGame, GroupTreasure, GroupTreasureHint, GroupTreasureStatus
+                                                GroupTreasureHuntGameSerializer,
+                                                TreasureHuntGameListSerializer)
+from apps.treasure_hunt.models import (Treasure,
+                                       TreasureHuntGame,
+                                       GroupTreasure,
+                                       GroupTreasureHint,
+                                       Group,
+                                       GroupTreasureStatus)
 from config.settings.base import MEDIA_URL
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.views import APIView
 
 
+class TreasureGameListAPIView(APIView):
+    permission_classes = (IsAuthenticated, IsAdminUser)
+
+    def get(self, request):
+        games = TreasureHuntGame.objects.order_by("-time_started", "-date_modified")
+        data = []
+        for game in games:
+            groups = Group.objects.filter(pk__in = game.groups)
+            serializer = TreasureHuntGameListSerializer({"game": game, "groups": groups})
+            data.append(serializer.data)
+        return Response(data)
+    
 class GroupTreasureListAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         game, group = TreasureHuntGame.objects.get_current_game_and_group_by_user(self.request.user)
         if game is None: return Response([])
 
-        treasure_id_list = Treasure.objects.filter(pk__in = game.treasures).values_list("pk", flat=True)
-        treasures = GroupTreasure.objects.filter(treasure__pk__in = treasure_id_list, group = group.id)
+        treasures = GroupTreasure.objects.filter(treasure__pk__in = game.treasures, group = group.id)
         serializer = GroupTreasureHuntGameSerializer({"game": game, "treasures": treasures, "group": group})
         return Response(serializer.data)
     
 class TreasureRetrieveAPIView(generics.RetrieveAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Treasure.objects.all()
     serializer_class = TreasureRetrieveSerializer
 
 
     
 class GroupTreasureHintListAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self,request, pk):
         game, group = TreasureHuntGame.objects.get_current_game_and_group_by_user(self.request.user)
@@ -59,6 +78,7 @@ class GroupTreasureHintListAPIView(APIView):
         return Response(queryset.data)
     
 class GroupTreasureUpdateAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
     def post(self,request):
         treasure_id = request.data.get("treasure")
         evidence_img = request.FILES.get("evidence_img")
@@ -70,7 +90,9 @@ class GroupTreasureUpdateAPIView(APIView):
         obj.status = GroupTreasureStatus.PROCESSING
         obj.save()
         return Response("status updated")
+    
 class GroupTreasureHintUpdateAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
     def post(self,request):
         treasure_hint_id = request.data.get("treasure_hint_id")
         evidence_img = request.FILES.get("evidence_img")
