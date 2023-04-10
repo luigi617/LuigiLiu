@@ -3,6 +3,9 @@ if (typeof(APP) == "undefined"){
 }
 APP['treasure_hunt'] = {
     "init": function(){
+        $(".manage_treasure_game").click(function(){
+            window.location.href = MANAGE_TREASURE_GAME_LIST
+        })
     },
     "load_treasures": function(){
         $.ajax({
@@ -11,7 +14,7 @@ APP['treasure_hunt'] = {
             success: function(data){
                 if (data.length == 0){
                     $(".treasure_list").append(`
-                    <center>This section is only for invited people</center>`
+                        <center>This section is only for invited people</center>`
                     )
                     return;
                 }
@@ -62,7 +65,9 @@ APP['treasure_hunt'] = {
                 
             },
             error: function (request, status, error) {
-                console.log(request.responseText)
+                $(".treasure_list").append(`
+                    <center>This section is only for invited people</center>`
+                )
             }
         })
     },

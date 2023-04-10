@@ -7,4 +7,6 @@ treasure_hunt_urlpatterns = [
 
     path('group-treasure/', views.GroupTreasureUpdateAPIView.as_view(), name='update_group_treasure'),
     path('group-treasure-hint/', views.GroupTreasureHintUpdateAPIView.as_view(), name='update_group_treasure_hint'),
+
+    path('treasure-hunt-games/', views.TreasureGameListAPIView.as_view(), name='treasure_hunt_games'),
 ]

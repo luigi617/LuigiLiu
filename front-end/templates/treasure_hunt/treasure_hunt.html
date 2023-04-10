@@ -8,6 +8,9 @@
         
 
 <section class="pb-3 mt-5" id="treasure_hunt_section">
+  {% if user.is_superuser %}
+    <button type="button" class="btn btn-dark mx-3 mb-3 manage_treasure_game">Manage Treasure Game</button>
+    {% endif %}
   <div class="row mb-3 group_info">
     
   </div>
@@ -28,6 +31,7 @@
   DONE = "{% static 'assets/svg/done-icon.svg' %}"
   PROCESSING = "{% static 'assets/svg/wait-loader-icon.svg' %}"
   NOT_DONE = "{% static 'assets/svg/red-x-icon.svg' %}"
+  MANAGE_TREASURE_GAME_LIST = "{% url 'treasure_hunt:manage_treasure_game_list' %}"
   $(document).ready(function(){
       APP.treasure_hunt.init()
       APP.treasure_hunt.load_treasures()
