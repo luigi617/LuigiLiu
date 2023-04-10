@@ -30,8 +30,7 @@ APP['manage_treasure_game'] = {
                             groups: <br>
                             ${groups}
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn btn-dark mx-3 mb-3 start_treasure_game">Start Game</button>
+                        <div class="col-2">
                             <button type="button" class="btn btn-dark mx-3 mb-3 manage_treasure_game">Manage Game</button>
                         </div>
                     </div>

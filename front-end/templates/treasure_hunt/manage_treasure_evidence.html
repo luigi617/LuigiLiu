@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/manage_treasure_evidence.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="container pb-3 mt-5" id="manage_treasure_evidence_section">
+
+  <div class="row treasure_evidence_list">
+    
+  </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="{% static 'javascript/manage_treasure_evidence.js' %}"></script>
+<script>
+  TREASURE_EVIDENCES_LIST_URL = "/api/treasure-hunt-games/{{pk}}/evidences/"
+  $(document).ready(function(){
+      APP.manage_treasure_evidence.init()
+      APP.manage_treasure_evidence.load_evidences()
+
+      
+  })
+</script>
+{% endblock js %}

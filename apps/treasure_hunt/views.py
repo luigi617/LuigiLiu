@@ -16,3 +16,8 @@ def manage_treasure_game(request, pk):
     if not request.user.is_authenticated:
         return HttpResponseNotFound()
     return render(request, "treasure_hunt/manage_treasure_game.html", context={"pk":pk})
+
+def manage_treasure_evidence(request, pk):
+    if not request.user.is_authenticated:
+        return HttpResponseNotFound()
+    return render(request, "treasure_hunt/manage_treasure_evidence.html", context={"pk":pk})

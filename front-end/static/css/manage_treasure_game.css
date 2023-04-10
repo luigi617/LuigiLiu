@@ -1,0 +1,25 @@
+.treasure_game_info{
+    border-bottom: 1px black solid;
+}
+.treasure{
+    border-bottom: 1px black solid;
+    padding: 20px 0px;
+}
+
+.object_img, .hint_img, #temp_img{
+    width: 100px;
+}
+.hint_col{
+    border-top: 0.5px grey dotted;
+    padding: 5px;
+}
+
+.input_treasure_div{
+    border: 1px black solid;
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 11px;
+    text-align: center;
+}
