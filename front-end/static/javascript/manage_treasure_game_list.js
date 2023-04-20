@@ -17,10 +17,16 @@ APP['manage_treasure_game'] = {
                         } 
                         groups = groups + " (" + usernames.join(", ") + "); "
                     }
-                    var time_started = data[i]["game"]["time_started"].replace("T", " ").replace("Z", "")
-                    var time_ended = Date.parse(data[i]["game"]["time_ended"])
+                    var time_started = ""
+                    if (data[i]["game"]["time_started"] != null){
+                        time_started = data[i]["game"]["time_started"].replace("T", " ").replace("Z", "")
+                    }
+                    var time_ended = ""
+                    if (data[i]["game"]["time_ended"] != null){
+                        time_ended = data[i]["game"]["time_ended"].replace("T", " ").replace("Z", "")
+                    }
                     $(".treasure_game_list").append(`
-                    <div class="row treasure_game_row">
+                    <div class="row treasure_game_row" data-id="${data[i]["game"]["id"]}">
                         <div class="col">
                             game: #${data[i]["game"]["id"]}, started: ${data[i]["game"]["is_started"]} <br>
                             time started: ${time_started} <br>
@@ -35,11 +41,23 @@ APP['manage_treasure_game'] = {
                         </div>
                     </div>
                     `)
-                    $(".manage_treasure_game").click(function(){
-                        window.location.href = TREASURE_HUNT_GAME_URL + data[i]["game"]["id"] + "/"
-                    })
+                    
                 }
             }
+        })
+        $(".add_new_game").click(function(){
+            console.log(BASE_URL + NEW_TREASURE_HUNT_GAME_URL);
+            $.ajax({
+                method: "POST",
+                url: BASE_URL + NEW_TREASURE_HUNT_GAME_URL,
+                success: function(data){
+                    location.reload()
+                }
+            })
+        })
+        $(document).on("click", ".manage_treasure_game", function(){
+            var id = $(this).closest(".treasure_game_row").data("id")
+            window.location.href = TREASURE_HUNT_GAME_URL + id + "/"
         })
     },
   

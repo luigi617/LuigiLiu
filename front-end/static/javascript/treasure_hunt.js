@@ -56,11 +56,32 @@ APP['treasure_hunt'] = {
                     <div class="col-6 col-sm-4 time_display text-center">
                         
                     </div>
-                    <div class="col-12 col-sm-4 mt-3 mt-sm-0 text-center">
-                        Every x minutes you can see others procedures (you need to refresh)
-                    </div>
+                    
                 `)
                 var started_time = Date.parse(data["game"]["time_started"])
+
+                var difference = Date.now() - started_time
+                var minutes = Math.floor(difference / (1000 * 60)) % 60
+                if ((minutes >= 25 & minutes < 30) | (minutes >= 55)){
+                    $.ajax({
+                        method: "GET",
+                        url: BASE_URL + GROUP_TREASURE_PROCESS_URL,
+                        success: function(data){
+                            console.log(data);
+                            $(".group_info").append(`<div class="col-12 col-sm-4 mt-3 mt-sm-0 text-center group_process"></div>`)
+                            for (let i = 0; i < data.length; i++){
+                                $(".group_process").append(
+                                    `<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}</div>`
+                                )
+                            }
+                        }
+                    })
+                } else {
+                    $(".group_info").append(`<div class="col-12 col-sm-4 mt-3 mt-sm-0 text-center">
+                        Every 25 minutes you can see others procedures for 5 minutes (you need to refresh the site)
+                    </div>`)
+                }
+
                 APP.treasure_hunt.real_time(started_time)
                 
             },

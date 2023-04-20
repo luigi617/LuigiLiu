@@ -5,6 +5,7 @@ from django.contrib.postgres.fields import ArrayField
 from apps.core.models import TimeStampedModel
 
 import os
+from django.utils import timezone
 # Create your models here.
 
 
@@ -92,6 +93,8 @@ class TreasureHuntGameManager(models.Manager):
                 if user.id in g.users:
                     return game, g
         return None, None
+    
+    
 
 class TreasureHuntGame(TimeStampedModel):
     groups = ArrayField(models.IntegerField())
@@ -101,3 +104,10 @@ class TreasureHuntGame(TimeStampedModel):
     is_started = models.BooleanField(default=False)
     
     objects = TreasureHuntGameManager()
+
+    def end_game_if_all_treasures_found(self):
+        if GroupTreasure.objects.filter(group_id__in = self.groups, treasure_id__in = self.treasures).exclude(status = GroupTreasureStatus.FOUND).exists():
+            return
+        self.time_ended = timezone.now()
+        self.is_started = False
+        self.save()

@@ -42,7 +42,6 @@ class TreasureRetrieveSerializer(serializers.Serializer):
     object = serializers.SerializerMethodField()
     status = serializers.IntegerField()
     def get_object(self, obj):
-        print(obj)
         return MEDIA_URL + obj["object"]
 
 class GroupTreasureHintListSerializer(serializers.Serializer):
@@ -50,17 +49,17 @@ class GroupTreasureHintListSerializer(serializers.Serializer):
     hint_img = serializers.CharField()
     hint = serializers.CharField()
     requirement_for_hint = serializers.CharField()
-    is_activate = serializers.BooleanField()
-    
-class GroupTreasureHintListSerializer(serializers.ModelSerializer):
     status = serializers.IntegerField()
+    
+class TreasureHintListSerializer(serializers.ModelSerializer):
+
     class Meta:
         
         model = TreasureHint
-        fields = ["id", "hint_img", "hint", "requirement_for_hint", "status"]
+        fields = ["id", "hint_img", "hint", "requirement_for_hint"]
 
 class TreasureWithHintSerializer(serializers.ModelSerializer):
-    hints = GroupTreasureHintListSerializer(many=True)
+    hints = TreasureHintListSerializer(many=True)
     class Meta:
         model = Treasure
         fields = ["id", "object", "hints"]
@@ -95,7 +94,6 @@ class TreasureEvidenceSerializer(serializers.Serializer):
     type = serializers.CharField()
 
     def get_evidence(self, obj):
-        print(MEDIA_URL + obj["evidence"])
         return MEDIA_URL + obj["evidence"]
     def get_object(self, obj):
         if "treasure_hunt/treasure" in obj["object"]:

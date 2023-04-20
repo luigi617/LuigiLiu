@@ -8,7 +8,7 @@
         
 
 <section class="container pb-3 mt-5" id="manage_treasure_game_list_section">
-
+  <button type="button" class="btn btn-dark mx-3 mb-3 add_new_game">Add New Game</button>
   <div class="treasure_game_list">
     
   </div>
@@ -20,6 +20,7 @@
 <script src="{% static 'javascript/manage_treasure_game_list.js' %}"></script>
 <script>
   TREASURE_HUNT_GAME_LIST_URL = "/api/treasure-hunt-games/"
+  NEW_TREASURE_HUNT_GAME_URL = "/api/add-new-treasure-hunt-game/"
   TREASURE_HUNT_GAME_URL = "/treasure_hunt/manage-treasure-games/"
   $(document).ready(function(){
       APP.manage_treasure_game.init()

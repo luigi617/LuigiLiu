@@ -20,6 +20,7 @@
 <script src="{% static 'javascript/manage_treasure_evidence.js' %}"></script>
 <script>
   TREASURE_EVIDENCES_LIST_URL = "/api/treasure-hunt-games/{{pk}}/evidences/"
+  treasure_hunt_game_id = "{{pk}}"
   $(document).ready(function(){
       APP.manage_treasure_evidence.init()
       APP.manage_treasure_evidence.load_evidences()

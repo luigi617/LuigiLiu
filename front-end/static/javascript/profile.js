@@ -19,12 +19,12 @@ APP['profile'] = {
                 }
                 $(".my_profile").removeClass("d-none")
                 break;
-            case "credit":
-                if (typeof MY_PROFILE_URL != "undefined"){
-                    window.location.href = MY_PROFILE_URL  + "?option=credit"
-                }
-                $(".credit").removeClass("d-none")
-                break;
+            // case "credit":
+            //     if (typeof MY_PROFILE_URL != "undefined"){
+            //         window.location.href = MY_PROFILE_URL  + "?option=credit"
+            //     }
+            //     $(".credit").removeClass("d-none")
+            //     break;
             case "change_password":
                 window.location.href = CHANGE_PASSWORD
                 break;
@@ -43,10 +43,12 @@ APP['profile'] = {
         }
     },
     "load_profile": function(){
+        console.log(BASE_URL + PROFILE_URL);
         $.ajax({
             method: "GET",
             url: BASE_URL + PROFILE_URL,
             success: function(data){
+                console.log(1234)
                 console.log(data)
                 $("#input_username").val(data["username"])
                 $("#input_email").val(data["email"])
