@@ -3,7 +3,7 @@ if (typeof(APP) == "undefined"){
 }
 APP['manage_treasure_game'] = {
     "init": function(){
-        $(".check_treasure_evidence").click(function(){
+        $(document).on("click", ".check_treasure_evidence", function(){
             window.location.href = TREASURE_EVIDENCE_URL
         })
         $(document).on("click", ".change_groups", function(){
@@ -98,6 +98,21 @@ APP['manage_treasure_game'] = {
             })
             
         })
+        $(document).on("click", ".end_treasure_game", function(e){
+            var okay = confirm("End game?")
+            if (okay){
+                return
+                $.ajax({
+                    method: "POST",
+                    url: BASE_URL + START_TREASURE_HUNT_GAME_URL,
+                    data: {"treasure_game_id": treasure_hunt_game_id},
+                    success: function(data){
+                        location.reload()
+                    }
+                })
+            }
+            
+        })
         $(document).on("click", ".delete_treasure", function(e){
             $.ajax({
                 method: "POST",
@@ -143,7 +158,14 @@ APP['manage_treasure_game'] = {
                     $(".game_info").append(`
                         <button type="button" class="btn btn-dark mx-3 mb-3 start_treasure_game">Start Game</button>
                     `)
+                } else {
+                    $(".game_info").append(`
+                        <button type="button" class="btn btn-dark mx-3 mb-3 end_treasure_game">End Game</button>
+                    `)
                 }
+                $(".game_info").append(`
+                    <button type="button" class="btn btn-dark mx-3 mb-3 check_treasure_evidence">Check</button>
+                `)
                 for (let i = 0; i < data["groups"].length; i++){
                     var usernames = []
                     for (let j = 0; j < data["groups"][i]["users"].length; j++){
@@ -171,7 +193,8 @@ APP['manage_treasure_game'] = {
             data:{"treasure_game_id":treasure_hunt_game_id},
             success: function(data){
                 for (let i = 0; i < data.length; i++){
-                    $(".group_process").prepend(`<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}</div>`)
+                    console.log(data[i]);
+                    $(".group_process").append(`<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}/${data[i]["number_treasures"]}</div>`)
                 }
             }
         })
@@ -228,7 +251,7 @@ APP['manage_treasure_game'] = {
                             New Hint <br>
                             Requirement: <input type="text" class="requirement_input">
                             Hint:<input type="text" class="hint_input">
-                            <input type="file" class="hint_img_input">
+                            <input type="file" class="hint_img_input" accept="image/png, image/gif, image/jpeg">
                             <button type="button" class="btn btn-dark mx-3 mb-3 add_new_hint">Add Hint</button>
                         </div>
                     `)

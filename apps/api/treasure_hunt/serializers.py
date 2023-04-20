@@ -84,6 +84,7 @@ class TreasureHuntGameRetrieveSerializer(serializers.Serializer):
 class GroupTreasureProcessSerializer(serializers.Serializer):
     group = GroupSerializer()
     number_completed_treasures = serializers.IntegerField()
+    number_treasures = serializers.IntegerField()
    
 class TreasureEvidenceSerializer(serializers.Serializer):
     id = serializers.IntegerField()
