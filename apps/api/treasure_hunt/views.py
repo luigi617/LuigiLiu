@@ -20,6 +20,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.views import APIView
 
 from django.utils import timezone
+import numpy as np
 
 
 class NewTreasureHuntGameAPIView(APIView):
@@ -151,11 +152,12 @@ class GroupTreasureListAPIView(APIView):
 
     def get(self, request):
         game, group = TreasureHuntGame.objects.get_current_game_and_group_by_user(self.request.user)
-        print(game)
         if game is None: return Response([])
-
         treasures = GroupTreasure.objects.filter(treasure__pk__in = game.treasures, group = group.id)
-        serializer = GroupTreasureHuntGameSerializer({"game": game, "treasures": treasures, "group": group})
+        np.random.seed(group.pk)
+        permutations_index = np.random.permutation(len(treasures))
+        random_treasures = [treasures[int(i)] for i in permutations_index]
+        serializer = GroupTreasureHuntGameSerializer({"game": game, "treasures": random_treasures, "group": group})
         return Response(serializer.data)
     
 class TreasureRetrieveAPIView(APIView):
@@ -246,15 +248,17 @@ class GroupTreasureProcessAPIView(APIView):
         .values("group") \
         .annotate(number_completed_treasures = Count(Case(
             When(status=GroupTreasureStatus.FOUND, then=1),
-            output_field=IntegerField(),
-        )))
+            output_field=IntegerField(),)), number_treasures = Count("id")
+        ).order_by("-number_completed_treasures")
         data = []
         for process in processes_list:
             serializer = GroupTreasureProcessSerializer({
                     "group": Group.objects.get(pk = process["group"]),
-                    "number_completed_treasures": process["number_completed_treasures"]
+                    "number_completed_treasures": process["number_completed_treasures"],
+                    "number_treasures": process["number_treasures"]
                 })
             data.append(serializer.data)
+        # data = sorted(data, key=lambda x: x["number_completed_treasures"])
         return Response(data)
     
 

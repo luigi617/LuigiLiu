@@ -71,7 +71,7 @@ APP['treasure_hunt'] = {
                             $(".group_info").append(`<div class="col-12 col-sm-4 mt-3 mt-sm-0 text-center group_process"></div>`)
                             for (let i = 0; i < data.length; i++){
                                 $(".group_process").append(
-                                    `<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}</div>`
+                                    `<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}/${data[i]["number_treasures"]}</div>`
                                 )
                             }
                         }

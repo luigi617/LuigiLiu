@@ -96,7 +96,7 @@ APP['treasure'] = {
                             <strong>Upload image</strong>
                         
                         </div>
-                        <input type="file" id="input_treasure_evidence" class="d-none">
+                        <input type="file" id="input_treasure_evidence" class="d-none" accept="image/png, image/gif, image/jpeg">
                     `)
                 } else if (data["status"] == 1){
                     $(".action").append(`
@@ -131,7 +131,7 @@ APP['treasure'] = {
                         var action = `<div class="input_treasure_hint_evidence_div mt-3">
                                             Upload image for hint
                                         </div>
-                                        <input type="file" id="input_treasure_hint_evidence" class="d-none">`
+                                        <input type="file" id="input_treasure_hint_evidence" class="d-none" accept="image/png, image/gif, image/jpeg">`
                         if (data[i]["status"] == 1){
                             action = "<div><strong>Waiting for Responce</strong></div>"
                         }
