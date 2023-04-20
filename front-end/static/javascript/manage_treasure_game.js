@@ -6,8 +6,9 @@ APP['manage_treasure_game'] = {
         $(".check_treasure_evidence").click(function(){
             window.location.href = TREASURE_EVIDENCE_URL
         })
-        $(".change_groups").click(function(){
+        $(document).on("click", ".change_groups", function(){
             var group_id_list = $("#treasure_game_groups_input").val()
+            console.log(group_id_list);
             $.ajax({
                 method: "POST",
                 url: BASE_URL + TREASURE_GAME_GROUPS_URL,
@@ -92,7 +93,36 @@ APP['manage_treasure_game'] = {
                 url: BASE_URL + START_TREASURE_HUNT_GAME_URL,
                 data: {"treasure_game_id": treasure_hunt_game_id},
                 success: function(data){
-                    console.log(data);
+                    location.reload()
+                }
+            })
+            
+        })
+        $(document).on("click", ".delete_treasure", function(e){
+            $.ajax({
+                method: "POST",
+                url: BASE_URL + DELETE_TREASURES_AND_HINTS_URL,
+                data: {
+                    "action": "delete_treasure",
+                    "treasure_id": $(this).data("id"),
+                },
+                success: function(data){
+                    location.reload()
+                }
+            })
+            
+        })
+        $(document).on("click", ".delete_hint", function(e){
+            
+            $.ajax({
+                method: "POST",
+                url: BASE_URL + DELETE_TREASURES_AND_HINTS_URL,
+                data: {
+                    "action": "delete_hint",
+                    "hint_id": $(this).data("id"),
+                },
+                success: function(data){
+                    location.reload()
                 }
             })
             
@@ -138,6 +168,7 @@ APP['manage_treasure_game'] = {
         $.ajax({
             method: "GET",
             url: BASE_URL + GROUP_TREASURE_PROCESS_URL,
+            data:{"treasure_game_id":treasure_hunt_game_id},
             success: function(data){
                 for (let i = 0; i < data.length; i++){
                     $(".group_process").prepend(`<div>${data[i]["group"]["name"]}: ${data[i]["number_completed_treasures"]}</div>`)
@@ -172,6 +203,7 @@ APP['manage_treasure_game'] = {
                         <div class="col-12 mb-3">
                         Object:<br>
                             <img src="${data[i]["object"]}" class="object_img" alt="...">
+                            <button type="button" class="btn btn-dark mx-3 mb-3 delete_treasure" data-id="${data[i]["id"]}">Delete Treasure</button>
                         </div>
                     `)
                     var hint_place = $(`.treasure-${data[i]["id"]}`)
@@ -180,12 +212,14 @@ APP['manage_treasure_game'] = {
                         if (data[i]["hints"][j]["hint_img"] != null){
                             img = `<img src="${data[i]["hints"][j]["hint_img"]}" class="hint_img" alt="...">`
                         }
+
                         hint_place.append(`
                             <div class="col-12 ms-5 hint_col">
                                 Hint # ${j+1} <br>
                                 Requirement: ${data[i]["hints"][j]["requirement_for_hint"]}<br>
                                 Hint:${data[i]["hints"][j]["hint"]}<br>
                                 ${img}
+                                <button type="button" class="btn btn-dark mx-3 mb-3 delete_hint" data-id="${data[i]["hints"][j]["id"]}">Delete Hint</button>
                             </div>
                         `)
                     }

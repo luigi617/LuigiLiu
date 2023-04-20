@@ -23,8 +23,8 @@ urlpatterns = [
     path('', include('apps.home.urls', namespace="home")),
     path('articles/', include('apps.article.urls', namespace="articles")),
     path('treasure_hunt/', include('apps.treasure_hunt.urls', namespace="treasure_hunt")),
-    # path('user/', include('apps.user.urls')),
-    # path('accounts/', include('allauth.urls')),
+    path('user/', include('apps.user.urls', namespace="users")),
+    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += [

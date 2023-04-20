@@ -100,11 +100,11 @@ APP['treasure'] = {
                     `)
                 } else if (data["status"] == 1){
                     $(".action").append(`
-                        Waiting for the Result
+                        <strong>Waiting for the Result</strong>
                     `)
                 } else {
                     $(".action").append(`
-                        Congrat. You found it
+                        <strong>Congrat. You found it</strong>
                     `)
                 }
             }
@@ -133,7 +133,7 @@ APP['treasure'] = {
                                         </div>
                                         <input type="file" id="input_treasure_hint_evidence" class="d-none">`
                         if (data[i]["status"] == 1){
-                            action = "<div>Waiting for Responce</div>"
+                            action = "<div><strong>Waiting for Responce</strong></div>"
                         }
                         $(".hint_section").append(`
                             <div class="hint_row" data-group_treasure_hint_id="${data[i]["id"]}">

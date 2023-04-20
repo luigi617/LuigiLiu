@@ -44,7 +44,12 @@
                             <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
                         </ul>
                     </li> -->
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutme' %}">About Me</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutme' %}">About Me</a></li> -->
+                    {%if user.is_authenticated%}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.username %}">{{user.username}}</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
+                    {% endif %}
                 </ul>
 
             </div>
@@ -84,8 +89,11 @@
         </script>
         {% get_debug as is_debug %}
         <script>
-            BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://localhost:8000{% endif %}"
-            // BASE_URL = "http://192.168.1.44:8000"
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://10.12.96.158:8000{% endif %}"
+            } else {
+                BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://localhost:8000{% endif %}"
+            }
             MEDIA_URL = BASE_URL + "/media"
             // BASE_URL = "http://localhost:8000"
             $(document).ready(function(){
