@@ -55,13 +55,48 @@ APP['treasure'] = {
             `)
             var files = $("#input_treasure_hint_evidence")[0].files
 
+            const MAX_WIDTH = 500;
+            const MAX_HEIGHT = 500;
+            const MIME_TYPE = "image/jpg";
+            const QUALITY = 0.7;
+            const blobURL = URL.createObjectURL(files[0]);
+            const img = new Image();
+            img.src = blobURL;
+            upload_file = null
+            img.onload = function () {
+                URL.revokeObjectURL(this.src);
+                const [newWidth, newHeight] = APP.base.calculate_size(img, MAX_WIDTH, MAX_HEIGHT);
+                const canvas = document.createElement("canvas");
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                canvas.toBlob(
+                    (blob) => {
+
+                        upload_file = new File([blob], files[0]["name"])
+                        blob = blob.slice(0, blob.size, MIME_TYPE)
+                        if (FileReader && upload_file) {
+                            var fr = new FileReader();
+                            
+                            fr.onload = function () {
+                                $("#hint_evidence_temp_img").attr("src", fr.result);
+                            }
+                            fr.readAsDataURL(upload_file);
+                        }
+                    },
+                    MIME_TYPE,
+                    QUALITY
+                );
+            };
+
+
             $("#upload_hint_evidence_image").click(function(e){
                 e.preventDefault()
                 e.stopPropagation()
-                console.log($(this));
                 var fd = new FormData();
                 fd.append('group_treasure_hint_id', $(this).closest(".hint_row").data("group_treasure_hint_id"));
-                fd.append('evidence_img', files[0]);
+                fd.append('evidence_img', upload_file);
 
                 $.ajax({
                     method: "POST",
@@ -75,13 +110,15 @@ APP['treasure'] = {
                 })
                 
             })
-            if (FileReader && files && files.length) {
-                var fr = new FileReader();
-                fr.onload = function () {
-                    $("#hint_evidence_temp_img").attr("src", fr.result);
-                }
-                fr.readAsDataURL(files[0]);
-            }
+            // if (FileReader && files && files.length) {
+            //     var fr = new FileReader();
+                
+            //     fr.onload = function () {
+            //         $("#hint_evidence_temp_img").attr("src", fr.result);
+            //     }
+            //     fr.readAsDataURL(files[0]);
+            // }
+            
         })
     },
     "load_treasure": function(){
