@@ -3,6 +3,7 @@ from . import views
 treasure_hunt_urlpatterns = [
     path('add-new-treasure-hunt-game/', views.NewTreasureHuntGameAPIView.as_view(), name='new_treasure_hunt_game'),
     path('start-treasure-hunt-game/', views.StartTreasureHuntGameAPIView.as_view(), name='start_treasure_hunt_game'),
+    path('end-treasure-hunt-game/', views.TreasureEndGameAPIView.as_view(), name='end_treasure_hunt_game'),
 
     path('treasures/', views.GroupTreasureListAPIView.as_view(), name='treasure_list'),
     path('treasures/<int:pk>/', views.TreasureRetrieveAPIView.as_view(), name='treasure_retrieve'),

@@ -105,9 +105,11 @@ class TreasureHuntGame(TimeStampedModel):
     
     objects = TreasureHuntGameManager()
 
-    def end_game_if_all_treasures_found(self):
-        if GroupTreasure.objects.filter(group_id__in = self.groups, treasure_id__in = self.treasures).exclude(status = GroupTreasureStatus.FOUND).exists():
-            return
+    def end_game_if_all_treasures_found(self, forced = False):
+        not_found_group_treasure = GroupTreasure.objects.filter(group_id__in = self.groups, treasure_id__in = self.treasures).exclude(status = GroupTreasureStatus.FOUND)
+        if not forced:
+            if not_found_group_treasure.exists():
+                return
         self.time_ended = timezone.now()
         self.is_started = False
         self.save()
