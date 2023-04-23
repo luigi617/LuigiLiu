@@ -101,11 +101,10 @@ APP['manage_treasure_game'] = {
         $(document).on("click", ".end_treasure_game", function(e){
             var okay = confirm("End game?")
             if (okay){
-                return
                 $.ajax({
                     method: "POST",
-                    url: BASE_URL + START_TREASURE_HUNT_GAME_URL,
-                    data: {"treasure_game_id": treasure_hunt_game_id},
+                    url: BASE_URL + END_TREASURE_HUNT_GAME_URL,
+                    data: {"treasure_hunt_game_id": treasure_hunt_game_id},
                     success: function(data){
                         location.reload()
                     }

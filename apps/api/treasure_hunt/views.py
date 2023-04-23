@@ -14,6 +14,7 @@ from apps.treasure_hunt.models import (GroupTreasureHintStatus, Treasure,
                                        GroupTreasureStatus,
                                        TreasureHint)
 from config.settings.base import MEDIA_URL
+from apps.api.treasure_hunt.utils import notification_treasure_processing
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -219,6 +220,7 @@ class GroupTreasureUpdateAPIView(APIView):
         obj.found_evidence = evidence_img
         obj.status = GroupTreasureStatus.PROCESSING
         obj.save()
+        notification_treasure_processing()
         return Response("status updated")
     
 class GroupTreasureHintUpdateAPIView(APIView):
@@ -233,6 +235,7 @@ class GroupTreasureHintUpdateAPIView(APIView):
         obj.activate_evidence = evidence_img
         obj.status = GroupTreasureHintStatus.PROCESSING
         obj.save()
+        notification_treasure_processing()
         return Response("status updated")
     
 class GroupTreasureProcessAPIView(APIView):
@@ -293,9 +296,18 @@ class TreasureEvidencesAPIView(APIView):
             if int(status) == GroupTreasureHintStatus.ACTIVATE:
                 group_treasure_hint.activate_time = timezone.now()
             group_treasure_hint.save()
-        print(treasure_hunt_game_id)
+        
         game = TreasureHuntGame.objects.get(pk = treasure_hunt_game_id)
         game.end_game_if_all_treasures_found()
+
+        return Response()
+class TreasureEndGameAPIView(APIView):
+    permission_classes = (IsAuthenticated, IsAdminUser)
+   
+    def post(self, request):
+        treasure_hunt_game_id = request.data.get("treasure_hunt_game_id")
+        game = TreasureHuntGame.objects.get(pk = treasure_hunt_game_id)
+        game.end_game_if_all_treasures_found(forced = True)
 
         return Response()
 
