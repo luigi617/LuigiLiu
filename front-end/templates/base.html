@@ -89,13 +89,13 @@
         </script>
         {% get_debug as is_debug %}
         <script>
-            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://10.12.109.60:8000{% endif %}"
-            } else {
-                BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://localhost:8000{% endif %}"
-            }
+            // if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            //     BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://10.12.109.60:8000{% endif %}"
+            // } else {
+            //     BASE_URL = "{% if is_debug == False %}http://luigiliu.net{% else %}http://localhost:8000{% endif %}"
+            // }
             MEDIA_URL = BASE_URL + "/media"
-            // BASE_URL = "http://localhost:8000"
+            BASE_URL = "http://localhost:8000"
             $(document).ready(function(){
                 APP.base.init()
                 
