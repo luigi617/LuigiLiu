@@ -16,10 +16,10 @@ APP['treasure'] = {
 
             var files = $("#input_treasure_evidence")[0].files
 
-            const MAX_WIDTH = 500;
-            const MAX_HEIGHT = 500;
+            const MAX_WIDTH = 2000;
+            const MAX_HEIGHT = 2000;
             const MIME_TYPE = "image/jpg";
-            const QUALITY = 0.7;
+            const QUALITY = 0.9;
             const blobURL = URL.createObjectURL(files[0]);
             const img = new Image();
             img.src = blobURL;
@@ -85,10 +85,10 @@ APP['treasure'] = {
             `)
             var files = $("#input_treasure_hint_evidence")[0].files
 
-            const MAX_WIDTH = 500;
-            const MAX_HEIGHT = 500;
+            const MAX_WIDTH = 2000;
+            const MAX_HEIGHT = 2000;
             const MIME_TYPE = "image/jpg";
-            const QUALITY = 0.7;
+            const QUALITY = 0.9;
             const blobURL = URL.createObjectURL(files[0]);
             const img = new Image();
             img.src = blobURL;
