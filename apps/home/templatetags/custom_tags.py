@@ -15,3 +15,7 @@ def get_debug():
 def get_type(value):
     return type(value)
 
+@register.simple_tag
+def get_nav_color(value):
+    return "nav_white" if value else "nav_black"
+

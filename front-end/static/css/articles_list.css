@@ -1,26 +1,18 @@
-.masonry_div{
-    margin: 10px 10px 10px 10px;
-    width: 300px!important;
-    height:400px!important;
-    cursor: pointer;
-    overflow-y: hidden;
-}
-.masonry_div .masonry_body{
-    margin: 20px;
-}
 
-.card-body{
-    padding: 0px 0px 10px 0px!important;
-}
+
+
 .article{
     cursor: pointer;
+    display: inline-block;
+    white-space: normal;
+    padding: 0px 20px 10px 20px!important;
+    vertical-align: top;
+
 }
 .article:hover{
     background-color: #f8f9fa;
 }
-.article_date_modified{
-    font-size: 11px;
-}
+
 .edit_article{
     cursor: pointer;
 }
@@ -28,13 +20,36 @@
     width: 25px;
     height: 25px;
 }
-.masonry_div:hover{
-    box-shadow: 0 0 0 1pt grey;
-    transition: .1s;
-}
+
 @media (max-width: 768px) {
     .masonry_div{
         width: 40%!important;
     }
   
+}
+
+
+
+
+.article_headline{
+    font-size: 100px;
+    font-weight: bold;
+}
+.article_cover_img{
+    width: 100%;
+
+}
+.article_date{
+    font-size: 15px;
+}
+.article_category{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.3);
+}
+.article_category.active{
+    color: rgba(0, 0, 0, 1)!important;
+}
+.article_category:hover{
+    cursor: pointer;
 }

@@ -2,10 +2,10 @@ from rest_framework import serializers
 from apps.article.models import Article
 from apps.home.models import Pokemon
 
-class RandomArticleListSerializer(serializers.ModelSerializer):
+class DisplayArticleListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ["id", "user", "title", "date_modified", "cover_img"]
+        fields = ["id", "url_name", "user", "title", "date_modified", "cover_img"]
 
 class PokemonListSerializer(serializers.ModelSerializer):
     class Meta:

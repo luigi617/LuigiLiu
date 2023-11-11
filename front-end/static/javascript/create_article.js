@@ -7,11 +7,13 @@ APP['create_article'] = {
 
             var content = APP.base.parse_article_content($("#input_article_content").val())
             var title = $("#input_article_title").val()
+            var url_name = title.trim().toLowerCase().replaceAll(" ", "_").replace(/[^a-z0-9_]/g, '')
             var cover = $("#input_article_cover")[0].files[0]
-            
+
             var fd = new FormData();
             fd.append('content', content);
             fd.append('title', title);
+            fd.append('url_name', url_name);
             fd.append('cover', cover);
 
             $.ajax({

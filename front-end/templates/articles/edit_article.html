@@ -9,6 +9,7 @@
 
 <section class="container mt-5" id="edit_article_section">
     <form class="row row-cols-lg-auto g-3 align-items-center mb-3">
+        <input type="input" class="d-none" id="input_article_id">
         <div class="col">
             <label class="visually-hidden" for="input_article_title">Title</label>
             <div class="input-group">
@@ -46,9 +47,9 @@
 {% block js %}
 <script src="{% static 'javascript/edit_article.js' %}"></script>
 <script>
-    ARTICLE_ID = "{{ pk }}"
+    ARTICLE_URL_NAME = "{{ url_name }}"
     ARTICLE_UPDATE_URL = "/api/articles/update/"
-    ARTICLE_RETRIEVE_URL = '/api/articles/{{ pk }}'
+    ARTICLE_RETRIEVE_URL = '/api/articles/get/{{ url_name }}'
     ARTICLE_LIST = "/articles/"
     $(document).ready(function(){
         APP.edit_article.init()

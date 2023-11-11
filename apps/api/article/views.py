@@ -13,6 +13,8 @@ class ArticleListAPIView(generics.ListAPIView):
 class ArticleRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleRetrieveSerializer
+    def get_object(self):
+        return self.queryset.get(url_name = self.kwargs["url_name"])
 
 class ArticleCreationAPIView(generics.CreateAPIView):
     queryset = Article.objects.all()
@@ -22,10 +24,12 @@ class ArticleCreationAPIView(generics.CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         title = request.data.get("title")
+        url_name = request.data.get("url_name")
         content = request.data.get("content")
         cover_img = request.FILES.getlist("cover")
         data = {
             "title": title,
+            "url_name": url_name,
             "content": content,
             "user": request.user.id,
         }
@@ -44,11 +48,13 @@ class ArticleUpdateAPIView(generics.UpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         id = request.data.get("id")
+        url_name = request.data.get("url_name")
         title = request.data.get("title")
         content = request.data.get("content")
         cover_imgs = request.FILES.getlist("cover")
         data = {
             "title": title,
+            "url_name": url_name,
             "content": content,
             "user": request.user.id,
         }

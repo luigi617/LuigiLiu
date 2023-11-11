@@ -7,13 +7,35 @@
 {% block content %}
         
 <section class="container pb-3 mt-5" id="articles_section">
-    {% if user.is_superuser %}
-    <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>
-    {% endif %}
-
-    <ul class="list-group articles_row">
     
-      </ul>
+    <div class="row">
+        <div class="col-3 me-5">
+            <div class="article_headline">
+                Article
+            </div>
+            <div class="article_category active">
+                Programming
+            </div>
+            <div class="article_category">
+                Math
+            </div>
+            {% if user.is_superuser %}
+            <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>
+            {% endif %}
+        </div>
+        <div class="col">
+            <div class="row articles_row ">
+                
+               
+                
+             
+               
+            </div>
+        </div>
+    </div>
+    <!-- <ul class="list-group articles_row">
+    
+      </ul> -->
  
 </section>
 {% endblock content %}
@@ -30,6 +52,7 @@
     $(document).ready(function(){
         APP.articles_list.init()
         APP.articles_list.load_articles()
+        
 
     })
 </script>
