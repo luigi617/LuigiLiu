@@ -1,5 +1,5 @@
 
-from apps.api.home.serializers import PokemonListSerializer, RandomArticleListSerializer
+from apps.api.home.serializers import PokemonListSerializer, DisplayArticleListSerializer
 from apps.article.models import Article
 from apps.home.models import Pokemon
 from apps.api.home.solvers.nonogram import nonogram_solver
@@ -11,14 +11,14 @@ import random
 import json
 
 
-class RandomArticleListAPIView(generics.ListAPIView):
-    serializer_class = RandomArticleListSerializer
+class DispalyArticleListAPIView(generics.ListAPIView):
+    serializer_class = DisplayArticleListSerializer
     def get_queryset(self):
-        queryset = Article.objects.all()
-        query_len = len(queryset) 
-        k = 5 if query_len >= 5 else query_len
-        indexes = random.sample(range(len(queryset)), k=k)
-        queryset = [queryset[q] for q in indexes]
+        queryset = Article.objects.order_by("-date_added")[0:5]
+        # query_len = len(queryset) 
+        # k = 5 if query_len >= 5 else query_len
+        # indexes = random.sample(range(len(queryset)), k=k)
+        # queryset = [queryset[q] for q in indexes]
         return queryset
     
 class PokemonListAPIView(generics.ListAPIView):

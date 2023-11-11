@@ -1,46 +1,133 @@
+#home_section{
+    background: black;
+}
 #dot_canvas{
-    background: #232323;
+    background: black;
     height: calc(100vh-72px);
+    width: 100%;
 }
 .introduction{
     position: absolute;
-    top: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    width: 300px;
-    
+    top: 30%;
+    left: 15%;
 }
+
 .introduction_main_text{
+    padding-left: 0!important;
     color: white;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 120px;
 }
 .introduction_text{
     color: white;
-    font-size: 16px;
-    align-self: center;
-    padding: 0px!important;
-}
-.article_row, .game_row{
-    margin: 200px 250px 50px 250px!important;
-}
-.article_text, .game_text{
+    font-size: 23px;
     align-self: center;
 }
-.book_img, .game_img{
-    width: 300px;
-
+.more_about_me{
+    margin-top: 70px!important;
+}
+.more_about_me_button{
+    border-radius: 25px!important;
+    padding: 7px 20px!important;
+    font-weight: lighter!important;
+}
+.article_row::-webkit-scrollbar {
+    display: none;
+}
+.article_row{
+    margin-top: 30px!important;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
 }
 
+
+.article_card{
+    display: inline-block;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+    vertical-align: top;
+}
+.article_img{
+    width: 400px;
+    height: 500px;
+}
+.article_type, .article_title{
+    color: white;
+}
 
 .center {
     margin-left:auto;
     margin-right:auto;
     text-align:center
 }
+.breaker_row{
+    margin: 100px 0px 100px 0px!important;
+    background-color: white;
+    overflow: hidden;
+}
 
+.breaker_text {
+    color: black;
+    white-space: nowrap;
+    /* animation properties */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    
+    -moz-animation: my-animation 20s linear infinite;
+    -webkit-animation: my-animation 20s linear infinite;
+    animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+    from {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    to {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+.game_row{
+    padding: 0px 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+.game_title{
+    color: #70b979;
+    font-size: 100px;
+    font-weight: bold;
+}
+.game_img{
+    width: 400px;
+    /* height: 500px; */
+}
+.game_name{
+    color: white;
+}
+.article_card{
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
     .article_row, .game_row{

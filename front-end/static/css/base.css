@@ -1,17 +1,22 @@
 @font-face {
-  font-family: cochin;
-  src: url("../assets/font/cochin-regular.otf") format("opentype");
+  font-family: OpenSans;
+  src: url("../assets/font/Open_Sans/static/OpenSans-Regular.ttf") format("opentype");
 }
 
 @font-face {
-  font-family: cochin;
+  font-family: OpenSans;
   font-style: italic;
-  src: url("../assets/font/cochin-italic.otf") format("opentype");
+  src: url("../assets/font/Open_Sans/static/OpenSans-Italic.ttf") format("opentype");
 }
 @font-face {
-  font-family: cochin;
+  font-family: OpenSans;
   font-weight: bold;
-  src: url("../assets/font/cochin-bold.otf") format("opentype");
+  src: url("../assets/font/Open_Sans/static/OpenSans-SemiBold.ttf") format("opentype");
+}
+@font-face {
+  font-family: OpenSans;
+  font-weight:lighter;
+  src: url("../assets/font/Open_Sans/static/OpenSans-Light.ttf") format("opentype");
 }
 html {
   height: 100%;
@@ -21,8 +26,9 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: cochin;
+  font-family: OpenSans;
   font-size: 20px;
+  /* background-color: black; */
 }
 h5 {
   font-weight: bold;
@@ -65,8 +71,11 @@ hr.divider-light {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   /* background-color: #fff; */
   transition: background-color 0.2s ease;
-  background-color: #232323;
+  background-color: black;
   box-shadow: none;
+}
+#mainNav.nav_white {
+  background-color: white!important;
 }
 
 #mainNav .navbar-brand {
@@ -75,10 +84,13 @@ hr.divider-light {
   /* color: #212529; */
 }
 #mainNav .navbar-brand {
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
+}
+#mainNav .navbar-brand.nav_white_brand {
+  color: black!important;
 }
 #mainNav .navbar-brand:hover {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
 }
 #mainNav .navbar-nav{
   display: flex;
@@ -88,11 +100,17 @@ hr.divider-light {
   position: absolute!important;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.7);
-  padding: 0 1rem;
+  color: #fff;
+  padding: 0 40px;
+}
+#mainNav .navbar-nav .nav-item .nav-link.nav_white_text {
+  color: black!important;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
+}
+#mainNav .navbar-nav .nav-item .nav-link.nav_white_text:hover {
+  color: rgba(0, 0, 0, 0.7)!important;
 }
 #mainNav .navbar-nav .nav-item:last-child .nav-link {
   padding-right: 0;

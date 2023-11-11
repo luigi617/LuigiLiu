@@ -13,20 +13,78 @@
     <div class="introduction">
       <div class="row">
         <div class="col introduction_main_text">
-          Hello, this is
+          HEY THERE
         </div>
       </div>
       <div class="row">
-        <div class="col introduction_main_text">
-          Luigi.
-        </div>
-        <span class="col introduction_text ">Student with a passion for data, numbers, and coding.</span>
+        <div class="col introduction_text ">I'M LUIGI, A PASSIONATE COMPUTER SCIENCE ENTHUSIAST <br>
+          WITH A KEEN INTEREST IN EXPLORING THE FASCINATING REALMS OF ALGORITHMS,<br>
+          DATA SRUCTURES, AND MATHEMATICAL CONCEPTS..</div>
       </div>
-      
+      <div class="row more_about_me">
+        <div class="offset-9 col">
+          <button type="button" class="more_about_me_button btn btn-outline-light">More About Me</button>
+        </div>
+      </div>
     </div>
-
   </div>
-  <div class="article_row row center ">
+  <div class="article_row row">
+    <div class="col ariticle_col">
+
+    </div>
+  </div>
+  <div class="breaker_row row">
+    <div class="col breaker_text">
+      I will periodically publish articles that cover topics such as computer programming, math, statistics, and economics. These articles will aim to share my newly acquired knowledge in these areas with others. 
+    </div>
+  </div>   
+  <div class="game_row row">
+    <div class="col game_title">
+      Interactive Showcase of Algorithms.
+    </div>
+  </div>
+
+
+  <div class="container py-2">
+    <div class="row" data-masonry='{"percentPosition": true }'>
+        <div class="col-sm-12 col-md-6 py-3 text-center">
+          <div class="article_card" data-url="{% url 'home:sudoku' %}">
+            <img src="{% static 'assets/img/sudoku.jpg' %}" class="game_img" alt="...">
+            <div class="game_name text-start">
+              Sudoku
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 py-3 text-center">
+          <div class="article_card" data-url="{% url 'home:maze' %}">
+            <img src="{% static 'assets/img/maze.jpg' %}" class="game_img" alt="...">
+            <div class="game_name text-start">
+              Maze
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 py-3 text-center">
+          <div class="article_card" data-url="{% url 'home:sort' %}">
+            <img src="{% static 'assets/img/sorting.jpg' %}" class="game_img" alt="...">
+            <div class="game_name text-start">
+              Sorting
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 py-3 text-center">
+          <div class="article_card" data-url="{% url 'home:typing' %}">
+            <img src="{% static 'assets/img/type.jpg' %}" class="game_img" alt="...">
+            <div class="game_name text-start">
+              Typing
+            </div>
+          </div>
+        </div>
+        
+     
+       
+    </div>
+</div>
+  <!-- <div class="article_row row center ">
     <div class="col article_text">
       I will periodically publish articles that cover topics such as computer programming, math, statistics, and economics.
       These articles will aim to share my newly acquired knowledge in these areas with others.
@@ -47,7 +105,7 @@
       <br> <a class="" href="{% url 'home:game_list' %}">Check out</a>
     </div>
 
-  </div>    
+  </div>     -->
 
    
 </section>
@@ -57,12 +115,13 @@
 <script src="{% static 'javascript/home.js' %}"></script>
 
 <script>
-  RANDOM_ARTICLE_LIST_URL = "/api/random-articles/"
+  DISPLAY_ARTICLE_LIST_URL = "/api/display-articles/"
   ARTICLE_RETRIEVE_URL = "/articles/"
+  ABOUT_ME_URL = "{% url 'home:aboutme' %}"
   $(document).ready(function(){
     APP.home.init()
     APP.home.canva_dot()
-    // APP.home.load_articles()
+    APP.home.load_articles()
   })
 </script>
 {% endblock js %}

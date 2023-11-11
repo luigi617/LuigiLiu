@@ -6,31 +6,37 @@ APP['home'] = {
         $(".masonry_div").click(function(){
             window.location.href = $(this).data("url")
         })
+        $(".article_card").click(function(){
+            window.location.href = $(this).data("url")
+        })
+        $(".more_about_me_button").click(function(){
+            window.location.href = ABOUT_ME_URL
+        })
        
     },
-    // "load_articles": function(){
-    //     $.ajax({
-    //         method: "GET",
-    //         url: BASE_URL + RANDOM_ARTICLE_LIST_URL,
-    //         success: function(data){
-
-    //             for (let i = 0; i < data.results.length; i++){
-    //                 $(".article_row").append(
-    //                     `
-    //                     <div class="card article_card" data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["id"] + "/"}">
-    //                         <img src="${data.results[i]["cover_img"]}" class="card-img-top article_img" alt="...">
-    //                         <div class="card-body">
-    //                         <p class="card-text fw-bold my-2">${data.results[i]["title"]}</p>
-    //                         <p class="card-text fw-light text-end mx-2 article_date_modified">${APP.base.parse_time(data.results[i]["date_modified"])}</p>
-    //                         </div>
-    //                     </div>
-    //                     `
-    //                 )
-    //             }
+    "load_articles": function(){
+        $.ajax({
+            method: "GET",
+            url: BASE_URL + DISPLAY_ARTICLE_LIST_URL,
+            success: function(data){
+                console.log(data)
+                for (let i = 0; i < data.results.length; i++){
+                    $(".ariticle_col").append(
+                        `
+                        <div class="article_card" data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["url_name"] + "/"}">
+                            <img src="${data.results[i]["cover_img"]}" class="article_img" alt="...">
+                            <div class="article_type">
+                            ${data.results[i]["title"]}
+                            </div>
+                            <div class="article_title">${data.results[i]["title"]}</div>
+                        </div>
+                        `
+                    )
+                }
                 
-    //         }
-    //     })
-    // },
+            }
+        })
+    },
 
     "canva_dot": function(){
         var canvas = document.getElementById("dot_canvas"),
@@ -107,8 +113,8 @@ APP['home'] = {
                     }
                 }
             }
-            ctx.lineWidth = 0.1;
-            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 0.2;
+            ctx.strokeStyle = 'gray';
             ctx.stroke();
             }
 
