@@ -53,7 +53,6 @@ APP['articles_list'] = {
                 $(".articles_row").masonry({
                     // columnWidth: 942,
                     itemSelector: '.article',
-                    gutter: 0,
                     // horizontalOrder: true,
                     percentPosition: true
                   });
