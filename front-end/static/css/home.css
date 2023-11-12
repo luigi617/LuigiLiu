@@ -31,33 +31,60 @@
     padding: 7px 20px!important;
     font-weight: lighter!important;
 }
+
+.article_section_row{
+    margin: 10px 0px 0px 0px!important;
+    background-color: white;
+    padding: 30px 50px;
+    width: 100%;
+    
+}
+.article_section_title{
+    /* color: #70b979; */
+    font-size: 100px;
+    font-weight: bold;
+}
 .article_row::-webkit-scrollbar {
     display: none;
 }
 .article_row{
-    margin-top: 30px!important;
+    margin: 0px!important;
+
     width: 100%;
     white-space: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    background-color: white;
+    padding: 0px 50px 50px 50px;
 }
 
 
 .article_card{
     display: inline-block;
-    width: 400px;
-    margin: 0;
+    width: 500px;
+    margin-right: 30px;
     padding: 0;
     white-space: normal;
     vertical-align: top;
+    cursor: pointer;
 }
 .article_img{
-    width: 400px;
-    height: 500px;
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+
 }
-.article_type, .article_title{
-    color: white;
+.article_title{
+    font-size: 30px;
+    font-weight: bold;
+    
+    color: black;
+}
+.article_type{
+    color: black;
 }
 
 .center {
@@ -66,7 +93,8 @@
     text-align:center
 }
 .breaker_row{
-    margin: 100px 0px 100px 0px!important;
+    margin: 0px!important;
+    padding-bottom: 30px;
     background-color: white;
     overflow: hidden;
 }
@@ -125,9 +153,7 @@
 .game_name{
     color: white;
 }
-.article_card{
-    cursor: pointer;
-}
+
 
 @media (max-width: 768px) {
     .article_row, .game_row{
