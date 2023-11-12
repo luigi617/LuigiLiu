@@ -7,7 +7,7 @@ fi
 
 domains=(luigiliu.com www.luigiliu.com)
 rsa_key_size=4096
-data_path="./data/certbot"
+data_path="/code/data/certbot"
 email="luigiliu617@gmail.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
@@ -28,7 +28,7 @@ if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/
 fi
 
 echo "### Creating dummy certificate for $domains ..."
-path="/etc/letsencrypt/live/$domains"
+path="/code/etc/letsencrypt/live/$domains"
 mkdir -p "$data_path/conf/live/$domains"
 docker-compose -f production.yml run --rm --entrypoint "\
   openssl req -x509 -nodes -newkey rsa:$rsa_key_size -days 1\
@@ -44,9 +44,9 @@ echo
 
 echo "### Deleting dummy certificate for $domains ..."
 docker-compose -f production.yml run --rm --entrypoint "\
-  rm -Rf /etc/letsencrypt/live/$domains && \
-  rm -Rf /etc/letsencrypt/archive/$domains && \
-  rm -Rf /etc/letsencrypt/renewal/$domains.conf" certbot
+  rm -Rf /code/etc/letsencrypt/live/$domains && \
+  rm -Rf /code/etc/letsencrypt/archive/$domains && \
+  rm -Rf /code/etc/letsencrypt/renewal/$domains.conf" certbot
 echo
 
 
@@ -67,7 +67,7 @@ esac
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
 docker-compose -f production.yml run --rm --entrypoint "\
-  certbot certonly --webroot -w /var/www/certbot \
+  certbot certonly --webroot -w /code/data/www/certbot \
     $staging_arg \
     $email_arg \
     $domain_args \

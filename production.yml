@@ -28,35 +28,38 @@ services:
       - "5432:5432"
     env_file:
       - ./.envs/.prod/.postgres
-  # nginx:
-  #   build: ./nginx
-  #   volumes:
-  #     - static_volume:/code/front-end/static
-  #     - media_volume:/code/front-end/media
-  #   ports:
-  #     - 80:80
-  #   depends_on:
-  #     - django
-  
   nginx:
     build: ./nginx
     volumes:
       - static_volume:/code/front-end/static
       - media_volume:/code/front-end/media
-      - ./data/certbot/conf:/code/etc/letsencrypt
-      - ./data/certbot/www:/code/var/www/certbot
     ports:
       - 80:80
-      - 443:443
     depends_on:
       - django
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./data/certbot/conf:/code/etc/letsencrypt
-      - ./data/certbot/www:/code/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  
+  # nginx:
+  #   build: ./nginx
+  #   volumes:
+  #     - static_volume:/code/front-end/static
+  #     - media_volume:/code/front-end/media
+  #     - ./nginx/:/code/etc/nginx/
+  #     # - ./data/certbot/conf:/code/etc/letsencrypt
+  #     # - ./data/certbot/www:/code/var/www/certbot
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   depends_on:
+  #     - django
+  #   # command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  # certbot:
+  #   image: certbot/certbot
+  #   volumes:
+  #     - ./data/certbot/conf:/code/etc/letsencrypt
+  #     - ./data/certbot/www:/code/data/www/certbot
+  #   # entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  #   depends_on:
+  #     - nginx
 
 volumes: 
   postgres_data: {}
