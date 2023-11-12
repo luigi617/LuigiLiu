@@ -6,7 +6,7 @@ APP['home'] = {
         $(".masonry_div").click(function(){
             window.location.href = $(this).data("url")
         })
-        $(".article_card").click(function(){
+        $(document).on("click", ".article_card", function(){
             window.location.href = $(this).data("url")
         })
         $(".more_about_me_button").click(function(){
@@ -19,16 +19,23 @@ APP['home'] = {
             method: "GET",
             url: BASE_URL + DISPLAY_ARTICLE_LIST_URL,
             success: function(data){
-                console.log(data)
                 for (let i = 0; i < data.results.length; i++){
                     $(".ariticle_col").append(
                         `
                         <div class="article_card" data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["url_name"] + "/"}">
                             <img src="${data.results[i]["cover_img"]}" class="article_img" alt="...">
-                            <div class="article_type">
-                            ${data.results[i]["title"]}
+                            <div class="article_title">
+                            ${data.results[i]["title"].toUpperCase()}
                             </div>
-                            <div class="article_title">${data.results[i]["title"]}</div>
+                            <div class="row">
+                                <div class="col text-start">
+                                    <div class="article_type">${data.results[i]["title"]}</div>
+                                </div>
+                                <div class="col text-end">
+                                    <div class="article_date">${APP.base.parse_time(data.results[i]["date_modified"])}</div>
+                                </div>
+                            </div>
+                            
                         </div>
                         `
                     )
