@@ -22,7 +22,7 @@ APP['articles_list'] = {
             url: BASE_URL + ARTICLE_LIST_URL,
             success: async function(data){
 
-                for (let i = 0; i < data.results.length; i++){
+                for (let i = data.results.length - 1; i >= 0; i--){
                     article = `
                     <div class="col-sm-12 col-md-6 py-3 article"
                         data-url="${BASE_URL + ARTICLE_RETRIEVE_URL + data.results[i]["url_name"] + "/"}" 
@@ -48,14 +48,10 @@ APP['articles_list'] = {
                         
                         </div>
                     </div>`
-                    $(".articles_row").prepend(article)
+                    // $(".articles_row").prepend(article)
+                    article_masonry.masonry().append( article ).masonry( 'appended',article).masonry();
                 }
-                $(".articles_row").masonry({
-                    // columnWidth: 942,
-                    itemSelector: '.article',
-                    // horizontalOrder: true,
-                    percentPosition: true
-                  });
+                
             }
         })
     },
