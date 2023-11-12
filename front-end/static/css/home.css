@@ -27,7 +27,7 @@
     margin-top: 70px!important;
 }
 .more_about_me_button{
-    border-radius: 25px!important;
+    /* border-radius: 25px!important; */
     padding: 7px 20px!important;
     font-weight: lighter!important;
 }
@@ -93,7 +93,7 @@
     text-align:center
 }
 .breaker_row{
-    margin: 0px!important;
+    margin: 0px 0px 200px 0px!important;
     padding-bottom: 30px;
     background-color: white;
     overflow: hidden;
