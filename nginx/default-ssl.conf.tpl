@@ -25,8 +25,8 @@ server {
     listen 443 ssl;
     server_name 18.153.140.205 luigiliu.com www.luigiliu.com;
 
-    ssl_certificate /code/etc/letsencrypt/live/luigiliu.com/fullchain.pem;
-    ssl_certificate_key /code/etc/letsencrypt/live/luigiliu.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/luigiliu.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/luigiliu.com/privkey.pem;
 
     include /code/data/certbot/conf/options-ssl-nginx.conf;
     ssl_dhparam /code/data/certbot/conf/ssl-dhparams.pem;
