@@ -10,4 +10,4 @@ done
 
 echo "Getting certificate..."
 
-certbot certonly --webroot --webroot-path /code/data/certbot/www/ --email luigiliu617@gmail.com --rsa-key-size 4096 --agree-tos --no-eff-email -d luigiliu.com
+certbot certonly --webroot --webroot-path /code/data/certbot/www/ -d luigiliu.com --email luigiliu617@gmail.com --rsa-key-size 4096 --agree-tos --noninteractive
