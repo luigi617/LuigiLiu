@@ -11,4 +11,3 @@ COPY nginx.conf /etc/nginx/conf.d
 # RUN chmod +x /run.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-# ENTRYPOINT ["/run.sh"]
