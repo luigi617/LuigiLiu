@@ -9,5 +9,3 @@ COPY nginx.conf /etc/nginx/conf.d
 
 # RUN apk add --no-cache openssl bash
 # RUN chmod +x /run.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
