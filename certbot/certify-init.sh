@@ -2,7 +2,8 @@
 
 set -e
 
-until nc -z nginx 80: do
+
+until nc -z nginx 80; do
     echo "Waiting for nginx..."
     sleep 5s & wait ${!}
 done
