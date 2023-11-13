@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Getting certificate..."
+echo "Getting certificatee..."
 
 until nc -z nginx 80; do
     echo "Waiting for nginx..."
