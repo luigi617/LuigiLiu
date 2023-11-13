@@ -15,7 +15,7 @@ server {
         return 301 https://$host:$request_uri;
     }
     location /.well-known/acme-challenge/ {
-        root /code/data/certbot/www;
+        root /code/data/certbot/www/;
     }
 
 }
