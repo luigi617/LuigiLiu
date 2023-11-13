@@ -10,7 +10,7 @@ done
 
 echo "Getting certificate..."
 
-certbot \
+certbot certonly \
     --webroot \
     --webroot-path="/code/data/certbot/www/" \
     -d $DOMAIN \
