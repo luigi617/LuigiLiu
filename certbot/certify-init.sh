@@ -13,8 +13,8 @@ echo "Getting certificate..."
 certbot certonly \
     --webroot \
     --webroot-path "/code/data/certbot/www/" \
-    -d $DOMAIN \
-    --email $ACME_DEFAULT_EMAIL \
+    -d luigiliu.com \
+    --email luigiliu617@gmail.com \
     --rsa-key-size 4096 \
     --agree-tos \
     --noninteractive
