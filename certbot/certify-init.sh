@@ -2,11 +2,10 @@
 
 set -e
 
-# echo "Getting certificatee..."
 
 until nc -z nginx 80; do
     echo "Waiting for nginx..."
-    sleep 5s & wait ${!}
+    sleep 6s & wait ${!}
 done
 
 echo "Getting certificate..."
