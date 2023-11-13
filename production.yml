@@ -56,7 +56,7 @@ services:
       - django
     # command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
   certbot:
-    image: certbot/certbot
+    build: ./certbot
     volumes:
       - certbot-certs:/code/etc/letsencrypt
       - certbot-web:/code/data/certbot/www
