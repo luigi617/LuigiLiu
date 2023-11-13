@@ -11,4 +11,5 @@ COPY run.sh /run.sh
 RUN apk add --no-cache openssl bash
 RUN chmod +x /run.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/run.sh"]
