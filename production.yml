@@ -28,11 +28,13 @@ services:
       - "5432:5432"
     env_file:
       - ./.envs/.prod/.postgres
+
   nginx:
     build: ./nginx
     volumes:
       - static_volume:/code/front-end/static
       - media_volume:/code/front-end/media
+      - ./nginx/:/code/etc/nginx/conf.d/
     ports:
       - 80:80
     depends_on:
