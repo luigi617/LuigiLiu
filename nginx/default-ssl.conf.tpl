@@ -11,11 +11,12 @@ server {
     server_tokens off;
 
     
+    location /.well-known/acme-challenge/ {
+        allow all;
+        root /code/data/certbot/www/;
+    }
     location / {
         return 301 https://$host:$request_uri;
-    }
-    location /.well-known/acme-challenge/ {
-        root /code/data/certbot/www/;
     }
 
 }
