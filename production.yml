@@ -50,8 +50,8 @@ services:
     ports:
       - 80:80
       - 443:443
-    enviroment:
-      - DOMAIN=${DOMAIN}
+    env_file:
+      - ./.envs/.prod/.nginx
     depends_on:
       - django
     # command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
