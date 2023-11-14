@@ -50,6 +50,7 @@ services:
       - ./nginx/:/code/etc/nginx/conf.d/
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot-web:/code/data/certbot/www
+      - /code/data/certbot/conf:/code/data/certbot/conf
     ports:
       - 80:80
       - 443:443
@@ -63,6 +64,7 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot-web:/code/data/certbot/www
+      
     env_file:
       - ./.envs/.prod/.certbot
     # entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
@@ -71,7 +73,6 @@ services:
 
 volumes: 
   certbot-web: {}
-  certbot-certs: {}
 
   postgres_data: {}
   postgres_data_backups: {}
