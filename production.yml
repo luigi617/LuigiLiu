@@ -59,17 +59,17 @@ services:
     depends_on:
       - django
     # command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-  certbot:
-    build: ./certbot
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-      - certbot-web:/code/data/certbot/www
+  # certbot:
+  #   build: ./certbot
+  #   volumes:
+  #     - /etc/letsencrypt:/etc/letsencrypt:ro
+  #     - certbot-web:/code/data/certbot/www
       
-    env_file:
-      - ./.envs/.prod/.certbot
-    # entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    depends_on:
-      - nginx
+  #   env_file:
+  #     - ./.envs/.prod/.certbot
+  #   # entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  #   depends_on:
+  #     - nginx
 
 volumes: 
   certbot-web: {}
