@@ -48,7 +48,7 @@ services:
       - media_volume:/code/front-end/media
 
       - ./nginx/:/code/etc/nginx/conf.d/
-      - certbot-certs:/etc/letsencrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot-web:/code/data/certbot/www
     ports:
       - 80:80
@@ -61,7 +61,7 @@ services:
   certbot:
     build: ./certbot
     volumes:
-      - certbot-certs:/etc/letsencrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot-web:/code/data/certbot/www
     env_file:
       - ./.envs/.prod/.certbot
