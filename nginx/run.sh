@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-data_path="/code/data/certbot"
+data_path="/data/certbot"
 
 
 
@@ -21,7 +21,7 @@ export host=\$host
 export request_uri=\$request_uri
 
 echo "Checking for fullchain.pem"
-if [ ! -f "code/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
+if [ ! -f "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
   echo "No SSL cert, enabling HTTP only..."
   envsubst < /etc/nginx/conf.d/default.conf.tpl > /etc/nginx/conf.d/default.conf
 else
