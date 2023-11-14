@@ -34,7 +34,7 @@ services:
     volumes:
       - static_volume:/code/front-end/static
       - media_volume:/code/front-end/media
-      - ./nginx/:/code/etc/nginx/conf.d/
+      # - ./nginx/:/code/etc/nginx/conf.d/
     ports:
       - 80:80
     depends_on:
