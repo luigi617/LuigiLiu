@@ -6,7 +6,6 @@ upstream luigiliu {
 server {
 
     listen 80;
-    listen [::]80;
     server_name luigiliu.com www.luigiliu.com;
     server_tokens off;
 
