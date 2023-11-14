@@ -1,21 +1,21 @@
 #!/bin/bash
 set -e
 
-data_path="/data/certbot"
+# data_path="/data/certbot"
 
 
 
-if [ ! -f "$data_path/conf/options-ssl-nginx.conf" ]; then
-  echo "### Downloading options-ssl-nginx.conf ..."
-  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf > "$data_path/conf/options-ssl-nginx.conf"
-  echo
-fi
+# if [ ! -f "$data_path/conf/options-ssl-nginx.conf" ]; then
+#   echo "### Downloading options-ssl-nginx.conf ..."
+#   curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf > "$data_path/conf/options-ssl-nginx.conf"
+#   echo
+# fi
 
-if [ ! -f "$data_path/conf/ssl-dhparams.pem" ]; then
-  echo "### Downloading ssl-dhparams.pem ..."
-  curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/certbot/ssl-dhparams.pem > "$data_path/conf/ssl-dhparams.pem"
-  echo
-fi
+# if [ ! -f "$data_path/conf/ssl-dhparams.pem" ]; then
+#   echo "### Downloading ssl-dhparams.pem ..."
+#   curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/certbot/ssl-dhparams.pem > "$data_path/conf/ssl-dhparams.pem"
+#   echo
+# fi
 
 export host=\$host
 export request_uri=\$request_uri
