@@ -12,7 +12,6 @@ server {
 
     
     location /.well-known/acme-challenge/ {
-        allow all;
         root /code/data/certbot/www/;
     }
     location / {
