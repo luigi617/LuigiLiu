@@ -21,7 +21,7 @@ export host=\$host
 export request_uri=\$request_uri
 
 echo "Checking for fullchain.pem"
-envsubst < /etc/nginx/conf.d/default-ssl.conf.tpl > /etc/nginx/conf.d/default.conf
+# envsubst < /etc/nginx/conf.d/default-ssl.conf.tpl > /etc/nginx/conf.d/default.conf
 # if [ ! -e "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
 #   echo "No SSL cert, enabling HTTP only..."
 #   envsubst < /etc/nginx/conf.d/default.conf.tpl > /etc/nginx/conf.d/default.conf
