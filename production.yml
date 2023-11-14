@@ -29,35 +29,35 @@ services:
     env_file:
       - ./.envs/.prod/.postgres
 
-  nginx:
-    build: ./nginx
-    volumes:
-      - static_volume:/code/front-end/static
-      - media_volume:/code/front-end/media
-      - ./nginx/:/code/etc/nginx/conf.d/
-    ports:
-      - 80:80
-    depends_on:
-      - django
-  
   # nginx:
   #   build: ./nginx
-
   #   volumes:
   #     - static_volume:/code/front-end/static
   #     - media_volume:/code/front-end/media
-
   #     - ./nginx/:/code/etc/nginx/conf.d/
-  #     - /etc/letsencrypt:/etc/letsencrypt:ro
-  #     - certbot-web:/code/data/certbot/www
-  #     - ./data/certbot/conf:/code/data/certbot/conf
   #   ports:
   #     - 80:80
-  #     - 443:443
-  #   env_file:
-  #     - ./.envs/.prod/.nginx
   #   depends_on:
   #     - django
+  
+  nginx:
+    build: ./nginx
+
+    volumes:
+      - static_volume:/code/front-end/static
+      - media_volume:/code/front-end/media
+
+      - ./nginx/:/code/etc/nginx/conf.d/
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - certbot-web:/code/data/certbot/www
+      - ./data/certbot/conf:/code/data/certbot/conf
+    ports:
+      - 80:80
+      - 443:443
+    env_file:
+      - ./.envs/.prod/.nginx
+    depends_on:
+      - django
     # command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
   # certbot:
   #   build: ./certbot
