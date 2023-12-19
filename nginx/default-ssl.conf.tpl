@@ -20,7 +20,7 @@ server {
 server {
 
     listen 443 ssl;
-    server_name 18.153.140.205 luigiliu.com www.luigiliu.com;
+    server_name luigiliu.com www.luigiliu.com;
 
     ssl_certificate /etc/letsencrypt/live/luigiliu.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/luigiliu.com/privkey.pem;
@@ -31,7 +31,7 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     
     location / {
-        proxy_pass https://luigiliu.com;
+        proxy_pass https://luigiliu;
         client_max_body_size 10M;
     }
 
