@@ -13,7 +13,7 @@ server {
         root /code/data/certbot/www/;
     }
     location / {
-        return 301 https://$host:$request_uri;
+        return 301 https://$host$request_uri;
     }
 
 }
