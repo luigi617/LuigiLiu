@@ -31,7 +31,7 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     
     location / {
-        proxy_pass https://luigiliu;
+        proxy_pass https://django:8000;
         client_max_body_size 10M;
     }
 
