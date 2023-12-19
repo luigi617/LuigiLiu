@@ -32,8 +32,6 @@ server {
     
     location / {
         proxy_pass https://luigiliu.com;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $host;
         proxy_redirect off;
         client_max_body_size 10M;
     }
