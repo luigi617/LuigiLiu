@@ -136,7 +136,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/front-end/static/'
+STATIC_URL = 'https://luigiliu.com/front-end/static/'
 
 STATICFILES_DIRS = (
     os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'static'),
@@ -145,7 +145,7 @@ STATIC_ROOT = os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'staticfile
 # https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-MEDIA_ROOT
 
 MEDIA_ROOT = os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'media')
-MEDIA_URL = '/front-end/media/'
+MEDIA_URL = 'https://luigiliu.com/front-end/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -178,4 +178,5 @@ REST_FRAMEWORK = {
 
 # SESSION_COOKIE_SECURE = True
 # SESSION_COOKIE_HTTPONLY = True
-# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", 'https')
+# SECURE_SSL_REDIRECT = True

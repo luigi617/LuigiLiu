@@ -7,8 +7,6 @@ server {
 
     listen 80;
     server_name luigiliu.com www.luigiliu.com;
-    server_tokens off;
-
     
     location /.well-known/acme-challenge/ {
         root /code/data/certbot/www/;
