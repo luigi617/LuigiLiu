@@ -31,7 +31,7 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     
     location / {
-        proxy_pass http://luigiliu;
+        proxy_pass http://luigiliu.com;
     }
 
     location /front-end/static/ {
