@@ -97,9 +97,9 @@
         {% get_debug as is_debug %}
         <script>
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                BASE_URL = "{% if is_debug == False %}http://luigiliu.com{% else %}http://10.12.109.60:8000{% endif %}"
+                BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://10.12.109.60:8000{% endif %}"
             } else {
-                BASE_URL = "{% if is_debug == False %}http://luigiliu.com{% else %}http://localhost:8000{% endif %}"
+                BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://localhost:8000{% endif %}"
             }
             // BASE_URL = "http://luigiliu.com"
             MEDIA_URL = BASE_URL + "/media"
