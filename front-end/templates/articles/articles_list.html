@@ -11,13 +11,10 @@
     <div class="row">
         <div class="col-3 me-5">
             <div class="article_headline">
-                Article
+                ARTICLE
             </div>
-            <div class="article_category active">
-                Programming
-            </div>
-            <div class="article_category">
-                Math
+            <div class="article_category_list">
+
             </div>
             {% if user.is_superuser %}
             <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>
@@ -44,6 +41,7 @@
 <script src="{% static 'javascript/articles_list.js' %}"></script>
 <script>
     ARTICLE_LIST_URL = '/api/articles/'
+    ARTICLE_CATEGORY_LIST_URL = '/api/article-categories/'
     ARTICLE_RETRIEVE_URL = "/articles/"
     CREATE_ARTICLE_URL = "{% url 'articles:create-article' %}"
     EDIT_ARTICLE_URL = "/articles/edit/"
@@ -57,6 +55,7 @@
                     percentPosition: true
                   });
         APP.articles_list.init()
+        APP.articles_list.load_article_categories()
         APP.articles_list.load_articles()
         
 

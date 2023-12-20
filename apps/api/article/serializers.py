@@ -1,10 +1,16 @@
 from rest_framework import serializers
-from apps.article.models import Article
+from apps.article.models import Article, ArticleCategory
+
+
+class ArticleCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ArticleCategory
+        fields = ["id", "name"]
 
 class ArticleListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ["id", "url_name", "user", "title", "date_modified", "cover_img"]
+        fields = ["id", "url_name", "user", "title", "date_added", "cover_img"]
 class ArticleRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article

@@ -20,6 +20,8 @@ APP['home'] = {
             method: "GET",
             url: BASE_URL + DISPLAY_ARTICLE_LIST_URL,
             success: function(data){
+
+                console.log(data)
                 for (let i = 0; i < data.results.length; i++){
                     $(".ariticle_col").append(
                         `
@@ -30,10 +32,10 @@ APP['home'] = {
                             </div>
                             <div class="row">
                                 <div class="col text-start">
-                                    <div class="article_type">${data.results[i]["title"]}</div>
+                                    <div class="article_type">${data.results[i]["category"]["name"] == null ? "" : data.results[i]["category"]["name"]}</div>
                                 </div>
                                 <div class="col text-end">
-                                    <div class="article_date">${APP.base.parse_time(data.results[i]["date_modified"])}</div>
+                                    <div class="article_date">${APP.base.parse_time(data.results[i]["date_added"])}</div>
                                 </div>
                             </div>
                             
@@ -204,7 +206,7 @@ APP['home'] = {
         var textWidth = textWidthElement.outerWidth();
         var containerWidth = textWidthElement.parent().width();
         textWidthElement.addClass("d-none")
-        console.log(textWidth)
+        
         var totalDistance = textWidth + containerWidth;
         var speedPerPixel = 0.3; // Adjust this for speed (lower is faster)
 

@@ -1,14 +1,24 @@
 
-from apps.api.article.serializers import ArticleListSerializer, ArticleRetrieveSerializer, ArticleCreateSerializer, ArticleUpdateSerializer
-from apps.article.models import Article
+from apps.api.article.serializers import ArticleListSerializer, ArticleRetrieveSerializer, ArticleCreateSerializer, ArticleUpdateSerializer, ArticleCategorySerializer
+from apps.article.models import Article, ArticleCategory
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 
+class ArticleCategoryListAPIView(generics.ListAPIView):
+    queryset = ArticleCategory.objects.all()
+    serializer_class = ArticleCategorySerializer
+
+    
+
 class ArticleListAPIView(generics.ListAPIView):
-    queryset = Article.objects.all()
+
     serializer_class = ArticleListSerializer
+
+    def get_queryset(self):
+        category_id = self.request.query_params.get("category_id")
+        return Article.objects.filter(category = category_id)
     
 class ArticleRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Article.objects.all()

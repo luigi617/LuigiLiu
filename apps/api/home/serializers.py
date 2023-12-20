@@ -1,11 +1,13 @@
 from rest_framework import serializers
 from apps.article.models import Article
 from apps.home.models import Pokemon
+from apps.api.article.serializers import ArticleCategorySerializer
 
 class DisplayArticleListSerializer(serializers.ModelSerializer):
+    category = ArticleCategorySerializer()
     class Meta:
         model = Article
-        fields = ["id", "url_name", "user", "title", "date_modified", "cover_img"]
+        fields = ["id", "url_name", "user", "title", "date_added", "cover_img", "category"]
 
 class PokemonListSerializer(serializers.ModelSerializer):
     class Meta:
