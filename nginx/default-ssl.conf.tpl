@@ -32,7 +32,6 @@ server {
     
     location / {
         proxy_pass http://luigiliu;
-
     }
 
     location /front-end/static/ {
