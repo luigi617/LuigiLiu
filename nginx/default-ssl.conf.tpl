@@ -32,6 +32,7 @@ server {
     
     location / {
         proxy_pass http://luigiliu;
+        proxy_set_header X-Forwarded-Proto https;
     }
 
     location /front-end/static/ {
