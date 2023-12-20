@@ -31,6 +31,7 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
     
     location / {
+        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_pass http://luigiliu;
     
     }
