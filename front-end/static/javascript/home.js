@@ -32,7 +32,7 @@ APP['home'] = {
                             </div>
                             <div class="row">
                                 <div class="col text-start">
-                                    <div class="article_type">${data.results[i]["category"]["name"] == null ? "" : data.results[i]["category"]["name"]}</div>
+                                    <div class="article_type">${data.results[i]["category"] == null ? "" : data.results[i]["category"]["name"]}</div>
                                 </div>
                                 <div class="col text-end">
                                     <div class="article_date">${APP.base.parse_time(data.results[i]["date_added"])}</div>
