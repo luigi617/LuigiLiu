@@ -8,7 +8,7 @@
         
 
 <section id="home_section" class="pb-5">
-  <div>
+  <!-- <div>
     <canvas UNSELECTABLE="on" id="dot_canvas"></canvas>
     <div class="introduction">
       <div class="row">
@@ -24,6 +24,31 @@
       <div class="row more_about_me">
         <div class="offset-9 col">
           <button type="button" class="more_about_me_button btn btn-outline-light">More About Me</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="introduction_container">
+    <div class="canvas_layer">
+      <canvas UNSELECTABLE="on" id="dot_canvas"></canvas>
+    </div>
+    <div class="introduction">
+      <div class="row">
+        <div class="col introduction_main_text">
+          HEY THERE
+        </div>
+      </div>
+      <div class="row">
+        <div class="col introduction_text ">
+          I'M LUIGI.<br>
+          A PASSIONATE COMPUTER SCIENCE ENTHUSIASTWITH A KEEN INTEREST
+          IN EXPLORING THE FASCINATING REALMS OF ALGORITHMS, DATA SRUCTURES,
+          AND MATHEMATICAL CONCEPTS.
+        </div>
+      </div>
+      <div class="row more_about_me">
+        <div class="offset-7 offset-md-9 col">
+          <button type="button" class="more_about_me_button btn btn-outline-light">About Me</button>
         </div>
       </div>
     </div>
@@ -43,42 +68,63 @@
     <div class="col breaker_text">
       I will periodically publish articles that cover topics such as computer programming, math, statistics, and economics. These articles will aim to share my newly acquired knowledge in these areas with others. 
     </div>
+    <div class="col breaker_text_width d-none">
+      I will periodically publish articles that cover topics such as computer programming, math, statistics, and economics. These articles will aim to share my newly acquired knowledge in these areas with others. 
+    </div>
   </div>   
   <div class="game_row row">
     <div class="col game_title">
       Interactive Showcase of Algorithms.
     </div>
   </div>
+  <div class="row w-100">
+    <div class="d-sm-none d-lg-block offset-2 col-4 text-end text-white">
+      I share games and ideas
+    </div>
+    <div class="d-sm-none d-lg-block col-4 text-start text-white">
+      The purpose of this section is to showcase fancy algoriths used in computer science.
+      These algorithms will be presented in an interactive mannar,
+      either through gamification or through a direct display of the algorithm's process.
+    </div>
 
+    <div class="d-sm-block d-lg-none col text-start text-white px-5 mx-3 mb-3">
+      I share games and ideas.<br>
+      The purpose of this section is to showcase fancy algoriths used in computer science.
+      These algorithms will be presented in an interactive mannar,
+      either through gamification or through a direct display of the algorithm's process.
+    </div>
+  </div>
 
   <div class="container py-2">
     <div class="row" data-masonry='{"percentPosition": true }'>
-        <div class="col-sm-12 col-md-6 py-3 text-center">
-          <div class="article_card" data-url="{% url 'home:sudoku' %}">
-            <img src="{% static 'assets/img/sudoku.jpg' %}" class="game_img" alt="...">
+        <div class="col-sm-12 col-lg-6 py-3 text-center">
+          <div class="game_card" data-url="{% url 'home:sudoku' %}">
+            <img src="{% static 'assets/img/sudoku_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Sudoku
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 py-3 text-center">
-          <div class="article_card" data-url="{% url 'home:maze' %}">
-            <img src="{% static 'assets/img/maze.jpg' %}" class="game_img" alt="...">
+        <div class="d-sm-none d-lg-block col-lg-6 py-5 text-center">
+        </div>
+        <div class="col-sm-12 col-lg-6 py-3 text-center">
+          <div class="game_card" data-url="{% url 'home:maze' %}">
+            <img src="{% static 'assets/img/maze_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Maze
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 py-3 text-center">
-          <div class="article_card" data-url="{% url 'home:sort' %}">
+        <div class="col-sm-12 col-lg-6 py-3 text-center">
+          <div class="game_card" data-url="{% url 'home:sort' %}">
             <img src="{% static 'assets/img/sorting.jpg' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Sorting
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 py-3 text-center">
-          <div class="article_card" data-url="{% url 'home:typing' %}">
+        <div class="col-sm-12 col-lg-6 py-3 text-center">
+          <div class="game_card" data-url="{% url 'home:typing' %}">
             <img src="{% static 'assets/img/type.jpg' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Typing
@@ -133,6 +179,7 @@
     APP.home.init()
     APP.home.canva_dot()
     APP.home.load_articles()
+    APP.home.breaker_text_infinite()
   })
 </script>
 {% endblock js %}

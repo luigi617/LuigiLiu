@@ -12,6 +12,7 @@ APP['home'] = {
         $(".more_about_me_button").click(function(){
             window.location.href = ABOUT_ME_URL
         })
+
        
     },
     "load_articles": function(){
@@ -195,4 +196,36 @@ APP['home'] = {
             }, true);
         }
     },
+
+    "breaker_text_infinite":function(){
+        var textElement = $('.breaker_text');
+        var textWidthElement = $(".breaker_text_width")
+        textWidthElement.removeClass("d-none")
+        var textWidth = textWidthElement.outerWidth();
+        var containerWidth = textWidthElement.parent().width();
+        textWidthElement.addClass("d-none")
+        console.log(textWidth)
+        var totalDistance = textWidth + containerWidth;
+        var speedPerPixel = 0.3; // Adjust this for speed (lower is faster)
+
+        function startAnimation() {
+            textElement.css({
+                'transition': 'none',
+                'transform': 'translateX(100%)'
+            });
+
+            // Timeout to reset position without being visible
+            setTimeout(function() {
+                textElement.css({
+                    'transition': `transform ${totalDistance / speedPerPixel}ms linear`,
+                    'transform': `translateX(-${textWidth}px)`
+                });
+            }, 0);
+           
+        }
+
+        textElement.on('transitionend', startAnimation);
+        startAnimation(); // Initialize the animation
+
+    }
 }

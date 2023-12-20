@@ -136,7 +136,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = 'https://luigiliu.com/front-end/static/'
+if DEBUG:
+    STATIC_URL = '/front-end/static/'
+else:
+    STATIC_URL = 'https://luigiliu.com/front-end/static/'
 
 STATICFILES_DIRS = (
     os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'static'),
@@ -145,7 +148,11 @@ STATIC_ROOT = os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'staticfile
 # https://docs.djangoproject.com/en/4.0/ref/settings/#std-setting-MEDIA_ROOT
 
 MEDIA_ROOT = os.path.join(os.path.join(str(ROOT_DIR), 'front-end'), 'media')
-MEDIA_URL = 'https://luigiliu.com/front-end/media/'
+
+if DEBUG:
+    MEDIA_URL = '/front-end/media/'
+else:
+    MEDIA_URL = 'https://luigiliu.com/front-end/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

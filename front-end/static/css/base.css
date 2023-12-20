@@ -142,3 +142,11 @@ hr.divider-light {
 #page-top{
   padding-top: 72px;
 }
+
+
+@media (max-width: 768px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    padding: 0 20px;
+  }
+
+}
