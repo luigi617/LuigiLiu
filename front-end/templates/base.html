@@ -68,11 +68,13 @@
        {% endblock content %}
        
        <!-- Footer-->
+       {% comment %}
        {% if request.get_full_path == "/" %}
        <footer class="bg-white py-5">
            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">No more content - Contact: <a href="mailto:luigiliu617@gmail.com">luigiliu617@gmail.com</a></div></div>
         </footer>
         {% endif %}
+        {% endcomment %}
         <script src="{% static 'bootstrap-5.2.3/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'javascript/jquery.js' %}"></script>
         <script src="{% static 'javascript/base.js' %}"></script>
@@ -97,7 +99,7 @@
         {% get_debug as is_debug %}
         <script>
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://10.12.109.60:8000{% endif %}"
+                BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://192.168.1.115:8000{% endif %}"
             } else {
                 BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://localhost:8000{% endif %}"
             }

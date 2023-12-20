@@ -45,7 +45,7 @@
 .article_section_row{
     margin: 10px 0px 0px 0px!important;
     background-color: white;
-    padding: 50px 50px 50px 50px;
+    padding: 80px 50px 80px 50px;
     width: 100%;
     
 }
@@ -163,7 +163,7 @@
 .game_card{
     display: inline-block;
     /* width: 500px; */
-    padding: 0;
+    padding: 0px 50px;
     white-space: normal;
     vertical-align: top;
     cursor: pointer;
@@ -174,7 +174,8 @@
     font-weight: bold;
 }
 .game_img{
-    width: 400px;
+    max-width: 100%;
+    /* width: 400px; */
     /* height: 500px; */
 }
 .game_name{
@@ -225,7 +226,7 @@
         padding: 0px 50px;
     }
     .introduction_main_text{
-        font-size: 80px;
+        font-size: 70px;
         margin-bottom: -10px;
     }
     .introduction_text{
@@ -240,11 +241,11 @@
     }
     .article_section_title{
         /* color: #70b979; */
-        font-size: 70px;
+        font-size: 50px;
         font-weight: bold;
     }
     .game_title{
-        font-size: 70px;
+        font-size: 50px;
     }
     .game_img{
         width: 400px;

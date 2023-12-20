@@ -78,16 +78,16 @@
     </div>
   </div>
   <div class="row w-100">
-    <div class="d-sm-none d-lg-block offset-2 col-4 text-end text-white">
+    <div class="d-none d-lg-block offset-2 col-4 text-end text-white">
       I share games and ideas
     </div>
-    <div class="d-sm-none d-lg-block col-4 text-start text-white">
+    <div class="d-none d-lg-block col-4 text-start text-white">
       The purpose of this section is to showcase fancy algoriths used in computer science.
       These algorithms will be presented in an interactive mannar,
       either through gamification or through a direct display of the algorithm's process.
     </div>
 
-    <div class="d-sm-block d-lg-none col text-start text-white px-5 mx-3 mb-3">
+    <div class="d-block d-lg-none col text-start text-white px-5 mx-3 mb-3">
       I share games and ideas.<br>
       The purpose of this section is to showcase fancy algoriths used in computer science.
       These algorithms will be presented in an interactive mannar,
@@ -95,9 +95,9 @@
     </div>
   </div>
 
-  <div class="container py-2">
-    <div class="row" data-masonry='{"percentPosition": true }'>
-        <div class="col-sm-12 col-lg-6 py-3 text-center">
+  <div class="py-2">
+    <div class="row w-100" data-masonry='{"percentPosition": true}'>
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
           <div class="game_card" data-url="{% url 'home:sudoku' %}">
             <img src="{% static 'assets/img/sudoku_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -105,9 +105,9 @@
             </div>
           </div>
         </div>
-        <div class="d-sm-none d-lg-block col-lg-6 py-5 text-center">
+        <div class="d-none d-lg-block col-lg-6 py-5 text-center">
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
           <div class="game_card" data-url="{% url 'home:maze' %}">
             <img src="{% static 'assets/img/maze_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -115,17 +115,17 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
           <div class="game_card" data-url="{% url 'home:sort' %}">
-            <img src="{% static 'assets/img/sorting.jpg' %}" class="game_img" alt="...">
+            <img src="{% static 'assets/img/sort_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Sorting
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
           <div class="game_card" data-url="{% url 'home:typing' %}">
-            <img src="{% static 'assets/img/type.jpg' %}" class="game_img" alt="...">
+            <img src="{% static 'assets/img/type_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
               Typing
             </div>
@@ -135,7 +135,7 @@
      
        
     </div>
-    <div class="row my-4 ">
+    <div class="row my-4 w-100">
       <div class="col text-center">
         <button type="button" onclick="location.href=`{% url 'home:game_list' %}`" class="more_games btn btn-outline-light">Discover More Games</button>
       </div>
