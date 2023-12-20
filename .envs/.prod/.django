@@ -1,4 +1,4 @@
 DJANGO_SECRET_KEY=hfjakdslpuqi6781-jfkah1-htb[snnk]eqtgwg
 DEBUG=1
-DJANGO_ALLOWED_HOSTS=18.153.140.205 luigiliu.com www.luigiliu.com luigiliu.net www.luigiliu.net
+DJANGO_ALLOWED_HOSTS=18.153.140.205 luigiliu.com www.luigiliu.com luigiliu.net www.luigiliu.net luigiliu
 DJANGO_ADMIN=bVCct6T8qBL7C4caSYG2qd4ewBqD5x
