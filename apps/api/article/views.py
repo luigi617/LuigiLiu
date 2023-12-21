@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class ArticleCategoryListAPIView(generics.ListAPIView):
-    queryset = ArticleCategory.objects.all()
+    queryset = ArticleCategory.objects.order_by("id")
     serializer_class = ArticleCategorySerializer
 
     
