@@ -96,8 +96,8 @@
   </div>
 
   <div class="py-2">
-    <div class="row w-100" data-masonry='{"percentPosition": true}'>
-        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
+    <div class="row w-100 game_masonry">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center game_card_container">
           <div class="game_card" data-url="{% url 'home:sudoku' %}">
             <img src="{% static 'assets/img/sudoku_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -105,9 +105,9 @@
             </div>
           </div>
         </div>
-        <div class="d-none d-lg-block col-lg-6 py-5 text-center">
+        <div class="d-none d-lg-block col-lg-6 py-5 text-center game_card_container">
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center game_card_container">
           <div class="game_card" data-url="{% url 'home:maze' %}">
             <img src="{% static 'assets/img/maze_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -115,7 +115,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center game_card_container">
           <div class="game_card" data-url="{% url 'home:sort' %}">
             <img src="{% static 'assets/img/sort_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -123,7 +123,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center">
+        <div class="col-sm-12 col-lg-6 py-3 px-0 text-center game_card_container">
           <div class="game_card" data-url="{% url 'home:typing' %}">
             <img src="{% static 'assets/img/type_cover.png' %}" class="game_img" alt="...">
             <div class="game_name text-start">
@@ -181,6 +181,13 @@
     APP.home.canva_dot()
     APP.home.load_articles()
     APP.home.breaker_text_infinite()
+    game_masonry = $(".game_masonry")
+    game_masonry.masonry({
+                    // columnWidth: 942,
+                    itemSelector: '.game_card_container',
+                    // horizontalOrder: true,
+                    percentPosition: true
+                  });
   })
 </script>
 {% endblock js %}

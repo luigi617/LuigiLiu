@@ -30,9 +30,7 @@
             </div>
         </div>
     </div>
-    <!-- <ul class="list-group articles_row">
-    
-      </ul> -->
+
  
 </section>
 {% endblock content %}
@@ -48,7 +46,8 @@
     EDIT_ARTICLE_SVG = "{% static 'assets/svg/edit.svg' %}"
     AUTHENTICATED = "{{ request.user.is_authenticated }}" == "True" ? true : false
     $(document).ready(function(){
-        article_masonry = $(".articles_row").masonry({
+        article_masonry = $(".articles_row")
+        article_masonry.masonry({
                     // columnWidth: 942,
                     itemSelector: '.article',
                     // horizontalOrder: true,

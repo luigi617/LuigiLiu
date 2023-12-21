@@ -75,7 +75,8 @@ APP['articles_list'] = {
                         
                         </div>
                     </div>`
-                    article_masonry.masonry().append(article).masonry('appended',article).masonry();
+                    article_masonry.append(article).masonry("reloadItems").masonry("layout");       
+
                 }
                 
             }

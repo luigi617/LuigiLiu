@@ -211,12 +211,12 @@ APP['home'] = {
         textWidthElement.addClass("d-none")
         
         var totalDistance = textWidth + containerWidth;
-        var speedPerPixel = 0.3; // Adjust this for speed (lower is faster)
+        var speedPerPixel = 0.2; // Adjust this for speed (lower is faster)
 
         function startAnimation() {
             textElement.css({
                 'transition': 'none',
-                'transform': 'translateX(100%)'
+                'transform': `translateX(${textWidth}px)`
             });
 
             // Timeout to reset position without being visible
@@ -231,6 +231,19 @@ APP['home'] = {
 
         textElement.on('transitionend', startAnimation);
         startAnimation(); // Initialize the animation
+
+        $(".breaker_row").on('mouseenter', function() {
+            var current_position = textElement.css("transform").split(",")[4].trim()
+            textElement.css('transition', 'none');
+            textElement.css('transform', `translateX(${current_position}px)`);
+            
+        });
+    
+        // Optional: Resume the animation when the mouse leaves the object
+        $(".breaker_row").on('mouseleave', function() {
+            textElement.css('transition', `transform ${totalDistance / speedPerPixel}ms linear`);
+            textElement.css('transform', `translateX(-${textWidth}px)`);
+        });
 
     }
 }
