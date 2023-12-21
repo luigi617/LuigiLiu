@@ -164,6 +164,9 @@
     margin-bottom: 150px;
     width: 100%;
 }
+.game_description_row{
+    margin-bottom: 200px;
+}
 .game_card{
     display: inline-block;
     /* width: 500px; */
