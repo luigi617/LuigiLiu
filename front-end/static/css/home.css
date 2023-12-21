@@ -196,6 +196,15 @@
     font-weight: lighter!important;
 }
 
+.back_top_svg{
+    position: absolute;
+    left: 50px;
+    width: 50px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(103%) contrast(101%);
+}
+.back_top_svg:hover{
+    cursor: pointer;
+}
 
 
 
@@ -204,7 +213,7 @@
     
    
     .game_img{
-        width: 350px;
+        max-width: 100%;
     }
   
 }
@@ -222,7 +231,7 @@
 
     }
     .game_img{
-        width: 400px;
+        max-width: 100%;
     }
   
 }
@@ -256,6 +265,9 @@
     }
     .game_img{
         width: 400px;
+    }
+    .back_top_svg{
+        display: none;
     }
   
 }

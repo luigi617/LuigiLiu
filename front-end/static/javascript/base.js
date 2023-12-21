@@ -117,6 +117,9 @@ APP['base'] = {
         }
         return [width, height];
     },
+    "scroll_to_top": function scrollToTop() {
+        window.scrollTo(0, 0);
+    },
 }
 
 

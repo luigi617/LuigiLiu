@@ -12,6 +12,9 @@ APP['home'] = {
         $(".more_about_me_button").click(function(){
             window.location.href = ABOUT_ME_URL
         })
+        $(".back_top_svg").click(function(){
+            APP.base.scroll_to_top()
+        })
 
        
     },

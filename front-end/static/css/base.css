@@ -152,7 +152,7 @@ hr.divider-light {
 }
 @media (max-width: 576px) {
   #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 0 10px;
+    padding: 0 5px;
   }
 
 }
