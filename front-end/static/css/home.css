@@ -191,19 +191,23 @@
     color: white;
 }
 .more_games{
-    border-radius: 0px!important;
     padding: 7px 20px!important;
     font-weight: lighter!important;
+    color: gray!important;
+}
+.more_games:hover{
+    color: white!important;
 }
 
 .back_top_svg{
     position: absolute;
     left: 50px;
     width: 50px;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(103%) contrast(101%);
+    filter: invert(50%) sepia(11%) saturate(15%) hue-rotate(141deg) brightness(97%) contrast(84%);
 }
 .back_top_svg:hover{
     cursor: pointer;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(103%) contrast(101%);
 }
 
 

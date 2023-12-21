@@ -37,6 +37,7 @@
 .article_headline{
     font-size: 70px;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 .article_cover_img{
     width: 100%;
