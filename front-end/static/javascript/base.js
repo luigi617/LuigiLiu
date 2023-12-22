@@ -23,10 +23,7 @@ APP['base'] = {
         }
     },
     "get_url_parameter": function getUrlParameter(sParam) {
-        var sPageURL = window.location.search.substring(1),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
+        var sURLVariables = window.location.search.substring(1);
     
         for (i = 0; i < sURLVariables.length; i++) {
             sParameterName = sURLVariables[i].split('=');
