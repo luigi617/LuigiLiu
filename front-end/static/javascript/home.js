@@ -24,7 +24,7 @@ APP['home'] = {
             url: BASE_URL + DISPLAY_ARTICLE_LIST_URL,
             success: function(data){
 
-                console.log(data)
+                
                 for (let i = 0; i < data.results.length; i++){
                     $(".ariticle_col").append(
                         `
@@ -180,7 +180,7 @@ APP['home'] = {
                     // Run code here, resizing has "stopped"      
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight-72;
-                    console.log(requestId)
+                    
                     cancelAnimationFrame(requestId);
                     init();
                     tick();

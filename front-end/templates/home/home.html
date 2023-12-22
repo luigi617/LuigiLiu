@@ -182,12 +182,13 @@
     APP.home.load_articles()
     APP.home.breaker_text_infinite()
     game_masonry = $(".game_masonry")
-    game_masonry.masonry({
-                    // columnWidth: 942,
+    game_masonry.imagesLoaded( function() {
+      game_masonry.masonry({
                     itemSelector: '.game_card_container',
-                    // horizontalOrder: true,
                     percentPosition: true
                   });
+    });
+    
   })
 </script>
 {% endblock js %}

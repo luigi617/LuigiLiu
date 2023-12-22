@@ -46,13 +46,13 @@
     EDIT_ARTICLE_SVG = "{% static 'assets/svg/edit.svg' %}"
     AUTHENTICATED = "{{ request.user.is_authenticated }}" == "True" ? true : false
     $(document).ready(function(){
+        masonryOptions = {
+            itemSelector: '.article',
+            percentPosition: true
+        };
         article_masonry = $(".articles_row")
-        article_masonry.masonry({
-                    // columnWidth: 942,
-                    itemSelector: '.article',
-                    // horizontalOrder: true,
-                    percentPosition: true
-                  });
+        article_masonry.masonry(masonryOptions);
+
         APP.articles_list.init()
         APP.articles_list.load_article_categories()
         APP.articles_list.load_articles()

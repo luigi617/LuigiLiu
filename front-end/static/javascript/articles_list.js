@@ -18,6 +18,8 @@ APP['articles_list'] = {
             $(this).addClass("active")
             var category_id = $(this).data("category_id")
             article_masonry.empty()
+            article_masonry.masonry('destroy');
+            article_masonry.masonry(masonryOptions);
             APP.articles_list.load_articles(category_id)
         })
     },
@@ -46,7 +48,8 @@ APP['articles_list'] = {
             method: "GET",
             url: BASE_URL + ARTICLE_LIST_URL + "?category_id=" + category_id,
             success: async function(data){
-
+                var elems=$();
+                var article="";
                 for (let i = data.results.length - 1; i >= 0; i--){
                     article = `
                     <div class="col-sm-12 col-md-6 py-3 article"
@@ -75,9 +78,18 @@ APP['articles_list'] = {
                         
                         </div>
                     </div>`
-                    article_masonry.append(article).masonry("reloadItems").masonry("layout");       
+                    var elem = $(article);
+                    elems = elems ? elems.add( elem ) : elem;
+                    article = "";
+
+                    // article_masonry.append( elem ).masonry('appended',elem);
 
                 }
+                article_masonry.append( elems );
+                article_masonry.masonry('appended',elems);
+                article_masonry.imagesLoaded( function() {
+                    article_masonry.masonry();
+                  });
                 
             }
         })
