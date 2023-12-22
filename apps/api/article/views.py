@@ -17,8 +17,11 @@ class ArticleListAPIView(generics.ListAPIView):
     serializer_class = ArticleListSerializer
 
     def get_queryset(self):
-        category_id = self.request.query_params.get("category_id")
-        return Article.objects.filter(category = category_id)
+        category_id = self.request.query_params.get("category_id", None)
+        if category_id:
+            return Article.objects.filter(category = category_id)
+        else:
+            return Article.objects.all()
     
 class ArticleRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Article.objects.all()
