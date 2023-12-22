@@ -84,17 +84,24 @@
     white-space: normal;
     vertical-align: top;
     cursor: pointer;
+    transition: transform .2s;
+}
+.article_card:hover{
+    transform: scale(1.05);
 }
 .article_img{
     width: 500px;
     height: 400px;
     object-fit: cover;
+    margin-bottom: 20px;
 
 }
 .article_title{
     font-size: 30px;
     font-weight: bold;
     color: black;
+    line-height: 1;
+    margin-bottom: 5px;
 }
 .article_type{
     color: black;
@@ -118,6 +125,7 @@
 .breaker_text {
     color: black;
     white-space: nowrap;
+    font-weight: lighter;
 
     /* -moz-transform: translateX(100%);
     -webkit-transform: translateX(100%);
@@ -145,9 +153,9 @@
 @-webkit-keyframes my-animation {
     from { -webkit-transform: translateX(100%); }
     to { -webkit-transform: translateX(-100%); }
-}
+} */
 
-@keyframes my-animation {
+/* @keyframes text_slide_right_left {
     from {
         -moz-transform: translateX(100%);
         -webkit-transform: translateX(100%);
@@ -159,13 +167,25 @@
         transform: translateX(-100%);
     }
 } */
+
 .game_row{
     padding: 0px 50px;
-    margin-bottom: 150px;
+    margin: 0px 0px 150px 0px!important;
     width: 100%;
 }
 .game_description_row{
-    margin-bottom: 200px;
+    margin: 0px 0px 180px 0px!important;
+}
+.game_description_first_part{
+    padding-right: 50px!important;
+}
+.game_description_second_part{
+    padding-left: 50px!important;
+}
+.game_masonry_container{
+    overflow: hidden;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .game_card{
     display: inline-block;
@@ -174,7 +194,12 @@
     white-space: normal;
     vertical-align: top;
     cursor: pointer;
+    transition: transform .2s;
 }
+.game_card:hover{
+    transform: scale(1.05);
+}
+
 .game_title{
     color: #70b979;
     font-size: 100px;

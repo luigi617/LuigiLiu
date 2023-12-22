@@ -9,6 +9,9 @@ APP['home'] = {
         $(document).on("click", ".article_card", function(){
             window.location.href = $(this).data("url")
         })
+        $(document).on("click", ".game_card", function(){
+            window.location.href = $(this).data("url")
+        })
         $(".more_about_me_button").click(function(){
             window.location.href = ABOUT_ME_URL
         })
@@ -46,7 +49,11 @@ APP['home'] = {
                         `
                     )
                 }
-                
+                var max_title_height = 0
+                for (i = 0; i < $(".article_title").length; i++){
+                    max_title_height = max_title_height < $($(".article_title")[i]).height() ? $($(".article_title")[i]).height() : max_title_height
+                }
+                $(".article_title").height(max_title_height)
             }
         })
     },
@@ -207,43 +214,61 @@ APP['home'] = {
         var textWidthElement = $(".breaker_text_width")
         textWidthElement.removeClass("d-none")
         var textWidth = textWidthElement.outerWidth();
-        var containerWidth = textWidthElement.parent().width();
+
         textWidthElement.addClass("d-none")
         
-        var totalDistance = textWidth + containerWidth;
-        var speedPerPixel = 0.2; // Adjust this for speed (lower is faster)
+        var totalDistance = 2 * textWidth;
+        
+
 
         function startAnimation() {
+            var speedPerPixel = totalDistance / 0.2
             textElement.css({
                 'transition': 'none',
                 'transform': `translateX(${textWidth}px)`
             });
 
-            // Timeout to reset position without being visible
-            setTimeout(function() {
+            function updateTransition() {
                 textElement.css({
-                    'transition': `transform ${totalDistance / speedPerPixel}ms linear`,
+                    'transition': `transform ${speedPerPixel}ms linear`,
                     'transform': `translateX(-${textWidth}px)`
                 });
-            }, 0);
-           
+            }
+
+            // Timeout to reset position without being visible
+            var transition_time_out = setTimeout(updateTransition, 0);
+            
+            $(".breaker_row").on('mouseenter', function() {
+                var current_position = textElement.css("transform").split(",")[4].trim()
+                textElement.css('transition', 'none');
+                textElement.css('transform', `translateX(${current_position}px)`);
+    
+                speedPerPixel = (parseFloat(current_position) + textWidth)/0.1
+                clearTimeout(transition_time_out);
+                transition_time_out = setTimeout(updateTransition, 0);
+                // speedPerPixel = totalDistance / 0.2
+    
+                
+            });
+        
+
+            $(".breaker_row").on('mouseleave', function() {
+                var current_position = textElement.css("transform").split(",")[4].trim()
+                textElement.css('transition', 'none');
+                textElement.css('transform', `translateX(${current_position}px)`);
+
+                speedPerPixel = (parseFloat(current_position) + textWidth)/0.2
+                clearTimeout(transition_time_out);
+                transition_time_out = setTimeout(updateTransition, 0);
+                // speedPerPixel = totalDistance / 0.2
+            });
+
         }
 
         textElement.on('transitionend', startAnimation);
         startAnimation(); // Initialize the animation
 
-        $(".breaker_row").on('mouseenter', function() {
-            var current_position = textElement.css("transform").split(",")[4].trim()
-            textElement.css('transition', 'none');
-            textElement.css('transform', `translateX(${current_position}px)`);
-            
-        });
-    
-        // Optional: Resume the animation when the mouse leaves the object
-        $(".breaker_row").on('mouseleave', function() {
-            textElement.css('transition', `transform ${totalDistance / speedPerPixel}ms linear`);
-            textElement.css('transform', `translateX(-${textWidth}px)`);
-        });
+        
 
     }
 }

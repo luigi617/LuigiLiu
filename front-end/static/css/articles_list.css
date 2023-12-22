@@ -1,16 +1,19 @@
 
 
-
+#articles_section{
+    padding: 0px 62px;
+}
 .article{
     cursor: pointer;
     display: inline-block;
     white-space: normal;
     padding: 0px 20px 10px 20px!important;
     vertical-align: top;
+    transition: transform .2s;
 
 }
 .article:hover{
-    background-color: #f8f9fa;
+    transform: scale(1.05);
 }
 
 .edit_article{
@@ -21,21 +24,18 @@
     height: 25px;
 }
 
-@media (max-width: 768px) {
-    .masonry_div{
-        width: 40%!important;
-    }
-  
-}
+
 
 
 .article_title{
     font-size: 25px;
     font-weight: bold;
+    line-height: 1;
+    margin-bottom: 5px;
 }
 
 .article_headline{
-    font-size: 70px;
+    font-size: 80px;
     font-weight: bold;
     margin-bottom: 30px;
 }
@@ -57,4 +57,11 @@
 .article_category:not(.active):hover{
     cursor: pointer;
     color: rgba(0, 0, 0, 0.6)!important;
+}
+
+@media (max-width: 768px) {
+    .masonry_div{
+        width: 40%!important;
+    }
+  
 }

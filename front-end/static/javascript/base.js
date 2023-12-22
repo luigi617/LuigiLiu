@@ -40,6 +40,19 @@ APP['base'] = {
         }
         return avatar
     },
+    "convert_to_DDMMYYYY": function convertToDDMMYYYY(time_str) {
+        var timestamp = Date.parse(time_str);
+        if (isNaN(timestamp)) {
+            return null; // or handle invalid date string
+        }
+    
+        var date = new Date(timestamp);
+        var day = ("0" + date.getDate()).slice(-2); // Adds leading zero if needed
+        var month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is 0-based
+        var year = date.getFullYear();
+    
+        return day + "/" + month + "/" + year;
+    },
     "parse_time": function parse_time(time_str){
         date = Date.parse(time_str)
         now = Date.now()
@@ -51,18 +64,34 @@ APP['base'] = {
         diff_months = diff / (1000 * 60 * 60 * 24 * 30)
         diff_year = diff / (1000 * 60 * 60 * 24 * 30 * 12)
         var res;
-        if (diff_year >= 2){
-            res = `${Math.floor(diff_year)} years ago`
-        } else if (diff_year >= 1){
-            res = `${Math.floor(diff_year)} year ago`
-        }else if (diff_months >= 2){
-            res = `${Math.floor(diff_months)} months ago`
-        }else if (diff_months >= 1){
-            res = `${Math.floor(diff_months)} month ago`
-        }else if (diff_days >= 2){
-            res = `${Math.floor(diff_days)} days ago`
-        }else if (diff_days >= 1){
-            res = `${Math.floor(diff_days)} day ago`
+        // if (diff_year >= 2){
+        //     res = `${Math.floor(diff_year)} years ago`
+        // } else if (diff_year >= 1){
+        //     res = `${Math.floor(diff_year)} year ago`
+        // }else if (diff_months >= 2){
+        //     res = `${Math.floor(diff_months)} months ago`
+        // }else if (diff_months >= 1){
+        //     res = `${Math.floor(diff_months)} month ago`
+        // }else if (diff_days >= 2){
+        //     res = `${Math.floor(diff_days)} days ago`
+        // }else if (diff_days >= 1){
+        //     res = `${Math.floor(diff_days)} day ago`
+        // }else if (diff_hours >= 2){
+        //     res = `${Math.floor(diff_hours)} hours ago`
+        // }else if (diff_hours >= 1){
+        //     res = `${Math.floor(diff_hours)} hour ago`
+        // }else if (diff_minutes >= 2){
+        //     res = `${Math.floor(diff_minutes)} minutes ago`
+        // }else if (diff_minutes >= 1){
+        //     res = `${Math.floor(diff_minutes)} minute ago`
+        // }else if (diff_seconds >= 2){
+        //     res = `${Math.floor(diff_seconds)} seconds ago`
+        // }else if (diff_seconds >= 0){
+        //     res = `${Math.floor(diff_seconds)} second ago`
+        // }
+        console.log(diff_days);
+        if (diff_days >= 1){
+            res = APP.base.convert_to_DDMMYYYY(time_str)
         }else if (diff_hours >= 2){
             res = `${Math.floor(diff_hours)} hours ago`
         }else if (diff_hours >= 1){

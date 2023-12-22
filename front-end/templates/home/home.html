@@ -78,10 +78,10 @@
     </div>
   </div>
   <div class="row game_description_row w-100">
-    <div class="d-none d-lg-block offset-2 col-4 text-end text-white">
+    <div class="d-none d-lg-block col-6 text-end text-white game_description_first_part">
       I share games and ideas
     </div>
-    <div class="d-none d-lg-block col-4 text-start text-white">
+    <div class="d-none d-lg-block col-4 text-start text-white game_description_second_part">
       The purpose of this section is to showcase fancy algoriths used in computer science.
       These algorithms will be presented in an interactive mannar,
       either through gamification or through a direct display of the algorithm's process.
@@ -95,8 +95,8 @@
     </div>
   </div>
 
-  <div class="py-2">
-    <div class="row w-100 game_masonry">
+  <div class="py-2 w-100 game_masonry_container">
+    <div class="row game_masonry m-0">
         <div class="col-sm-12 col-lg-6 py-3 px-0 text-center game_card_container">
           <div class="game_card" data-url="{% url 'home:sudoku' %}">
             <img src="{% static 'assets/img/sudoku_cover.png' %}" class="game_img" alt="...">
