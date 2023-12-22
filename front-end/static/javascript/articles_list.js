@@ -63,7 +63,7 @@ APP['articles_list'] = {
                                 <div class="col-8 article_title text-start">
                                 ${data.results[i]["title"]}
                                 </div>
-                                <div class="col-4 article_date text-end article_date_added">
+                                <div class="col-4 article_date text-end">
                                 ${APP.base.parse_time(data.results[i]["date_added"])}
                                 </div>
                     `

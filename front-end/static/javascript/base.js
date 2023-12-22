@@ -48,10 +48,18 @@ APP['base'] = {
     
         var date = new Date(timestamp);
         var day = ("0" + date.getDate()).slice(-2); // Adds leading zero if needed
-        var month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is 0-based
+        // var month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is 0-based
+        var month = date.getMonth() + 1
         var year = date.getFullYear();
+
+        const months = [
+            'Jan', 'Feb', 'Mar', 
+            'Apr', 'May', 'Jun', 
+            'Jul', 'Aug', 'Sep', 
+            'Oct', 'Nov', 'Dec'
+        ];
     
-        return day + "/" + month + "/" + year;
+        return months[month - 1] + " " + day + " " + year;
     },
     "parse_time": function parse_time(time_str){
         date = Date.parse(time_str)

@@ -44,7 +44,9 @@
 
 }
 .article_date{
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
+
 }
 .article_category{
     font-size: 30px;

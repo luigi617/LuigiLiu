@@ -101,10 +101,13 @@
     font-weight: bold;
     color: black;
     line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .article_type{
     color: black;
+}
+.article_date{
+    font-weight: bold;
 }
 
 .center {
@@ -181,6 +184,7 @@
 }
 .game_description_second_part{
     padding-left: 50px!important;
+    padding-right: 62px!important;
 }
 .game_masonry_container{
     overflow: hidden;
