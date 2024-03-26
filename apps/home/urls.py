@@ -14,5 +14,9 @@ urlpatterns = [
     path('games/pokemon_database/', views.pokemon_database, name='pokemon_database'),
     path('games/nonogram/', views.nonogram, name='nonogram'),
     # path('dictionary/', views.dictionary, name='dictionary'),
+
+    path('chiara/nursing1/', views.chiara_nursing1, name='chiara_nursing1'),
+    path('chiara/nursing2/', views.chiara_nursing2, name='chiara_nursing2'),
+    path('chiara/nursing3/', views.chiara_nursing3, name='chiara_nursing3'),
     
 ]
