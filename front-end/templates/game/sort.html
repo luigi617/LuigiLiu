@@ -11,8 +11,8 @@
     <div class="row mx-5">
         <div class="offset-md-1 col-md-4 col-12">
 
-            <label for="column_nums" class="form-label">Size: <span id="column_num_span">100</span></label>
-            <input type="range" class="form-range" min="2" max="500" step="1" id="column_nums" value = "100">
+            <label for="column_nums" class="form-label">Size: <span id="column_num_span">50</span></label>
+            <input type="range" class="form-range" min="2" max="200" step="1" id="column_nums" value = "50">
         </div>
         <div class="col-md-4 col-12">
 
@@ -20,9 +20,12 @@
                 <select class="form-select" id="select_sort_method">
                   <option value="bubble_sort" selected>Bubble sort</option>
                   <option value="insert_sort">Insert sort</option>
+                  <option value="selection_sort">Selection sort</option>
+                  <option value="quick_sort">Quick sort</option>
                 </select>
                 <button id="sort" class="btn btn-outline-dark" type="button">Sort</button>
-              </div>
+            </div>
+            <button id="shuffle" class="btn btn-outline-dark" type="button">Shuffle</button>
         </div>
     </div>
     <div class="row w-100 mt-5">
@@ -38,7 +41,7 @@
 {% block js %}
 <script src="{% static 'javascript/sort.js' %}"></script>
 <script>
-    var counts = 100
+    var counts = 50
     var unsorted_array = []
     $(document).ready(function(){
         APP.sort.init()

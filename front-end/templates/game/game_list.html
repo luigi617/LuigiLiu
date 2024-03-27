@@ -12,7 +12,7 @@
         Games
       </h3>
       <div class="row text-center d-flex justify-content-center my-5 w-100">
-        
+        {% comment %}
         <div class="card masonry_div" data-url="{% url 'treasure_hunt:treasure_hunt' %}">
           <div class="masonry_body">
               <div class="card-body">
@@ -21,62 +21,15 @@
               <img src="{% static 'assets/img/treasure_hunt.jpg' %}" class="card-img-bottom" alt="...">
             </div>
           </div>
-        <div class="card masonry_div" data-url="{% url 'home:nonogram' %}">
-          <div class="masonry_body">
-              <div class="card-body">
-                <h5 class="card-title">Nonogram</h5>
-              </div>
-              <img src="{% static 'assets/img/nonogram.jpg' %}" class="card-img-bottom nonogram_img" alt="...">
-            </div>
-          </div>
-        <div class="card masonry_div" data-url="{% url 'home:pokemon_database' %}">
-          <div class="masonry_body">
-              <div class="card-body">
-                <h5 class="card-title">Pokemon Database</h5>
-              </div>
-              <img src="{% static 'assets/img/peakpx.jpg' %}" class="card-img-bottom" alt="...">
-            </div>
-          </div>
-        <div class="card masonry_div" data-url="{% url 'home:sudoku' %}">
-          <div class="masonry_body">
-              <div class="card-body">
-                <h5 class="card-title">Sudoku</h5>
-              </div>
-              <img src="{% static 'assets/img/sudoku.jpg' %}" class="card-img-bottom" alt="...">
-            </div>
-          </div>
-        <div class="card masonry_div" data-url="{% url 'home:maze' %}">
-          <div class="masonry_body">
-            <div class="card-body">
-              <h5 class="card-title">Maze</h5>
-            </div>
-            <img src="{% static 'assets/img/maze.png' %}" class="card-img-bottom" alt="...">
-          </div>
-        </div>
-          <div class="card masonry_div" data-url="{% url 'home:minesweeper' %}">
-            <div class="masonry_body">
-            <div class="card-body">
-              <h5 class="card-title">Minesweeper</h5>
-            </div>
-            <img src="{% static 'assets/img/minesweeper.png' %}" class="card-img-bottom" alt="...">
-          </div>
-          </div>
-        <div class="card masonry_div" data-url="{% url 'home:sort' %}">
-          <div class="masonry_body">
-            <div class="card-body">
-              <h5 class="card-title">Sort</h5>
-            </div>
-            <img src="{% static 'assets/img/sort.png' %}" class="card-img-bottom" alt="...">
-          </div>
-          </div>
-        <div class="card masonry_div" data-url="{% url 'home:typing' %}">
-          <div class="masonry_body">
-            <div class="card-body">
-              <h5 class="card-title">Typing</h5>
-            </div>
-            <img src="{% static 'assets/img/typing.png' %}" class="card-img-bottom" alt="...">
-          </div>
-          </div>
+          {% endcomment %}
+          {% include "game/game_card.html" with url_var="home:sudoku" title="Sudoku" image_url="assets/img/sudoku_cover.png" %}
+          {% include "game/game_card.html" with url_var="home:typing" title="Typing" image_url="assets/img/typing.png" %}
+          {% include "game/game_card.html" with url_var="home:nonogram" title="Nonogram Solver" image_url="assets/img/nonogram.jpg" %}
+          {% include "game/game_card.html" with url_var="home:maze" title="Maze" image_url="assets/img/maze.png" %}
+          {% include "game/game_card.html" with url_var="home:minesweeper" title="Minesweeper" image_url="assets/img/minesweeper.png" %}
+          {% include "game/game_card.html" with url_var="home:sort" title="Sort" image_url="assets/img/sort.png" %}
+          {% include "game/game_card.html" with url_var="home:pokemon_database" title="Pokemon Database" image_url="assets/img/peakpx.jpg" %}
+        
               
       </div>
      

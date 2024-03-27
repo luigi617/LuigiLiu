@@ -1,0 +1,9 @@
+{% load static %}
+<div class="card masonry_div" data-url="{% url url_var %}">
+    <div class="masonry_body">
+        <div class="card-body">
+          <h5 class="card-title">{{ title }}</h5>
+        </div>
+        <img src="{% static image_url %}" class="card-img-bottom" alt="...">
+      </div>
+    </div>

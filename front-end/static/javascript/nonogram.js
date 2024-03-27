@@ -8,8 +8,12 @@ APP['nonogram'] = {
                 $("#message").text("Select size")
                 return
             }
+            if (parseInt($("#size")[0].value) < 1 | parseInt($("#size")[0].value) > 20 ){
+                $("#message").text("Size must be between 0 and 20")
+                return
+            }
 
-            $("#message").text("")
+            $("#message").text("Insert number in the first row and first column. Click 'Enter' key after inserting the number. Once inserted all numbers, click solve.")
             var row_size = parseInt($("#size")[0].value)
             var col_size = parseInt($("#size")[0].value)
 
@@ -118,7 +122,6 @@ APP['nonogram'] = {
         })
     },
     "insert_hint_number": function(row, column){
-        console.log(row);
         for (let i = 0; i < row.length; i++){
             for (let j = 0; j < row[i].length; j++){
                 $(`#input-cell--${i}`).before("<div class='hint_number'>" + String(row[i][j]) + "<\div>")

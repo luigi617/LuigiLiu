@@ -13,7 +13,7 @@ APP['minesweeper'] = {
                 $("#message").text("Size must be between 0 and 70")
                 return
             }
-            $("#message").text("")
+            $("#message").text("Good Luck!!!")
             var row_size = parseInt($("#row_size")[0].value)
             var col_size = parseInt($("#col_size")[0].value)
             minesweeper = []

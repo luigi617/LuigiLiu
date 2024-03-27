@@ -23,7 +23,7 @@
 #message{
     border: 1px solid black;
     min-width: 200px;
-    height: 35px;
+    min-height: 35px;
     padding: 5px;
 }
 .column_input_td{
