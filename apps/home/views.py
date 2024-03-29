@@ -24,6 +24,8 @@ def pokemon_database(request):
     return render(request, "game/pokemon_database.html")
 def nonogram(request):
     return render(request, "game/nonogram.html")
+def snake(request):
+    return render(request, "game/snake.html")
 
 def dictionary(request):
     return render(request, "dictionary/dictionary.html")

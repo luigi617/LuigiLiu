@@ -13,6 +13,7 @@ urlpatterns = [
     path('games/minesweeper/', views.minesweeper, name='minesweeper'),
     path('games/pokemon_database/', views.pokemon_database, name='pokemon_database'),
     path('games/nonogram/', views.nonogram, name='nonogram'),
+    path('games/snake/', views.snake, name='snake'),
     # path('dictionary/', views.dictionary, name='dictionary'),
 
     path('chiara/nursing1/', views.chiara_nursing1, name='chiara_nursing1'),

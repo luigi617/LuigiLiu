@@ -1,0 +1,23 @@
+#snake_board {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid black;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+}
+
+.snake {
+    background-color: black;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.apple {
+    background-color: red;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
