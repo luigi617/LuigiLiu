@@ -26,6 +26,8 @@ def nonogram(request):
     return render(request, "game/nonogram.html")
 def snake(request):
     return render(request, "game/snake.html")
+def game2048(request):
+    return render(request, "game/game2048.html")
 
 def dictionary(request):
     return render(request, "dictionary/dictionary.html")

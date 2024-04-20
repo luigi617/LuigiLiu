@@ -1,0 +1,11 @@
+#game_board{
+    border: 1px solid black;
+}
+
+#game_board td{
+    height: 50px!important;
+    width: 50px!important;
+    text-align: center;
+    vertical-align: middle;
+    border: 0.5px solid black;
+}

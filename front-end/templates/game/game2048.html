@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block css %}
-    <link href="{% static 'css/snake.css' %}"  rel="stylesheet" />
+    <link href="{% static 'css/game2048.css' %}"  rel="stylesheet" />
 {% endblock css %}
 {% block content %}
         
@@ -11,7 +11,8 @@
 <section class="container pb-3 mt-5" id="snake_section">
     <div class="row mx-md-3">
         <div class="col-12 col-md-6 mb-3 mb-md-0">
-            <button id="restart" type="button" class="btn btn-outline-dark">Restart</button>
+            Size: <input id="size" type="number" value="4" min="2" max="6">
+            <button id="select_size" type="button" class="btn btn-outline-dark">Change size/Restart Game</button>
         </div>
         <div class="col-12 col-md-6">
             <div class="mx-2" id="message"></div>
@@ -19,7 +20,9 @@
     </div>
     <div class="row py-5">
         <div class="col justify-content-center d-flex">
-            <div id="snake_board"></div>
+            <table id="game_board">
+              
+            </table>
         </div>
     </div>
  
@@ -27,18 +30,18 @@
 {% endblock content %}
        
 {% block js %}
-<script src="{% static 'javascript/snake.js' %}"></script>
+<script src="{% static 'javascript/game2048.js' %}"></script>
 <script>
     $(document).ready(function(){
-        gameArea = $("#snake_board");
-        gridSize = 30;
-        snake = [{x: 15, y: 15}];
-        apple = apple = { x: Math.floor(Math.random() * gridSize) + 1, y: Math.floor(Math.random() * gridSize) + 1 };
-        speed = 10;
-        next_directions = []
-        previous_direction = {x: 0, y: 0}
-        APP.snake.init();
-        APP.snake.startGame();
+        board = [
+            [2, 0, 1, 2],
+            [4, 0, 1, 2],
+            [2, 0, 1, 2],
+            [4, 0, 1, 2],
+        ];
+        APP.game2048.init();
+        APP.game2048.startGame(4);
+        
     })
 </script>
 {% endblock js %}

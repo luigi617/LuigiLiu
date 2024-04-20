@@ -9,35 +9,43 @@ APP['snake'] = {
             apple = apple = { x: Math.floor(Math.random() * gridSize) + 1, y: Math.floor(Math.random() * gridSize) + 1 };
             direction = {x: 0, y: 0}; 
             speed = 10;
-            direction_update_available = true;
             APP.snake.startGame();
         })
         $(document).on('keydown', function(e){
-            if (!direction_update_available){return;}
+            direction = APP.snake.getDirection(false);
             switch (e.key) {
                 case 'ArrowUp':
-                    if (direction.y == 0){direction = {x: 0, y: -1};}
+                    if (direction.y == 0){next_directions.push({x: 0, y: -1});}
                     break;
                     case 'ArrowDown':
-                    if (direction.y == 0){direction = {x: 0, y: 1};}
+                    if (direction.y == 0){next_directions.push({x: 0, y: 1});}
                     break;
                     case 'ArrowLeft':
-                    if (direction.x == 0){direction = {x: -1, y: 0};}
+                    if (direction.x == 0){next_directions.push({x: -1, y: 0});}
                     break;
                     case 'ArrowRight':
-                    if (direction.x == 0){direction = {x: 1, y: 0};}
+                    if (direction.x == 0){next_directions.push({x: 1, y: 0});}
                     break;
             }
-            direction_update_available = false;
         })
         
+    },
+    "getDirection" : function(remove = false) {
+        if (next_directions.length > 0){
+            if (remove) {
+                direction = next_directions.shift();
+            } else {
+                direction = next_directions[0];
+            }
+            return direction;
+        }
+        return previous_direction;
     },
     "startGame" : function() {
         var game_interval = setInterval(() => {
             let game_over = APP.snake.updateGame();
             if (game_over){clearInterval(game_interval);}
             APP.snake.drawGame();
-            direction_update_available = true;
         }, 1000 / speed);
     },
     "updateGame" : function() {
@@ -45,9 +53,10 @@ APP['snake'] = {
             for (let i = snake.length - 2; i >= 0; i--) {
                 snake[i + 1] = { ...snake[i] };
             }
-            
+            direction = APP.snake.getDirection(true);
             snake[0].x += direction.x;
             snake[0].y += direction.y;
+            previous_direction = direction;
         }
         function checkDeath() {
             function outsideGrid(position) {
