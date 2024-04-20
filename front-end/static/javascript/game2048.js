@@ -5,6 +5,7 @@ APP['game2048'] = {
     "init": function(){
         $("#select_size").click(function(){
             let size = parseInt($("#size").val());
+            $("#message").text("game over!!!");
             APP.game2048.changeSize(size);
             APP.game2048.updateGameBoard();
         })
@@ -26,6 +27,7 @@ APP['game2048'] = {
         })
     },
     "startGame":function(size){
+        $("#message").text("game over!!!");
         APP.game2048.changeSize(size);
         APP.game2048.updateGameBoard();
     },
