@@ -17,8 +17,8 @@ urlpatterns = [
     path('games/2048/', views.game2048, name='game2048'),
     # path('dictionary/', views.dictionary, name='dictionary'),
 
-    path('chiara/nursing1/', views.chiara_nursing1, name='chiara_nursing1'),
-    path('chiara/nursing2/', views.chiara_nursing2, name='chiara_nursing2'),
-    path('chiara/nursing3/', views.chiara_nursing3, name='chiara_nursing3'),
+    # path('chiara/nursing1/', views.chiara_nursing1, name='chiara_nursing1'),
+    # path('chiara/nursing2/', views.chiara_nursing2, name='chiara_nursing2'),
+    # path('chiara/nursing3/', views.chiara_nursing3, name='chiara_nursing3'),
     
 ]

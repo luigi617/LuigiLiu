@@ -33,12 +33,7 @@
 <script src="{% static 'javascript/game2048.js' %}"></script>
 <script>
     $(document).ready(function(){
-        board = [
-            [2, 0, 1, 2],
-            [4, 0, 1, 2],
-            [2, 0, 1, 2],
-            [4, 0, 1, 2],
-        ];
+        board = [];
         APP.game2048.init();
         APP.game2048.startGame(4);
         
