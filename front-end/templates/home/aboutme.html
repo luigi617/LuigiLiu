@@ -7,30 +7,141 @@
 {% block content %}
         
 
-<section class="container my-5" id="aboutme_section">
-    <p class="px-1 px-md-5 pb-5">
-        Hey, I'm Luigi, and I'm currently a student at <strong>Bocconi University</strong>.
-        Understanding human behavior is a passion of mine - I'm always curious about why we do the things we do.
-        But at the same time, I'm also a <strong>problem solver</strong>.
-        I love tackling difficult puzzles that can keep me stuck for days on end,
-        and my go-to language for expressing my answers is through <strong>programming algorithms</strong>.
-        Coding is like a second language to me,
-        and I find it to be an incredibly powerful tool for exploring and understanding the world around us.
-        <br>
+<section class="py-5" id="aboutme_section">
+    <div class="px-5 py-3">
+        Hi, I'm Luigi. I am an incoming M.S. Computer Science student at Columbia University, having graduated with a perfect 4.0 GPA and received an excellence award in Computer Science and Economics from Bocconi University. My coding journey began in high school, and I have been dedicated to developing my skills ever since.
+    </div>
+    <div class="breaker_row"></div>
+    <div class="education px-5 big_section">
+        <div></div>
+        Education
+    </div>
+    <div class="collapse px-5" id="collapsed_education">
+        <div class="row py-3">
+            <div class="col">
+                <div class="education_arrow_wrapper">
+                    <svg version="1.1" style="overflow:visible" width="100%" height="100%" viewBox="0 0 1000 100">
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <path id="Path-1" class="path" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4,2.1c0,0,86,57,411.5,71.5s372.5-44.5,489,21" />
+                        <path class="dashed" fill="none" stroke="white" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" d="M1.4,2.1c0,0,86,57,411.5,71.5s372.5-44.5,489,21" />
+                        <polyline id="arrow" points="0,-9 18,0 0,9 5,0" fill="#ffffff">
+                          <animateMotion rotate="auto" begin="1s" dur="1.6s" repeatCount="1" fill="freeze">
+                            <mpath xlink:href="#Path-1" />
+                          </animateMotion>
+                        </polyline>
+                      </g>
+                    </svg>
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="row py-3">
+            <div class="col">
+                <span class="school_name">IIS P. Dagomari</span> <br>
+                <span class="school_degree">Corporate Information Systems</span>
+                <img class="education_img" src="{% static 'assets/img/dagomari.jpeg' %}" >  
+            </div>
+            <div class="col">
+                <span class="school_name">Bocconi University</span> <br>
+                <span class="school_degree">Computer Science and Economics</span>
+                <img class="education_img" src="{% static 'assets/img/bocconi.jpg' %}" >  
+            </div>
+            <div class="col">
+                <span class="school_name">National University of Singapore</span> <br>
+                <span class="school_degree">Exchange Program</span>
+                <img class="education_img" src="{% static 'assets/img/nus.png' %}" >  
+            </div>
+            <div class="col">
+                <span class="school_name">Columbia University</span> <br>
+                <span class="school_degree">Computer Science</span>
+                <img class="education_img" src="{% static 'assets/img/columbia.jpg' %}" >  
+            </div>
+        </div>
+    </div>
+    <div class="breaker_row"></div>
+    <div class="work_experience px-5 big_section">
+        Work Experience
+    </div>
+    <div class="collapse px-5" id="collapsed_work_experience">
+        <div class="row fw-bolder mt-3">
+            <div class="col company_name">Amazon</div>
+            <div class="col text-end location">Luxembourg, Luxembourg</div>
+        </div>
+        <div class="row fst-italic mb-3">
+            <div class="col role">Business Intelligence Engineer</div>
+            <div class="col text-end date">Sept 2023 – March 2024</div>
+        </div>
+        <ul style="list-style-type:square;">
+            <li class="description fw-light">Allocated FC resources among onboarding PICS vendors by devising a Linear Programming algorithm, reducing network load balancing costs and enhancing inventory placement</li>
+            <li class="description fw-light">Built Machine Learning models with an 86% accuracy for predicting the likelihood of securing inbound appointment scheduling within 2-4 days across EU marketplaces, introducing new metrics for long-term goal setting</li>
+            <li class="description fw-light">Created Quicksight dashboards via ETL for onboarding PICS vendors, enabling real-time tracking and proactive forecasting of changes in FCs, ultimately improving the vendor experience</li>
+        </ul>
+        <div class="row fw-bolder mt-3">
+            <div class="col company_name">UniCredit Bank</div>
+            <div class="col text-end location">Milan, Italy</div>
+        </div>
+        <div class="row fst-italic mb-3">
+            <div class="col role">Data Analyst</div>
+            <div class="col text-end date">May 2023 – Aug 2023</div>
+        </div>
+        <ul style="list-style-type:square;">
+            <li class="description fw-light">Participated in an End-to-End Risk Self-Assessment initiative, contributing to the organization's efforts in pinpointing risks and assessing the efficiency of related controls</li>
+            <li class="description fw-light">Optimized SQL queries by implementing advanced indexing and query restructuring techniques achieving an 80% improvement in SQL performance</li>
+            <li class="description fw-light">Utilized Palantir for analysis of 30+ key risk elements, enabling successful risk self-assessment implementation</li>
+            <li class="description fw-light">Engaged in data investigations to assist colleagues in gaining a clearer understanding of various data attributes</li>
+        </ul>
+        <div class="row fw-bolder mt-3">
+            <div class="col company_name">B2BEuroingro</div>
+            <div class="col text-end location">Prato, Italy</div>
+        </div>
+        <div class="row fst-italic mb-3">
+            <div class="col role">Software Developer</div>
+            <div class="col text-end date">July 2020 – Aug 2021</div>
+        </div>
+        <ul style="list-style-type:square;">
+            <li class="description fw-light">Developed and maintained a B2B e-commerce website (full-stack) using Django, REST framework, PostgreSQL, Redis, JavaScript, CSS, and HTML</li>
+            <li class="description fw-light">Designed and implemented a promotional system, including its database structure and logic, which enabled sponsored product listings and the execution of promotional campaigns</li>
+            <li class="description fw-light">Diagnosed and fixed 100+ website issues related to usability and functionality
+            <li class="description fw-light">Developed Android and iOS apps using Flutter and implemented custom APIs to streamline supplier management
+            </li>
+        </ul>
+        <div class="row fw-bolder mt-3">
+            <div class="col company_name">Academic Tutor</div>
+            <div class="col text-end location">Sep 2021 - Present</div>
+        </div>
+        <!-- <div class="row fst-italic mb-3">
+            <div class="col role">Academic Tutor</div>
+            <div class="col text-end date">Sep 2021 - Present</div>
+        </div> -->
+        <ul style="list-style-type:square;">
+            <li class="description fw-light">Assisted students in overcoming challenges with comprehending and completing exams, leading to increased exam success and improved grades</li>
+            <li class="description fw-light">Proficient in tutoring students in subjects such as math, statistic, computer science, and machine learning</li>
+        </ul>
         
-        <br>
-        And that's also why I created this website.
-        I want to share what I've been learning in school and on my own,
-        and I'll be posting articles on all sorts of topics - from programming to data analysis to math or statistics.
-        Plus, I'll be using what I've learned to create some mini-games and show off some cool algorithms that I've discovered.
-        I'm hoping that this website will be a space for like-minded people to come together and learn from each other.
-    </p>
+    </div>
+    <div class="breaker_row"></div>
+    <div class="skills px-5 big_section">
+        Skills and Languages
+    </div>
+    <div class="collapse px-5" id="collapsed_skills">
+        <div class="pt-3 skills_div">Programming Languages: Python, C++, Javascript, PHP, Flutter, R, SQL, CSS/HTML</div>
+        <div class="skills_div">Programming Toolkits: Django, REST framework, scikit-learn, pandas, NumPy, SciPy, Matplotlib, PySpark, PyTorch</div>
+        <div class="skills_div">Other developing software: Docker, Git, AWS, Palantir, Quicksight, Power BI, Microsoft Office 365</div>
+        <div class="pb-3 skills_div">Languages: Chinese (native), Italian (native), English (proficient)</div>
+    </div>
+    <div class="breaker_row"></div>
+      
 </section>
 {% endblock content %}
        
 {% block js %}
+<script src="{% static 'javascript/about_me.js' %}"></script>
+
 <script>
-    $(document).ready(function(){       
-    })
+  $(document).ready(function(){
+    APP.about_me.init()
+    APP.about_me.skills_text_to_span()
+    APP.about_me.skills_set_random_position()
+  })
 </script>
 {% endblock js %}

@@ -1,0 +1,67 @@
+#aboutme_section{
+    background: black;
+    min-height: 100%;
+}
+#aboutme_section{
+    color: white;
+}
+
+
+.big_section{
+    font-size: 30px;
+    padding: 20px;
+    padding-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.big_section:hover{
+    color: black;
+    background: white;
+}
+.breaker_row{
+    padding-bottom: 3px;
+    background-color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.education_img{
+    height: 200px;
+    margin-top: 10px;
+}
+.school_degree{
+    font-size: 15px;
+}
+
+
+.education_arrow_wrapper svg{
+ width: 100%;
+ height: 100px;
+}
+
+.path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s linear forwards;
+    animation-iteration-count: 1;
+    animation-delay: 1s;}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.dashed{
+  stroke-dasharray: 5,12;
+  
+}
+#arrow{animation: arrow 2s linear forwards; opacity:0.5;}
+@keyframes arrow {
+  to {
+    opacity: 1;
+  }
+}
+
+#collapsed_skills{
+    height: 150px;
+}
