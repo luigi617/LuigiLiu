@@ -1,0 +1,78 @@
+#map {
+    height: calc(100vh - 72px);
+    width: 100%;
+}
+#add_marker{
+    position: absolute;
+    z-index: 1000;
+    right: 10px;
+    top: 82px;
+    height: 50px;
+    width: 150px;
+}
+#my_markers{
+    position: absolute;
+    z-index: 1000;
+    right: 170px;
+    top: 82px;
+    height: 50px;
+    width: 150px;
+}
+#add_marker_form{
+    position: absolute;
+    z-index: 1000;
+    left: 10px;
+    top: 82px;
+    height: calc(100vh - 92px);
+    min-width: 300px;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+#add_marker_close{
+    position:absolute;
+    right: 11px;
+}
+
+
+.week_day_label{
+    min-width: 110px;
+}
+#marker_info{
+    position: absolute;
+    z-index: 1001;
+    left: 10px;
+    top: 82px;
+    height: calc(100vh - 92px);
+    min-width: 400px;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+
+#marker_info_close{
+    position:absolute;
+    right: 11px;
+}
+.company_image{
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+}
+.address, .phone_number, .opening_hours, .tags{
+    font-size: 20px;
+}
+.company_name {
+    font-size: 30px;
+}
+
+.direction {
+    font-size: 12px!important;
+}
+.opening_hours_details {
+    font-size: 17px;
+}

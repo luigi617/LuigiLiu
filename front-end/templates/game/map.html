@@ -1,0 +1,104 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""/>
+    <link href="{% static 'css/map.css' %}"  rel="stylesheet" />
+{% endblock css %}
+{% block content %}
+        
+
+<section class="" id="map_section">
+    <div id="map"></div>
+    <button id="add_marker"  type="button" class="btn btn-dark">Add Marker</button>
+    <button id="my_markers"  type="button" class="btn btn-dark">My Markers</button>
+    <div id="add_marker_form" class="p-3 d-none">
+        <button id="add_marker_close" type="button" class="btn-close" aria-label="Close"></button>
+        <div class="text-center my-3">Add Marker</div>
+        <div class="input-group mb-3">
+            <input type="file" accept="image/*" class="form-control" id="input_company_image">
+            <label class="input-group-text" for="input_company_image">Upload Image</label>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" fpr="input_company_name">Company Name</span>
+            <input id="input_company_name" type="text" class="form-control" placeholder="Company Name" aria-label="Company Name" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" for="input_address">Address</span>
+            <input id="input_address" type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" for="input_phone_number">Phone Number</span>
+            <input id="input_phone_number" type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-text" for="input_tags">Tags</span>
+            <textarea class="form-control" aria-label="Tags" id="input_tags"></textarea>
+          </div>
+          <div class="fs-6 fw-light">Opening Hours</div>
+          
+          {% get_week_days as get_week_day_list %}
+          {% for day in get_week_day_list %}
+          <div class="input-group mb-3">
+            <span class="week_day_label input-group-text">{{day}}</span>
+            <input class="form-control" id="{{day}}_start" type="time">
+            <input class="form-control" id="{{day}}_end" type="time">
+            <div class="form-control">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="{{day}}_closed">
+                    <label class="form-check-label" for="{{day}}_closed">
+                      Closed
+                    </label>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+          <button id="create_marker" type="button" class="btn btn-dark">Create Marker</button>
+    </div>
+    <div id="marker_info" class=" d-none">
+        <button id="marker_info_close" type="button" class="btn-close" aria-label="Close"></button>
+        <img src="" class="company_image" alt="...">
+        <div class="company_name px-3 pt-3">Company Name</div>
+        <div class="row pt-3 px-3">
+            <div class="col">
+                <div class="address fw-light">Via company 1</div>
+            </div>
+            <div class="col-3">
+                <button type="button" class="direction btn btn-outline-dark flex-end">Direction</button>
+            </div>
+        </div>
+        <div class="phone_number px-3 pt-3 fw-light">Phone Number</div>
+        <div class="opening_hours px-3 pt-3 pb-1 fw-light">Opening Hours</div>
+        <div class="fw-light px-3 opening_hours_details">
+      
+
+        </div>
+        
+      
+        <div class="tags px-3 pt-3 fw-light">Tags</div>
+        <p class="tags_text fw-light px-3"></p>
+    </div>
+ 
+</section>
+{% endblock content %}
+       
+{% block js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+<script src="{% static 'javascript/map.js' %}"></script>
+<script>
+    MARKER_CREATION_URL = "/api/map/markers/creation/"
+    MARKER_LIST_URL = "/api/map/markers/"
+    $(document).ready(function(){
+        map = L.map('map', { zoomControl: false }).setView([43.85518700914798, 11.060519193656557], 15);
+        APP.map.init()
+        APP.map.load_markers(0, 0, 0, 0)
+        
+    })
+</script>
+{% endblock js %}

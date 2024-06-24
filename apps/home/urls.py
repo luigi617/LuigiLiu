@@ -16,6 +16,7 @@ urlpatterns = [
     path('games/snake/', views.snake, name='snake'),
     path('games/2048/', views.game2048, name='game2048'),
     # path('dictionary/', views.dictionary, name='dictionary'),
+    path('games/map/', views.map, name='map'),
 
     # path('chiara/nursing1/', views.chiara_nursing1, name='chiara_nursing1'),
     # path('chiara/nursing2/', views.chiara_nursing2, name='chiara_nursing2'),

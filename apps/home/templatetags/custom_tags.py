@@ -19,3 +19,15 @@ def get_type(value):
 def get_nav_color(value):
     return "nav_white" if value else "nav_black"
 
+@register.simple_tag
+def get_week_days():
+    return [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ]
+
