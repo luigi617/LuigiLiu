@@ -16,6 +16,10 @@
             </div>
         </div>
         <div class="col">
+            <label class="form-label fw-light" for="input_article_category">Category</label>
+            <select id="input_article_category" class="form-select" aria-label="Default select example"></select>
+        </div>
+        <div class="col">
             <label for="input_article_cover" class="form-label">Cover Image</label>
             <input type="file" class="form-control" id="input_article_cover">
         </div>
@@ -23,7 +27,7 @@
             <label for="input_article_pdf" class="form-label">PDF</label>
             <input type="file" class="form-control" id="input_article_pdf">
         </div>
-        <div class="col align-self-end offset-2">
+        <div class="col align-self-end">
             <button type="button" class="btn btn-dark create_article flex-end">Create Article</button>
         </div>
     </form>
@@ -54,11 +58,12 @@
 {% block js %}
 <script src="{% static 'javascript/create_article.js' %}"></script>
 <script>
+    ARTICLE_CATEGORY_LIST_URL = '/api/article-categories/'
     ARTICLE_CREATION_URL = "/api/articles/creation/"
     ARTICLE_LIST = "/articles/"
     $(document).ready(function(){
         APP.create_article.init()
-
+        APP.create_article.load_article_categories()
     })
 </script>
 {% endblock js %}

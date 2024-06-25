@@ -38,11 +38,13 @@ class ArticleCreationAPIView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         title = request.data.get("title")
         url_name = request.data.get("url_name")
+        category = request.data.get("category")
         content = request.data.get("content")
         cover_img = request.FILES.getlist("cover")
         pdf = request.FILES.getlist("pdf")
         data = {
             "title": title,
+            "category": category,
             "url_name": url_name,
             "content": content,
             "user": request.user.id,
@@ -68,11 +70,13 @@ class ArticleUpdateAPIView(generics.UpdateAPIView):
         id = request.data.get("id")
         url_name = request.data.get("url_name")
         title = request.data.get("title")
+        category = request.data.get("category")
         content = request.data.get("content")
         cover_imgs = request.FILES.getlist("cover")
         pdf = request.FILES.getlist("pdf")
         data = {
             "title": title,
+            "category": category,
             "url_name": url_name,
             "content": content,
             "user": request.user.id,

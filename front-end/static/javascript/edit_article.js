@@ -7,6 +7,7 @@ APP['edit_article'] = {
             var id = $("#input_article_id").val()
             var content = APP.base.parse_article_content($("#input_article_content").val())
             var title = $("#input_article_title").val()
+            var category = $("#input_article_category").val()
             var url_name = title.trim().toLowerCase().replaceAll(" ", "_").replace(/[^a-z0-9_]/g, '')
             var cover = $("#input_article_cover")[0].files[0]
             var pdf = $("#input_article_pdf")[0].files[0]
@@ -16,6 +17,7 @@ APP['edit_article'] = {
             fd.append('id', id);
             fd.append('content', content);
             fd.append('title', title);
+            fd.append('category', category);
             fd.append('url_name', url_name);
             fd.append('cover', cover);
             fd.append('pdf', pdf);
@@ -63,6 +65,7 @@ APP['edit_article'] = {
             method: "GET",
             url: BASE_URL + ARTICLE_RETRIEVE_URL,
             success: function(data){
+                console.log(data);
                 $("#input_article_id").val(data["id"])
                 $("#input_article_title").val(data["title"])
                 $("#input_article_title").val(data["title"])
@@ -73,8 +76,23 @@ APP['edit_article'] = {
                 
                 MathJax.typesetPromise()
 
+                $.ajax({
+                    method: "GET",
+                    url: BASE_URL + ARTICLE_CATEGORY_LIST_URL,
+                    success: async function(category_data){
+                        for (let i = 0; i < category_data.results.length; i++){
+                            if (data["category"] == category_data.results[i]['id']) {
+                                $("#input_article_category").append(`<option value="${category_data.results[i]['id']}" selected >${category_data.results[i]['name']}</option>`)
+                                } else {
+                                $("#input_article_category").append(`<option value="${category_data.results[i]['id']}">${category_data.results[i]['name']}</option>`)
+                            }
+                        }
+                    }
+                })
+
                 
             }
         })
     },
+   
 }
