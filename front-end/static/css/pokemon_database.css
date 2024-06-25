@@ -7,3 +7,9 @@
     text-align: center;
     padding: 0px 10px;
 }
+.title{
+    font-size: 15px;
+}
+.order{
+    cursor: pointer;
+}

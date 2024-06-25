@@ -8,19 +8,20 @@
         
 
 <section class="container pb-3 mt-5" id="pokemon_database_section">
+
     <table class="pokemon_table mx-auto">
         <tr>
-            <th>Index</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>HP</th>
-            <th>Attack</th>
-            <th>Special Attack</th>
-            <th>Defence</th>
-            <th>Special Defence</th>
-            <th>Base Total</th>
-            <th>Capture rate</th>
-            <th colspan="2">Type</th>
+            <th class="title order" data-filter="pokedex_number">Index <i class="bi bi-filter"></i></th>
+            <th class="title">Image</th>
+            <th class="title order" data-filter="name">Name <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="hp">HP <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="attack">Attack <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="sp_attack">Special Attack <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="defense">Defence <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="sp_defense">Special Defence <i class="bi bi-filter"></i></th>
+            <th class="title order" data-filter="base_total">Base Total <i class="bi bi-filter"></i></th>
+            <th class="title">Capture rate</th>
+            <th class="title" colspan="2">Type</th>
         </tr>
     </table>
 
@@ -40,11 +41,12 @@
 <script src="{% static 'javascript/pokemon_database.js' %}"></script>
 <script>
     page = 1
+    filter = "id"
     POKEMON_LIST_ULR = `/api/pokemon-list/`
     POKEMON_IMAGE_API = "https://pokeapi.co/api/v2/"
     $(document).ready(function(){
         APP.pokemon_database.init()
-        APP.pokemon_database.load_pokemon(page)
+        APP.pokemon_database.load_pokemon(page, filter)
     })
 </script>
 

@@ -25,7 +25,8 @@ class PokemonListAPIView(generics.ListAPIView):
     serializer_class = PokemonListSerializer
     queryset = Pokemon.objects.all()
     def get_queryset(self):
-        queryset = super().get_queryset()
+        filter_column = self.request.GET.get("filter", "id")
+        queryset = super().get_queryset().order_by(filter_column)
         return queryset
 
 @api_view(['POST'])
