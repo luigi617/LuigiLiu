@@ -14,12 +14,12 @@ class ArticleListSerializer(serializers.ModelSerializer):
 class ArticleRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ["id", "url_name", "user", "title", "content", "date_modified", "cover_img"]
+        fields = ["id", "url_name", "user", "title", "content", "date_modified", "cover_img", "pdf"]
     
 class ArticleCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ["user", "url_name", "title", "content", "cover_img"]
+        fields = ["user", "url_name", "title", "content", "cover_img", "pdf"]
 class ArticleUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article

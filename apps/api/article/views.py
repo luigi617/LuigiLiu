@@ -40,6 +40,7 @@ class ArticleCreationAPIView(generics.CreateAPIView):
         url_name = request.data.get("url_name")
         content = request.data.get("content")
         cover_img = request.FILES.getlist("cover")
+        pdf = request.FILES.getlist("pdf")
         data = {
             "title": title,
             "url_name": url_name,
@@ -48,10 +49,14 @@ class ArticleCreationAPIView(generics.CreateAPIView):
         }
         if cover_img:
             data.update({"cover_img": cover_img[0]})
+        if pdf:
+            data.update({"pdf": pdf[0]})
         serializer = ArticleCreateSerializer(data = data)
 
         if serializer.is_valid():
             serializer.save()
+        else:
+            print(serializer.errors)
         return Response(serializer.data)
 
 class ArticleUpdateAPIView(generics.UpdateAPIView):
@@ -65,6 +70,7 @@ class ArticleUpdateAPIView(generics.UpdateAPIView):
         title = request.data.get("title")
         content = request.data.get("content")
         cover_imgs = request.FILES.getlist("cover")
+        pdf = request.FILES.getlist("pdf")
         data = {
             "title": title,
             "url_name": url_name,
@@ -73,6 +79,8 @@ class ArticleUpdateAPIView(generics.UpdateAPIView):
         }
         if cover_imgs:
             data.update({"cover_img": cover_imgs[0]})
+        if pdf:
+            data.update({"pdf": pdf[0]})
         instance = Article.objects.get(id = id)
         serializer = ArticleCreateSerializer(instance, data = data, partial=True)
         if serializer.is_valid():

@@ -9,12 +9,15 @@ APP['create_article'] = {
             var title = $("#input_article_title").val()
             var url_name = title.trim().toLowerCase().replaceAll(" ", "_").replace(/[^a-z0-9_]/g, '')
             var cover = $("#input_article_cover")[0].files[0]
-
+            var pdf = $("#input_article_pdf")[0].files[0]
+            
+            if (title.length == 0) { return }
             var fd = new FormData();
             fd.append('content', content);
             fd.append('title', title);
             fd.append('url_name', url_name);
             fd.append('cover', cover);
+            fd.append('pdf', pdf);
 
             $.ajax({
                 method: "POST",

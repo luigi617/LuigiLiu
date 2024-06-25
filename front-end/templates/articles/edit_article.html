@@ -11,20 +11,23 @@
     <form class="row row-cols-lg-auto g-3 align-items-center mb-3">
         <input type="input" class="d-none" id="input_article_id">
         <div class="col">
-            <label class="visually-hidden" for="input_article_title">Title</label>
+            <label class="form-label fw-light" for="input_article_title">Title</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="input_article_title" placeholder="Title">
             </div>
         </div>
         <div class="col">
+            <label for="input_article_cover" class="form-label">Cover Image</label>
             <input type="file" class="form-control" id="input_article_cover">
         </div>
         <div class="col">
+            <label for="input_article_pdf" class="form-label">PDF</label>
+            <input type="file" class="form-control" id="input_article_pdf">
+        </div>
+        <div class="col align-self-end offset-2">
             <button type="button" class="btn btn-dark edit_article flex-end">Edit Article</button>
         </div>
-        <div class="offset-3 col align-self-end">
-            <button type="button" class="btn btn-dark parse_article flex-end">Parse Article</button>
-        </div>
+        
     </form>
    
     <div class="row content_row">
@@ -34,6 +37,11 @@
                 <label for="input_article_content">Content</label>
             </div>
         </div>
+        <button type="button" class="btn btn-dark parse_article">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+            </svg>
+        </button>
         <div class="col">
                 <div class="diplay_content">
                 </div>

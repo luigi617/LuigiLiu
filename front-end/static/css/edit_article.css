@@ -13,3 +13,11 @@
 .content_row .col{
     width: 50%;
 }
+.parse_article{
+    width: 50px!important;
+    height: 50px;
+    align-self: center;
+}
+.form-label{
+    font-size: 15px;
+}

@@ -14,6 +14,7 @@ crossorigin=""/>
 
 <section class="" id="map_section">
     <div id="map"></div>
+    {%if user.is_authenticated%}
     <button id="add_marker"  type="button" class="btn btn-dark">Add Marker</button>
     <button id="my_markers"  type="button" class="btn btn-dark">My Markers</button>
     <div id="add_marker_form" class="p-3 d-none">
@@ -82,7 +83,7 @@ crossorigin=""/>
         <div class="tags px-3 pt-3 fw-light">Tags</div>
         <p class="tags_text fw-light px-3"></p>
     </div>
- 
+    {% endif %}
 </section>
 {% endblock content %}
        
