@@ -105,6 +105,10 @@
             //     BASE_URL = "{% if is_debug == False %}https://luigiliu.com{% else %}http://localhost:8000{% endif %}"
             // }
             BASE_URL = window.location.origin
+            if (window.location.protocol == 'https:') { 
+                BASE_URL = BASE_URL.replace( 'http:', 'https:'); 
+            } 
+ 
             MEDIA_URL = BASE_URL + "/media"
             $(document).ready(function(){
                 APP.base.init()
