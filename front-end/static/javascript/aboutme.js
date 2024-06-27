@@ -29,7 +29,7 @@ APP['about_me'] = {
             } else {
                 $("#collapsed_skills").addClass("shown")
                 $("#collapsed_skills").collapse("show")
-                APP.about_me.skills_set_original_position()
+                // APP.about_me.skills_set_original_position()
                 
                   
             }

@@ -8,8 +8,8 @@
         
 <section class="pb-3 mt-5" id="articles_section">
     
-    <div class="row">
-        <div class="col-3 me-5">
+    <div class="row d-md-flex d-none">
+        <div class="col-3 me-1">
             <div class="article_headline">
                 ARTICLE
             </div>
@@ -23,10 +23,31 @@
         <div class="col">
             <div class="row articles_row ">
                 
-               
+            </div>
+        </div>
+    </div>
+    <div class="row d-md-none d-block">
+        <div class="col">
+            <div class="article_headline">
+                ARTICLE
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select class="form-select article_category_select_list">
+                   
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-dark mb-3 change_category">Change Category</button>   
+                </div>
+                {% if user.is_superuser %}
+                <button type="button" class="btn btn-dark mb-3 create_article">Create Article</button>   
+                {% endif %}
+          
+        </div>
+        <div class="col">
+            <div class="row articles_row ">
                 
-             
-               
             </div>
         </div>
     </div>

@@ -214,6 +214,7 @@ APP['home'] = {
         var textWidthElement = $(".breaker_text_width")
         textWidthElement.removeClass("d-none")
         var textWidth = textWidthElement.outerWidth();
+        var breakerWidth = $(".breaker_row").width()
 
         textWidthElement.addClass("d-none")
         
@@ -225,7 +226,7 @@ APP['home'] = {
             var speedPerPixel = totalDistance / 0.2
             textElement.css({
                 'transition': 'none',
-                'transform': `translateX(${textWidth}px)`
+                'transform': `translateX(${breakerWidth}px)`
             });
 
             function updateTransition() {

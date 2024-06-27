@@ -22,6 +22,13 @@ APP['articles_list'] = {
             article_masonry.masonry(masonryOptions);
             APP.articles_list.load_articles(category_id)
         })
+        $(".change_category").click(function(){
+            var category_id = $(".article_category_select_list").val()
+            article_masonry.empty()
+            article_masonry.masonry('destroy');
+            article_masonry.masonry(masonryOptions);
+            APP.articles_list.load_articles(category_id)
+        })
     },
     "load_article_categories": function(){
         
@@ -35,6 +42,9 @@ APP['articles_list'] = {
                         <div class="article_category ${i == 0?"active":""}" data-category_id="${data.results[i]['id']}">
                             ${data.results[i]['name']}
                         </div>
+                    `)
+                    $(".article_category_select_list").append(`
+                        <option ${i == 0?"selected":""} value="${data.results[i]['id']}">${data.results[i]['name']}</option>
                     `)
                       
                 }

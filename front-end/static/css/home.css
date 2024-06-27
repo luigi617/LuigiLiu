@@ -78,7 +78,7 @@
 
 .article_card{
     display: inline-block;
-    width: 500px;
+    width: 400px;
     margin-right: 30px;
     padding: 0;
     white-space: normal;
@@ -90,7 +90,8 @@
     transform: scale(1.05);
 }
 .article_img{
-    width: 500px;
+    /* width: -webkit-fill-available; */
+    width: 400px;
     height: 400px;
     object-fit: cover;
     margin-bottom: 20px;
@@ -282,11 +283,16 @@
         padding: 0px!important;
 
     }
-    .article_img{
+    /* .article_img{
         width: 375px;
         height: 300px;
-        object-fit: cover;
-    
+    } */
+    .article_card{
+        width: 300px;
+    }
+    .article_img{
+        width: 300px;
+        height: 300px;
     }
     .article_section_title{
         /* color: #70b979; */

@@ -29,34 +29,26 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
+        {% get_nav_color nav_white as nav_color %}
 
-        <nav class="navbar navbar-dark  fixed-top py-3 {% get_nav_color nav_white %}" id="mainNav">
+        <nav class="navbar {% if nav_color == 'nav_white' %}navbar-light{%else%}navbar-dark{%endif%} navbar-expand-md fixed-top py-3 {{ nav_color }}" id="mainNav">
             <div class="navbar_container">
-                <a class="navbar-brand {% get_nav_color nav_white %}_brand" href="/">LUIGILIU.COM</a>
-                
-                <ul class="navbar-nav ms-auto my-0">
-                    <li class="nav-item"><a class="nav-link {% get_nav_color nav_white %}_text" href="{% url 'home:aboutme' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link {% get_nav_color nav_white %}_text" href="{% url 'articles:articles' %}">Articles</a></li>
-                    <li class="nav-item"><a class="nav-link {% get_nav_color nav_white %}_text" href="{% url 'home:game_list' %}">Games</a></li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="{% url 'home:sudoku' %}">Sudoku</a></li>
-                            <li><a class="dropdown-item" href="{% url 'home:maze' %}">Maze</a></li>
-                            <li><a class="dropdown-item" href="{% url 'home:typing' %}">Typing</a></li>
-                            <li><a class="dropdown-item" href="{% url 'home:sort' %}">Sort</a></li>
-                            <li><a class="dropdown-item" href="{% url 'home:minesweeper' %}">Minesweeper</a></li>
-                        </ul>
-                    </li> -->
-                    <!-- <li class="nav-item"><a class="nav-link" href="{% url 'home:aboutme' %}">About Me</a></li> -->
-
-                    {%if user.is_authenticated%}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'users:profile' user.username %}">{{user.username}}</a></li>
-                    {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log In</a></li>
-                    {% endif %}
-
-                </ul>
+                <a class="navbar-brand {{ nav_color }}_brand" href="/">LUIGILIU.COM </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto my-0">
+                        <li class="nav-item"><a class="nav-link {{ nav_color }}_text" href="{% url 'home:aboutme' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link {{ nav_color }}_text" href="{% url 'articles:articles' %}">Articles</a></li>
+                        <li class="nav-item"><a class="nav-link {{ nav_color }}_text" href="{% url 'home:game_list' %}">Games</a></li>
+                        {%if user.is_authenticated%}
+                        <li class="nav-item"><a class="nav-link {{ nav_color }}_text" href="{% url 'users:profile' user.username %}">{{user.username}}</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link {{ nav_color }}_text" href="{% url 'account_login' %}">Log In</a></li>
+                        {% endif %}
+                    </ul>
+                  </div>
 
             </div>
         </nav>
