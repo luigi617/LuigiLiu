@@ -23,7 +23,7 @@ class QueueListAPIView(APIView):
         
         
         response = {
-            "status": "ok",
+            "status": "success",
             "message": f"Current available queue ids are: {queue_available_ids}",
             "queue_available_ids": queue_available_ids
         }
@@ -47,7 +47,7 @@ class QueueCreateAPIView(APIView):
         cache.set(f"queue_{new_queue_id}", queue_info, timeout=86400)
         queue_info_url = request.build_absolute_uri(f"/api/queues/{new_queue_id}/")
         response = {
-            "status": "ok",
+            "status": "success",
             "message": f"New queue has been created, use {queue_info_url} to access the queue information",
             "queue_id": new_queue_id
         }
@@ -66,7 +66,7 @@ class QueueInfoAPIView(APIView):
             return Response(response)
         
         response = {
-            "status": "ok",
+            "status": "success",
             "result": queue_info
         }
         return Response(response)
@@ -97,7 +97,7 @@ class QueueAddWaiterAPIView(APIView):
         queue_info["waiting"][waiter_id] = waiter_info
         cache.set(f"queue_{queue_id}", queue_info, timeout=86400)
         response = {
-            "status": "ok",
+            "status": "success",
             "result": waiter_info
         }
         return Response(response)
@@ -131,7 +131,7 @@ class QueueProcessWaiterAPIView(APIView):
 
         cache.set(f"queue_{queue_id}", queue_info, timeout=86400)
         response = {
-            "status": "ok",
+            "status": "success",
             "result": waiter_info
         }
         return Response(response)
@@ -163,7 +163,7 @@ class QueueProcessNextWaiterAPIView(APIView):
 
         cache.set(f"queue_{queue_id}", queue_info, timeout=86400)
         response = {
-            "status": "ok",
+            "status": "success",
             "result": waiter_info
         }
         return Response(response)
@@ -195,7 +195,7 @@ class QueueFinishProcessingWaiterAPIView(APIView):
 
         cache.set(f"queue_{queue_id}", queue_info, timeout=86400)
         response = {
-            "status": "ok",
+            "status": "success",
             "result": waiter_info
         }
         return Response(response)
@@ -235,7 +235,7 @@ class QueueExpectedWaitingTimeAPIView(APIView):
         
         
         response = {
-            "status": "ok",
+            "status": "success",
             "message": f"The expected waiting time is {expected_waiting_time}",
         }
         return Response(response)
@@ -288,7 +288,7 @@ class QueueWaiterExpectedWaitingTimeAPIView(APIView):
         
         
         response = {
-            "status": "ok",
+            "status": "success",
             "message": f"The expected waiting time is {expected_waiting_time}",
         }
         return Response(response)
@@ -318,7 +318,7 @@ class QueueExpectedProcessingTimeAPIView(APIView):
         
         
         response = {
-            "status": "ok",
+            "status": "success",
             "message": f"The expected processing time is {expected_processing_time}",
         }
         return Response(response)
