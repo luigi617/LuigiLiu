@@ -2,6 +2,7 @@ from django.urls import path
 from .queue import views
 
 custom_api_urlpatterns = [
+   path('queues/', views.QueueListAPIView.as_view(), name='queue_list'),
    path('queues/create/', views.QueueCreateAPIView.as_view(), name='queue_creation'),
    path('queues/<int:queue_id>/', views.QueueInfoAPIView.as_view(), name='queue_info'),
    path('queues/<int:queue_id>/add_waiter/', views.QueueAddWaiterAPIView.as_view(), name='queue_add_waiter'),

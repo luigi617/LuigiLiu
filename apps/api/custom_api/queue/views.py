@@ -2,7 +2,7 @@
 from config.settings.base import MEDIA_URL
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.views import APIView
 from decimal import Decimal
 from django.core.cache import cache
@@ -11,6 +11,23 @@ from django.core.cache import cache
 import numpy as np
 from datetime import datetime, timedelta
 
+class QueueListAPIView(APIView):
+    permission_classes = (IsAuthenticated, IsAdminUser)
+    def get(self, request):
+        queue_ids = cache.get("queue_ids", [])
+        queue_available_ids = []
+        for queue_id in queue_ids:
+            if not cache.get(f"queue_{queue_id}", None): continue
+            queue_available_ids.append(queue_id)
+        cache.set("queue_ids", queue_available_ids, timeout=None)
+        
+        
+        response = {
+            "status": "ok",
+            "message": f"Current available queue ids are: {queue_available_ids}",
+            "queue_available_ids": queue_available_ids
+        }
+        return Response(response)
 class QueueCreateAPIView(APIView):
 
     def get(self, request):
