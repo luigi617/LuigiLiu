@@ -30,6 +30,7 @@ urlpatterns = [
 urlpatterns += [
     path('api/', include('rest_framework.urls')),
     path('api/', include('apps.api.urls')),
+    path('openapi/', include('apps.api.open_urls')),
     path(os.environ.get("DJANGO_ADMIN", default="admin"), admin.site.urls),
 
 ]
