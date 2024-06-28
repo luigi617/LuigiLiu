@@ -59,6 +59,12 @@ services:
       - ./.envs/.prod/.nginx
     depends_on:
       - django
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/redis/data
 
 
   certbot:
@@ -81,3 +87,4 @@ volumes:
   postgres_data_backups: {}
   static_volume: {}
   media_volume: {}
+  redis_data: {}
