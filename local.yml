@@ -15,6 +15,7 @@ services:
       - ./.envs/.local/.postgres
     depends_on:
       - postgres
+      - redis
 
   postgres:
     image: postgres
@@ -26,6 +27,10 @@ services:
       - "5432:5432"
     env_file:
       - ./.envs/.local/.postgres
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
 
 volumes: 
   local_postgres_data: {}

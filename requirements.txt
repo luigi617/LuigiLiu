@@ -17,3 +17,7 @@ PyPDF2==2.4.2
 
 numpy==1.23.0
 pandas==1.5.3
+
+redis==5.0.7
+# celery==5.4.0
+# django-redis==5.4.0
