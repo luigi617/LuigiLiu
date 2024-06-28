@@ -260,9 +260,10 @@ class QueueWaiterExpectedWaitingTimeAPIView(APIView):
             }
             return Response(response)
 
-        category = request.GET.get("type", None)
 
         this_waiter_start_waiting_datetime = datetime.strptime(queue_info["waiting"][waiter_id]["start_waiting"], "%d/%m/%Y %H:%M:%S")
+        category = queue_info["waiting"][waiter_id]["type"]
+        
         total_waited_time = timedelta()
         
         for _, waiter_info in queue_info["processing"].items():
