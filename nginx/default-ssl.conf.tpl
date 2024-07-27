@@ -26,7 +26,7 @@ server {
 server {
     listen 443 ssl;
     server_name www.luigiliu.com;
-    
+
     ssl_certificate /etc/letsencrypt/live/luigiliu.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/luigiliu.com/privkey.pem;
 
@@ -57,9 +57,9 @@ server {
     location / {
         proxy_pass http://luigiliu;
         proxy_redirect off;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-        proxy_set_header Host \$http_host;
-        proxy_set_header X-Forwarded-Proto \$scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
     location /front-end/static/ {
