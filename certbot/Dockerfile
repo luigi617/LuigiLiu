@@ -5,5 +5,5 @@ COPY certify-init.sh /opt/
 RUN chmod +x /opt/certify-init.sh
 
 ENTRYPOINT []
-# CMD ["certbot", "renew"]
-CMD ["/opt/certify-init.sh"]
+CMD ["certbot", "renew"]
+# CMD ["/opt/certify-init.sh"]
