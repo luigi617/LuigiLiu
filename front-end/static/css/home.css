@@ -117,7 +117,7 @@
     text-align:center
 }
 .breaker_row{
-    margin: 0px 0px 150px 0px!important;
+    margin: 0px 0px 80px 0px!important;
     padding-bottom: 10px;
     background-color: white;
     overflow: hidden;
@@ -174,11 +174,11 @@
 
 .game_row{
     padding: 0px 50px;
-    margin: 0px 0px 150px 0px!important;
+    margin: 0px 0px 80px 0px!important;
     width: 100%;
 }
 .game_description_row{
-    margin: 0px 0px 180px 0px!important;
+    margin: 0px 0px 80px 0px!important;
 }
 .game_description_first_part{
     padding-right: 50px!important;
@@ -283,10 +283,7 @@
         padding: 0px!important;
 
     }
-    /* .article_img{
-        width: 375px;
-        height: 300px;
-    } */
+    
     .article_card{
         width: 300px;
     }
@@ -307,6 +304,13 @@
     }
     .back_top_svg{
         display: none;
+    }
+    .game_row{
+        padding: 0px 50px;
+        margin: 0px 0px 50px 0px!important;
+    }
+    .game_description_row{
+        margin: 0px 0px 50px 0px!important;
     }
   
 }

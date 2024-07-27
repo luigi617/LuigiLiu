@@ -1,3 +1,10 @@
+#profile_section{
+    height: 100%;
+}
+.container{
+    height: 100%;
+
+}
 .profile_row{
     margin: 50px 200px;
     padding: 20px;
@@ -40,9 +47,14 @@
     }
 }
 @media (max-width: 768px) {
+
     .profile_row{
         margin: 10px 0px;
         padding:  0px;
+        background-color: white;
+        border-radius: 0px;
+        box-shadow: none;
+        height: 100%;
     }
     .profile_option{
         font-size: 15px;

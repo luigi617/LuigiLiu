@@ -22,8 +22,8 @@ APP['articles_list'] = {
             article_masonry.masonry(masonryOptions);
             APP.articles_list.load_articles(category_id)
         })
-        $(".change_category").click(function(){
-            var category_id = $(".article_category_select_list").val()
+        $(".article_category_select_list").on("change", function(){
+            var category_id = $(this).val()
             article_masonry.empty()
             article_masonry.masonry('destroy');
             article_masonry.masonry(masonryOptions);

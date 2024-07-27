@@ -160,6 +160,9 @@ transform: scaleX(1);
   height: 1.5px;
   margin-bottom: 6.7px;
 }
+#mainNav .navbar-toggler .icon-bar.nav_white_icon_bar {
+  background-color: black!important;
+}
 #mainNav .navbar-toggler .top-bar {
   transform: rotate(45deg);
   transform-origin: 10% 10%;
@@ -188,6 +191,9 @@ transform: scaleX(1);
 
 
 @media (max-width: 768px) {
+  #mainNav .navbar_container {
+    margin: 0px 30px;
+  }
   #mainNav .navbar-nav .nav-item {
     margin: 20px 0px;
   }
