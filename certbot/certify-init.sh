@@ -14,6 +14,7 @@ certbot certonly \
     --webroot \
     --webroot-path "/code/data/certbot/www/" \
     -d "$DOMAIN" \
+    -d "$SUBDOMAIN" \
     --email $ACME_DEFAULT_EMAIL \
     --rsa-key-size 4096 \
     --agree-tos \

@@ -104,7 +104,6 @@ APP['base'] = {
         // }else if (diff_seconds >= 0){
         //     res = `${Math.floor(diff_seconds)} second ago`
         // }
-        console.log(diff_days);
         if (diff_days >= 1){
             res = APP.base.convert_to_DDMMYYYY(time_str)
         }else if (diff_hours >= 2){
