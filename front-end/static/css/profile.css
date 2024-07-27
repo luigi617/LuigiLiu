@@ -36,9 +36,8 @@
     border-radius: 13px;
     width: 100px;
 }
-.credit_col{
-    display: flex;
-    justify-content: center!important;
+.change_avatar_div{
+    cursor: pointer;
 }
 @media (min-width: 993px) {
     .profile_row{

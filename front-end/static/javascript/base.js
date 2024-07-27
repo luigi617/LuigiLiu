@@ -161,6 +161,48 @@ APP['base'] = {
     "scroll_to_top": function scrollToTop() {
         window.scrollTo(0, 0);
     },
+    "displaySelectedImage": async function(event, displayElement, maxSizeMB=0.5, maxWidthOrHeight=1024){
+        const selectedImage = $(displayElement)[0];
+        const fileInput = event.target;
+        if (fileInput.files && fileInput.files[0]) {
+            const compressedFile = await APP.base.compress_image(fileInput.files[0], maxSizeMB, maxWidthOrHeight)
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                selectedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(compressedFile);
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(compressedFile);
+            event.target.files = dataTransfer.files;
+            
+        }
+    },
+    "compress_image": async function(original_file, maxSizeMB, maxWidthOrHeight){
+        if (!original_file) { return null }
+        var processingFile = original_file
+        try {
+            if (original_file["type"] == "image/heic" || original_file["type"] == "image/heif"){
+                const convertedFile = await heic2any({ blob: original_file, toType: 'image/jpeg' });
+                processingFile = new File([convertedFile], original_file.name.replace(/\.[^.]+$/, '.jpg'), { type: 'image/jpeg' });
+            }
+            // Compress the image
+            const options = {
+                maxSizeMB: maxSizeMB,
+                maxWidthOrHeight: maxWidthOrHeight,
+                useWebWorker: true,
+                initialQuality: 1,
+                exifOrientation: true,
+                maxIteration: 10,
+                fileType: 'image/jpeg',
+            };
+            const compressedBlob = await imageCompression(processingFile, options);
+            const compressedFile = new File([compressedBlob], processingFile.name.replace(/\.[^.]+$/, '.jpg'), { type: 'image/jpeg', lastModified: Date.now() });
+            return compressedFile
+        } catch (error) {
+            console.error('Error compressing the image:', error);
+            return null
+        }
+    }
 }
 
 

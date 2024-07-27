@@ -16,7 +16,7 @@ def avatar_location(instance, filename):
 class User(AbstractUser):
     phone = PhoneNumberField(unique=True, blank=True, null=True)
     avatar_thumbnail = ProcessedImageField(upload_to=avatar_location,
-                                           processors=[ResizeToFill(100, 100)],
+                                           processors=[ResizeToFill(300, 300)],
                                            format='JPEG',
                                            options={'quality': 100},
                                            null=True,

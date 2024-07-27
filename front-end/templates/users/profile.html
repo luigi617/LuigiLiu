@@ -14,59 +14,56 @@
     <div class="row profile_row">
         <div class="col-3 option_col">
             <div class="profile_option" data-option="profile">My profile</div>
-            <!-- <div class="profile_option" data-option="credit">Credit</div> -->
             <div class="profile_option" data-option="change_password">Change password</div>
             <div class="profile_option" data-option="log_out">Log out</div>
-
         </div>
+        
         <div class="col option_content_col">
             <div class="my_profile d-none">
-                <form class="row g-3">
+                <div class="row g-3">
                     <div class="col-12">
-                        
-                        <img src="" class="avatar_img" alt="...">
+                        <img src="" class="avatar_img" alt="avatar">
+                        <div class="btn btn-outline-dark btn-rounded d-none change_avatar_div">
+                            <label class="form-label m-0" for="input_avatar">Change Avatar</label>
+                            <input type="file" class="form-control d-none" name="avatar_thumbnail" id="input_avatar" onchange="APP.base.displaySelectedImage(event, '.avatar_img', 0.1, 500)" />
+                        </div>
                     </div>
                     <div class="col-md-6">
                       <label for="input_username" class="form-label">Username</label>
-                      <input type="text" class="form-control" id="input_username" disabled>
+                      <p class="fw-light" id="original_username"></p>
+                      <input type="text" class="form-control d-none" id="input_username" disabled>
                     </div>
                     <div class="col-md-6">
                       <label for="input_email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="input_email" disabled>
+                      <p class="fw-light" id="original_email"></p>
+                      <input type="email" class="form-control d-none" id="input_email" disabled>
                     </div>
                     <div class="col-md-6">
                       <label for="input_lastname" class="form-label">Last name</label>
-                      <input type="text" class="form-control" id="input_lastname">
+                      <p class="fw-light" id="original_lastname"></p>
+                      <input type="text" class="form-control d-none" name="last_name" id="input_lastname">
                     </div>
                     <div class="col-md-6">
                       <label for="input_firstname" class="form-label">First name</label>
-                      <input type="text" class="form-control" id="input_firstname">
+                      <p class="fw-light" id="original_firstname"></p>
+                      <input type="text" class="form-control d-none" name="first_name" id="input_firstname">
                     </div>
-                    
                     <div class="col-12">
                       <label for="input_phone" class="form-label">Phone</label>
-                      <input type="text" class="form-control" id="input_phone">
+                      <p class="fw-light" id="original_phonenumber"></p>
+                      <input type="text" class="form-control d-none" name="phone" id="input_phone" placeholder="+xx xxxxxxxxxx">
                     </div>
                    
-                    <!-- <div class="col-12">
-                      <button type="submit" class="btn btn-outline-dark">Update</button>
-                    </div> -->
-                </form>
-            </div>
-            <!-- <div class="credit d-none">
-                <div class="row m-3">
-                    <div class="col-12 credit_col">
-                        <div>Credit: </div>
-                    </div>
-                    <div class="col-12 credit_col">
-                        <div class="credit_amount">0.00 €</div>
-                    </div>
-                    <div class="col-12">
-                        Note: 
+                    <div class="col edit_button_div">
+                      <button id="profile_edit" type="button" class="btn btn-outline-dark">Edit</button>
                     </div>
                     
-                </div>
-            </div> -->
+                    <div class="col d-none update_button_div">
+                        <button id="profile_edit_cancel" type="button" class="btn btn-outline-dark">Cancel</button>
+                      <button id="profile_update" type="button" class="btn btn-outline-dark">Update</button>
+                    </div>
+                  </div>
+            </div>
         </div>
     </div>
 
@@ -84,6 +81,8 @@
     PROFILE_URL = "/api/users/{{ request.user.id }}/"
     CHANGE_PASSWORD = "{% url 'account_change_password' %}"
     LOG_OUT = "{% url 'account_logout' %}"
+    PROFILE_DATA = null
+    EDITING_PROFILE = false
     $(document).ready(function(){
         APP.profile.init()
         APP.profile.load_profile()
