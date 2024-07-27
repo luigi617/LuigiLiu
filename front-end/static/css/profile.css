@@ -1,9 +1,9 @@
 .profile_row{
-    /* margin: 50px 200px!important; */
+    margin: 50px 200px;
     padding: 20px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgba(0, 0, 0, 0.03);
     min-height: 400px;
-    box-shadow: 4px 4px 10px rgb(245, 245, 245);
+    box-shadow: 4px 4px 20px rgb(245, 245, 245);
     border-radius: 13px;
 }
 .option_col{
@@ -14,16 +14,14 @@
     border-bottom: 1px solid black!important;
     padding: 10px 20px;
     cursor: pointer;
-    color: gray;
+    color: black;
 }
 .profile_option.active{
     color: black;
     font-weight: bold;
-    background-color: rgb(220, 220, 220);
-    border: 1px solid rgb(210, 210, 210);
 }
 .profile_option:hover{
-    background-color: rgb(220, 220, 220);
+    font-weight: bold;
 }
 .profile_option:first-child{
     border-radius: 13px 0px 0px 0px;
@@ -36,11 +34,28 @@
     border-radius: 13px;
     width: 100px;
 }
-.change_avatar_div{
-    cursor: pointer;
-}
 @media (min-width: 993px) {
     .profile_row{
         margin: 50px 200px!important;
     }
-  }
+}
+@media (max-width: 768px) {
+    .profile_row{
+        margin: 10px 0px;
+        padding:  0px;
+    }
+    .profile_option{
+        font-size: 15px;
+        padding: 10px 10px;
+    }
+    .profile_option:first-child{
+        border-radius: 0px;
+    }
+    .profile_option:last-child{
+        border-bottom: none!important;
+        border-radius: 0px;
+    }
+    .option_content_col{
+        padding: 10px 0px;
+    }
+}

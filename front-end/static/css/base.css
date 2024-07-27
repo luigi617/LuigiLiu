@@ -45,6 +45,9 @@ h3 {
   font-weight: bold;
   font-size: 40px;
 }
+.bth-not-rounded{
+  border-radius: 0px!important;
+}
 .page-section {
   padding: 5rem 0;
 }

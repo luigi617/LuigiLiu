@@ -23,7 +23,7 @@
                 <div class="row g-3">
                     <div class="col-12">
                         <img src="" class="avatar_img" alt="avatar">
-                        <div class="btn btn-outline-dark btn-rounded d-none change_avatar_div">
+                        <div class="btn btn-outline-dark bth-not-rounded d-none change_avatar_div">
                             <label class="form-label m-0" for="input_avatar">Change Avatar</label>
                             <input type="file" class="form-control d-none" name="avatar_thumbnail" id="input_avatar" onchange="APP.base.displaySelectedImage(event, '.avatar_img', 0.1, 500)" />
                         </div>
@@ -51,16 +51,16 @@
                     <div class="col-12">
                       <label for="input_phone" class="form-label">Phone</label>
                       <p class="fw-light" id="original_phonenumber"></p>
-                      <input type="text" class="form-control d-none" name="phone" id="input_phone" placeholder="+xx xxxxxxxxxx">
+                      <input type="text" class="form-control d-none bth-not-rounded" name="phone" id="input_phone" placeholder="+xx xxxxxxxxxx">
                     </div>
                    
                     <div class="col edit_button_div">
-                      <button id="profile_edit" type="button" class="btn btn-outline-dark">Edit</button>
+                      <button id="profile_edit" type="button" class="btn btn-dark bth-not-rounded">Edit</button>
                     </div>
                     
                     <div class="col d-none update_button_div">
-                        <button id="profile_edit_cancel" type="button" class="btn btn-outline-dark">Cancel</button>
-                      <button id="profile_update" type="button" class="btn btn-outline-dark">Update</button>
+                        <button id="profile_edit_cancel" type="button" class="btn btn-dark bth-not-rounded">Cancel</button>
+                      <button id="profile_update" type="button" class="btn btn-dark bth-not-rounded">Update</button>
                     </div>
                   </div>
             </div>

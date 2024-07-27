@@ -1,0 +1,9 @@
+.recover_password, .signup{
+    color: black;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: lighter;
+}
+.recover_password:hover, .signup:hover{
+    color: black;
+}
