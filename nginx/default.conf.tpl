@@ -6,17 +6,17 @@ upstream luigiliu {
 server {
 
     listen 80;
-    server_name luigiliu.com;
+    server_name www.luigiliu.com;
     
     location / {
-        return 301 http://www.luigiliu.com;
+        return 301 http://luigiliu.com;
     }
 
 }
 server {
 
     listen 80;
-    server_name www.luigiliu.com;
+    server_name luigiliu.com;
     
     location /.well-known/acme-challenge/ {
         root /code/data/certbot/www/;
@@ -28,7 +28,7 @@ server {
         alias /code/front-end/media/;
     }
     location / {
-        proxy_pass http://www.luigiliu.com$request_uri;
+        proxy_pass http://luigiliu.com$request_uri;
         proxy_redirect off;
     }
 
