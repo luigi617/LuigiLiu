@@ -4,23 +4,41 @@ upstream luigiliu {
 
 
 server {
-
     listen 80;
-    server_name luigiliu.com www.luigiliu.com;
-
-    
+    server_name luigiliu.com;
     location /.well-known/acme-challenge/ {
         root /code/data/certbot/www/;
     }
     location / {
-        return 301 https://$host$request_uri;
+        return 301 https://www.luigiliu.com$request_uri;
     }
-
 }
+server {
+    listen 80;
+    server_name www.luigiliu.com;
+    location /.well-known/acme-challenge/ {
+        root /code/data/certbot/www/;
+    }
+    location / {
+        return 301 https://www.luigiliu.com$request_uri;
+    }
+}
+server {
+    listen 443 ssl;
+    server_name luigiliu.com;
+    location /.well-known/acme-challenge/ {
+        root /code/data/certbot/www/;
+    }
+    location / {
+        return 301 https://www.luigiliu.com$request_uri;
+    }
+}
+
+
 server {
 
     listen 443 ssl;
-    server_name luigiliu.com www.luigiliu.com;
+    server_name www.luigiliu.com;
 
     ssl_certificate /etc/letsencrypt/live/luigiliu.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/luigiliu.com/privkey.pem;
