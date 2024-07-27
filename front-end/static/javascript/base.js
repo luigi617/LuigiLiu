@@ -9,13 +9,10 @@ APP['base'] = {
             }
         });
         $(".navbar-toggler").click(function(){
-            $(this).empty()
             if ($(this).attr("aria-expanded") == "true"){
                 $("body").addClass("dont_scroll")
-                $(this).append('<i class="bi bi-x-lg"></i>')
                 } else {
                 $("body").removeClass("dont_scroll")
-                $(this).append('<span class="navbar-toggler-icon"></span>')
             }
         })
     },

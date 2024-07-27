@@ -29,9 +29,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: Helvetica;
-  /* font-family: OpenSans; */
   font-size: 20px;
-  /* background-color: black; */
 }
 body.dont_scroll {
   overflow: hidden;
@@ -78,7 +76,6 @@ hr.divider-light {
 
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  /* background-color: #fff; */
   transition: background-color 0.2s ease;
   background-color: black;
   box-shadow: none;
@@ -96,9 +93,7 @@ hr.divider-light {
 }
 
 #mainNav .navbar-brand {
-  /* font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
   font-weight: 700;
-  /* color: #212529; */
 }
 #mainNav .navbar-brand {
   color: white;
@@ -106,47 +101,81 @@ hr.divider-light {
 #mainNav .navbar-brand.nav_white_brand {
   color: black!important;
 }
-#mainNav .navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
+
 #mainNav .navbar-nav{
   display: flex;
   flex-direction: row!important;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #fff;
-  padding: 0 40px;
+  margin: 0 40px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+#mainNav .navbar-nav .nav-item .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+#mainNav .navbar-nav .nav-item .nav-link.nav_white_text::before {
+  background-color: black!important;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover::before {
+transform-origin: left;
+transform: scaleX(1);
+}
+#mainNav .navbar-nav .nav-item:last-child .nav-link {
+  margin-right: 0;
 }
 #mainNav .navbar-nav .nav-item .nav-link.nav_white_text {
   color: black!important;
 }
-#mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-#mainNav .navbar-nav .nav-item .nav-link.nav_white_text:hover {
-  color: rgba(0, 0, 0, 0.7)!important;
-}
-#mainNav .navbar-nav .nav-item:last-child .nav-link {
-  padding-right: 0;
-}
-#mainNav.navbar-shrink {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background-color: #fff;
-}
-/* #mainNav.navbar-shrink .navbar-brand {
-  color: #212529;
-} */
-#mainNav.navbar-shrink .navbar-brand:hover {
-  color: #f4623a;
-}
-/* #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
-  color: #212529;
-} */
-#mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
-  color: #f4623a;
-}
 #mainNav .navbar-toggler {
   border: none;
+  background: transparent !important;
+}
+#mainNav .navbar-toggler:hover {
+  background: transparent !important;
+}
+#mainNav .navbar-toggler .icon-bar {
+  width: 30px;
+  transition: all 0.2s;
+  background-color: white!important;
+  display: block;
+  height: 1.5px;
+  margin-bottom: 6.7px;
+}
+#mainNav .navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+#mainNav .navbar-toggler .middle-bar {
+  opacity: 0;
+}
+#mainNav .navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+#mainNav .navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+#mainNav .navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+#mainNav .navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
 }
 
 
@@ -156,25 +185,20 @@ hr.divider-light {
 
 
 @media (max-width: 768px) {
+  #mainNav .navbar-nav .nav-item {
+    margin: 20px 0px;
+  }
   #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 0 20px;
+    margin: 0px;
+    padding: 0px;
   }
   #mainNav .navbar-nav{
     display: block;
     flex-direction: unset;
     
   }
-  .navbar-collapse{
-    height: 100vh!important;
-    margin-top: 20px;
-    transition: none 0s ease!important;
+  
+  #navbarNav .nav_collapse_height{
+    height: calc(100vh - 200px)!important;
   }
- 
-  #mainNav .navbar-nav .nav-item .nav-link {
-    padding: 0 5px;
-  }
-  #mainNav .navbar-nav .nav-item {
-    margin-bottom: 10px;
-  }
-
 }
