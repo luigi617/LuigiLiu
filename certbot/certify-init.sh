@@ -18,4 +18,4 @@ certbot certonly \
     --rsa-key-size 4096 \
     --agree-tos \
     --noninteractive \
-    --expand
+    --force-renewal
