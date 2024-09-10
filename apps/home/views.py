@@ -41,12 +41,3 @@ def page_not_found_view(request, *args, **argv):
 def server_error(request, *args, **argv):
     return render(request, '500.html', status=500)
 
-@login_required
-def chiara_nursing1(request):
-    return render(request, "chiara/nursing1.html")
-@login_required
-def chiara_nursing2(request):
-    return render(request, "chiara/nursing2.html")
-@login_required
-def chiara_nursing3(request):
-    return render(request, "chiara/nursing3.html")
